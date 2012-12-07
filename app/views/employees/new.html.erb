@@ -1,0 +1,87 @@
+<h1>Please Submit Account and Profile Information</h1>
+
+<%= form_for @employee do |f| %>
+
+<% if @employee.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@employee.errors.count, "error") %> prohibited this employee from being saved:</h2>
+
+      <ul>
+      <% @employee.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<p>
+  <%= f.label :name %><br />
+  <%= f.text_field :name %>
+</p>
+
+<p>
+  <%= f.label :email %><br />
+  <%= f.text_field :email %>
+</p>
+
+<p>
+  <%= f.label :years_with_company %><br />
+  <%= f.text_field :years_with_company %>
+</p>
+
+<p>
+  <%= f.label :manager %><br />
+  <%= f.text_field :manager %>
+</p>
+
+<p>
+  <%= f.label :position %><br />
+  <%= f.text_field :position %>
+</p>
+
+<p>
+  <%= f.label :department %><br />
+  <%= f.text_field :department %>
+</p>
+
+<p>
+  <%= f.label :group %><br />
+  <%= f.text_field :group %>
+</p>
+
+<p>
+  <%= f.label :location %><br />
+  <%= f.text_field :location %>
+</p>
+
+<p>
+  <%= f.label :skills %><br />
+  <%= f.text_field :skills %>
+</p>
+
+<p>
+  <%= f.label :skills_interested_in %><br />
+  <%= f.text_field :skills_interested_in %>
+</p>
+
+<p>
+  <%= f.label :password %><br />
+  <%= f.password_field :password %>
+</p>
+
+<p>
+  <%= f.label :password_confirmation %><br />
+  <%= f.password_field :password_confirmation %>
+</p>
+
+<p>Your password must include:</p>
+  <ul>
+    <li>At least 5 characters</li>
+  </ul>
+</p>
+
+<p class="button">
+  <%= f.submit "Create my OneTeam Account and Profile" %></p>
+
+<% end %>
+
