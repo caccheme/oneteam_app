@@ -4,27 +4,20 @@
   <tr>
     <th>Request</th>
     <th>Employee Profile</th>
-    <th>Employee ID</th>
     <th>Comment</th>
-    <th></th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>Employee ID</th>
+    <th>Commission Developer to do Request</th>
   </tr>
 
-<% @responses.each do |response| %>
-  <tr>
-    <td><%= response.request_id %></td>
-    <td><%= link_to 'Profile', employee_path(response.employee_id) %></td>
-    <td><%= response.employee_id %></td>
-    <td><%= response.comment %></td>
-    <td><%= link_to 'Show', request_response_path(@request, response) %></td>
-    <td><%= link_to 'Edit', edit_request_response_path(@request, response) %></td> 
-    <td><%= link_to 'Destroy', [@request, response], method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
+    <% @responses.each do |response| %>
+      <tr>
+       <td><%= response.request_id %></td>
+       <td><%= link_to 'Profile', employee_path(response.employee_id) %></td>
+       <td><%= response.comment %></td>
+       <td><%= response.employee_id %></td></td>    
+       <td><%= link_to 'Select This Developer', new_response_commission_path(response) %></td>
+      </tr>
+      <% end %>
+      </table>
+    <br />
 <%= link_to 'Back to Requests', requests_path %>
-
