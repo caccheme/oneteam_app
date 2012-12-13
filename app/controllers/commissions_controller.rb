@@ -1,10 +1,7 @@
 class CommissionsController < ApplicationController
-  # GET /commissions
-  # GET /commissions.json
   def index
     @response = Response.find(params[:response_id])
     @commissions = @response.commissions
-  # @commissions = Commission.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -12,8 +9,6 @@ class CommissionsController < ApplicationController
     end
   end
 
-  # GET /commissions/1
-  # GET /commissions/1.json
   def show
     @response = Response.find(params[:response_id])
     @commission = @response.commission.find(params[:id])
@@ -24,12 +19,11 @@ class CommissionsController < ApplicationController
     end
   end
 
-  # GET /commissions/new
-  # GET /commissions/new.json
   def new
     @response = Response.find(params[:response_id])
     @session = Employee.find(session[:employee_id])
     @commission = @response.commissions.build
+    
 
     respond_to do |format|
       format.html # new.html.erb
@@ -37,18 +31,14 @@ class CommissionsController < ApplicationController
     end
   end
 
-  # GET /commissions/1/edit
   def edit
     @response = Response.find(params[:response_id])
-    @commission = @response.commissions.find(params[:id])
+    @commission = @response.commission.find(params[:id])
   end
 
-  # POST /commissions
-  # POST /commissions.json
   def create
-   @response = Response.find(params[:response_id])
-   @session = Employee.find(session[:employee_id])
-   @commission = @response.commissions.build(params[:commission])
+    @response = Response.find(params[:response_id])   
+    @commission = @response.commissions.build(params[:commission])
 
     respond_to do |format|
       if @commission.save
@@ -61,12 +51,9 @@ class CommissionsController < ApplicationController
     end
   end
 
-  # PUT /commissions/1
-  # PUT /commissions/1.json
   def update
     @response = Response.find(params[:response_id])
-    @session = Employee.find(session[:employee_id])  
-    @comission = @response.comissions.find(params[:id])
+    @commission = @response.commission.find(params[:id])
 
     respond_to do |format|
       if @commission.update_attributes(params[:commission])
@@ -79,11 +66,9 @@ class CommissionsController < ApplicationController
     end
   end
 
-  # DELETE /commissions/1
-  # DELETE /commissions/1.json
   def destroy
     @response = Response.find(params[:response_id])
-    @commission = @response.commissions.find(params[:id])
+    @commission = @response.commission.find(params[:id])
     @commission.destroy
 
     respond_to do |format|

@@ -18,7 +18,7 @@ class CommissionsControllerTest < ActionController::TestCase
 
   test "should create commission" do
     assert_difference('Commission.count') do
-      post :create, commission: { developer_id: @commission.developer_id, request_id: @commission.request_id }
+      post :create, commission: { comment: @commission.comment, employee_id: @commission.employee_id, request_id: @commission.request_id, response_id: @commission.response_id }
     end
 
     assert_redirected_to commission_path(assigns(:commission))
@@ -35,7 +35,7 @@ class CommissionsControllerTest < ActionController::TestCase
   end
 
   test "should update commission" do
-    put :update, id: @commission, commission: { developer_id: @commission.developer_id, request_id: @commission.request_id }
+    put :update, id: @commission, commission: { comment: @commission.comment, employee_id: @commission.employee_id, request_id: @commission.request_id, response_id: @commission.response_id }
     assert_redirected_to commission_path(assigns(:commission))
   end
 

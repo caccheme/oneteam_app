@@ -7,9 +7,6 @@ OneteamApp::Application.routes.draw do
   get "sign_up" => "employees#new", :as => "sign_up"
   root :to => "sessions#new" #need to test this and see if it works
 
-  resources :responses
-  resources :commissions
-
   resources :requests do 
     resources :responses 
   end
@@ -21,5 +18,6 @@ OneteamApp::Application.routes.draw do
   resources :employees
   resources :sessions
   resources :requests
-
+  resources :responses
+  
 end

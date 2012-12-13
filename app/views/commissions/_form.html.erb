@@ -10,14 +10,22 @@
       </ul>
     </div>
   <% end %>
-
+<!--will want to go through and update this later-->
+  <div class="field">
+    <%= f.label :response_id %><br />
+    <%= f.number_field :response_id %>
+  </div>
+  <div class="field">
+    <%= f.label :employee_id %><br />
+    <%= f.number_field :employee_id %>
+  </div>
+  <div class="field">
+    <%= f.label :comment %><br />
+    <%= f.text_field :comment %>
+  </div>
   <div class="field">
     <%= f.label :request_id %><br />
     <%= f.number_field :request_id %>
-  </div>
-  <div class="field">
-    <%= f.label :developer_id %><br />
-    <%= f.number_field :developer_id %>
   </div>
   <div class="actions">
     <%= f.submit %>
