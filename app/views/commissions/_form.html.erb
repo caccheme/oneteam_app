@@ -10,23 +10,34 @@
       </ul>
     </div>
   <% end %>
-<!--will want to go through and update this later-->
+
   <div class="field">
-    <%= f.label :response_id %><br />
-    <%= f.number_field :response_id %>
+    <%= f.label 'Request ID:' %>
+    <%= @response.request_id %><br />
+    <%= link_to 'Request Description', request_path(@response.request_id) %>
+    <%= f.hidden_field :request_id, :value => @response.request_id %>  
   </div>
+
   <div class="field">
-    <%= f.label :employee_id %><br />
-    <%= f.number_field :employee_id %>
+    <%= f.hidden_field :employee_id, :value => @response.employee_id %>  
   </div>
+
   <div class="field">
-    <%= f.label :comment %><br />
-    <%= f.text_field :comment %>
+    <%= f.hidden_field :response_id, :value => @response.id %>  
   </div>
+  
   <div class="field">
-    <%= f.label :request_id %><br />
-    <%= f.number_field :request_id %>
+    <%= f.label "Selected Developer:" %>
+    <%= @response.employee_id %><br />
+    <%= link_to 'Employee Profile', employee_path(@response.employee_id) %>
+    <%= f.hidden_field :employee_id, :value => @response.employee_id %>
   </div>
+  
+  <div class="field">
+    <%= f.label "If desired, comment on this request to the selected Developer" %><br />
+    <%= f.text_area :comment %>
+  </div>  
+  
   <div class="actions">
     <%= f.submit %>
   </div>

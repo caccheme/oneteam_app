@@ -2,10 +2,10 @@
 
 <table>
   <tr>
-    <th>Response</th>
-    <th>Employee</th>
+    <th>Response ID</th>
+    <th>Employee ID</th>
+    <th>Request ID</th>
     <th>Comment</th>
-    <th>Request</th>
     <th></th>
     <th></th>
     <th></th>
@@ -15,8 +15,8 @@
   <tr>
     <td><%= commission.response_id %></td>
     <td><%= commission.employee_id %></td>
-    <td><%= commission.comment %></td>
     <td><%= commission.request_id %></td>
+    <td><%= commission.comment %></td>
     <td><%= link_to 'Show', commission %></td>
     <td><%= link_to 'Edit', edit_commission_path(commission) %></td>
     <td><%= link_to 'Destroy', commission, method: :delete, data: { confirm: 'Are you sure?' } %></td>

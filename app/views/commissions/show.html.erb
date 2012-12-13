@@ -11,15 +11,14 @@
 </p>
 
 <p>
-  <b>Comment:</b>
-  <%= @commission.comment %>
-</p>
-
-<p>
   <b>Request:</b>
   <%= @commission.request_id %>
 </p>
 
+<p>
+  <b>Comment:</b>
+  <%= @commission.comment %>
+</p>
 
 <%= link_to 'Edit', edit_commission_path(@commission) %> |
-<%= link_to 'Back', commissions_path %>
+<%= link_to 'Back to Requests', requests_path %>

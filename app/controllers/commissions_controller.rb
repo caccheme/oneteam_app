@@ -42,7 +42,7 @@ class CommissionsController < ApplicationController
 
     respond_to do |format|
       if @commission.save
-        format.html { redirect_to @commission, notice: 'Commission was successfully created.' }
+        format.html { redirect_to response_commissions_path @commission, notice: 'Commission was successfully created.' }
         format.json { render json: @commission, status: :created, location: @commission }
       else
         format.html { render action: "new" }
