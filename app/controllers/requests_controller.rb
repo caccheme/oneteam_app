@@ -2,8 +2,10 @@ class RequestsController < ApplicationController
 respond_to :html, :json
 
   def index
-    @requests = Request.all
-    respond_with(@requests)
+    @requests = Request.where("status LIKE ?", "%#{params[:search]}%")
+#    @requests = Request.where(:status.matches => 'open')
+#    @requests = Request.all
+#    respond_with(@requests)
   end
 
   def show
