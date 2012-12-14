@@ -16,6 +16,7 @@ class CommissionsController < ApplicationController
 
   def show
     @response = Response.find(params[:response_id])
+  #  @commission = Commission.find(params[:id])
     @commission = @response.commission.find(params[:id])
 
     respond_to do |format|
@@ -48,8 +49,8 @@ class CommissionsController < ApplicationController
       if @commission.save
   #      format.html { redirect_to response_commissions_path(commission), notice: 'Commission was successfully created.' }
   #      format.json { render json: @commission, status: :created, location: @commission }
-
-        format.html { redirect_to response_commissions_path(@commission.response_id), notice: 'Commission was successfully created.' }
+         format.html { redirect_to edit_request_path(@response.request_id), notice: 'Successfully created commission, please update request status.' }
+ #       response_commissions_path(@commission.response_id)
       else
         format.html { render action: "new" }
         format.json { render json: @commission.errors, status: :unprocessable_entity }
