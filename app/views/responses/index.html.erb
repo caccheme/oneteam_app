@@ -7,6 +7,7 @@
     <th>Comment</th>
     <th>Employee ID</th>
     <th>Commission Developer to do Request</th>
+    <th></th>
   </tr>
 
     <% @responses.each do |response| %>
@@ -16,6 +17,7 @@
        <td><%= response.comment %></td>
        <td><%= response.employee_id %></td></td>    
        <td><%= link_to 'Select This Developer', new_response_commission_path(response) %></td>
+       <td><%= link_to 'Delete Response', [@request, @response], method: :delete, data: { confirm: "Are you sure?" } %></td>
       </tr>
       <% end %>
       </table>
