@@ -1,5 +1,4 @@
 class ResponsesController < ApplicationController
-
   def index
     @request = Request.find(params[:request_id])
     @responses = @request.responses

@@ -6,8 +6,7 @@
     <th>Employee ID</th>
     <th>Request ID</th>
     <th>Comment</th>
-    <th></th>
-    <th></th>
+
     <th></th>
   </tr>
 
@@ -17,13 +16,10 @@
     <td><%= commission.employee_id %></td>
     <td><%= commission.request_id %></td>
     <td><%= commission.comment %></td>
-    <td><%= link_to 'Show', response_commission_path(commision) %></td>
-    <td><%= link_to 'Edit', edit_response_commission_path(response, @commission) %></td>
-    <td><%= link_to 'Destroy', commission, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Destroy', commission, method: :delete, data: { confirm: 'Are you sure?' } %>
   </tr>
 <% end %>
 </table>
 
 <br />
-
-<%= link_to 'New Commission', new_response_commission_path(@commission) %>
+<%= link_to 'Back to Requests', requests_path %>
