@@ -4,10 +4,7 @@ respond_to :html, :json
   def index
     @employees = Employee.all
     respond_with(@employees) 
-#    respond_to do |format|
- #     format.html # index.html.erb
-  #    format.json { render json: @employees }
-  #  end
+
   end
 
   def show
@@ -22,9 +19,7 @@ respond_to :html, :json
   def new
     @employee = Employee.new
     respond_with(@employee)
- #   respond_to do |format|
-  #    format.html # new.html.erb
-  #    format.json { render json: @employee }
+ 
   end
 
   def edit
@@ -61,9 +56,5 @@ respond_to :html, :json
     @employee.destroy
     
     respond_with(@employee)
- #   respond_to do |format|
-  #    format.html { redirect_to employees_url }
-   #   format.json { head :no_content }
-   # end
   end
 end

@@ -38,10 +38,7 @@ class ResponsesController < ApplicationController
 
     respond_to do |format|
       if @response.save
-     #   flash[:notice] = "Successfully created response." 
         format.html { redirect_to request_responses_path @request, notice: 'Response successfully created'} 
-    #    format.html { redirect_to request_responses_path(@request, @response) }   
-    #    format.json { render json: @response, status: :created, location: @response }
       else
        format.html { render :action => 'new'}
        format.json { render json: @response.errors, status: :unprocessable_entity }

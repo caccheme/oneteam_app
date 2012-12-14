@@ -2,4 +2,5 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Back', commissions_path %>
+<p>I changed my mind. <%= link_to 'Go Back to Responses (for this Request), without Submitting', request_responses_path(@response.request_id) %>
+</p>

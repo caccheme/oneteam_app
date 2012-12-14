@@ -2,6 +2,7 @@ class CommissionsController < ApplicationController
   def index
     @response = Response.find(params[:response_id])
     @commissions = @response.commissions
+#    @commissions = Commission.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -38,12 +39,12 @@ class CommissionsController < ApplicationController
 
   def create
     @response = Response.find(params[:response_id])   
-    @commission = @response.commissions.build(params[:commission])
+    @commission = @response.commissions.build(params[:commission][:response_id])
 
     respond_to do |format|
       if @commission.save
-        format.html { redirect_to response_commissions_path @commission, notice: 'Commission was successfully created.' }
-        format.json { render json: @commission, status: :created, location: @commission }
+        format.html { redirect_to commissions_path(@commission), notice: 'Commission was successfully created.' }
+  #      format.json { render json: @commission, status: :created, location: @commission }
       else
         format.html { render action: "new" }
         format.json { render json: @commission.errors, status: :unprocessable_entity }
@@ -57,7 +58,7 @@ class CommissionsController < ApplicationController
 
     respond_to do |format|
       if @commission.update_attributes(params[:commission])
-        format.html { redirect_to @commission, notice: 'Commission was successfully updated.' }
+        format.html { redirect_to response_commissions_path @commission, notice: 'Commission was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -72,7 +73,7 @@ class CommissionsController < ApplicationController
     @commission.destroy
 
     respond_to do |format|
-      format.html { redirect_to commissions_url }
+      format.html { redirect_to requests_url }
       format.json { head :no_content }
     end
   end

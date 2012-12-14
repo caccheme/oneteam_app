@@ -17,8 +17,8 @@
     <td><%= commission.employee_id %></td>
     <td><%= commission.request_id %></td>
     <td><%= commission.comment %></td>
-    <td><%= link_to 'Show', commission %></td>
-    <td><%= link_to 'Edit', edit_commission_path(commission) %></td>
+    <td><%= link_to 'Show', response_commission_path(commision) %></td>
+    <td><%= link_to 'Edit', edit_response_commission_path(response, @commission) %></td>
     <td><%= link_to 'Destroy', commission, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
@@ -26,4 +26,4 @@
 
 <br />
 
-<%= link_to 'New Commission', new_commission_path %>
+<%= link_to 'New Commission', new_response_commission_path(@commission) %>
