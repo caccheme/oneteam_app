@@ -55,7 +55,7 @@ class ResponsesController < ApplicationController
     @session = Employee.find(session[:employee_id])  
     @response = @request.responses.find(params[:id])
     if @response.update_attributes(params[:response])
-      flash[:notice] = "Successfully updated response."
+      
       redirect_to request_response_url(@response.request_id)
     else
       render :action => 'edit'

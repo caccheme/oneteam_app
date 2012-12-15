@@ -17,14 +17,12 @@
         <%= link_to "Log in", log_in_path %>
 	    <% end %>
     </div>
-    <div id="messages">
+ <!--   <div id="messages">
       <% flash.each do |name, msg| %>
         <% content_tag :div, msg, :id => "flash_#{name}" %>
         <p class="notice"><%= notice %>
         </p>
-        <p class="alert"><%= alert %>
-        </p>
-      <%end %>
+      <%end %>-->
     </div>
     <div id="side">
         <%= yield(:side) || render(:partial => 'side_image') %>
