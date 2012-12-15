@@ -1,3 +1,9 @@
+<% content_for :side do %>
+  <h4>Side Bar Header for Responses List</h4>
+  <p>Lorem ipsum dolor sit amet, consectetur adipsicing elit, sed do eiusmud tempor incididunt ut labore et dolore magna alique.
+  </p>
+<% end %>
+
 <h1>Listing responses</h1>
 
 <table>
@@ -11,7 +17,7 @@
   </tr>
 
     <% @responses.each do |response| %>
-      <tr>
+      <tr class="<%= cycle :odd, :even %>">
        <td><%= response.request_id %></td>
        <td><%= link_to 'Profile', employee_path(response.employee_id) %></td>
        <td><%= response.comment %></td>

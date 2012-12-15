@@ -1,3 +1,9 @@
+<% content_for :side do %>
+  <h4>Side Bar Header for Commissions</h4>
+  <p>Lorem ipsum dolor sit amet, consectetur adipsicing elit, sed do eiusmud tempor incididunt ut labore et dolore magna alique.
+  </p>
+<% end %>
+
 <h1>Listing commissions</h1>
 
 <table>
@@ -11,7 +17,7 @@
   </tr>
 
 <% @commissions.each do |commission| %>
-  <tr>
+  <tr class="<%= cycle :odd, :even %>">
     <td><%= commission.response_id %></td>
     <td><%= commission.employee_id %></td>
     <td><%= commission.request_id %></td>

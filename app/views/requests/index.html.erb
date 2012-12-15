@@ -1,4 +1,11 @@
-<h1>Listing Available Requests</h1>
+
+<% content_for :side do %>
+  <h4>Side Bar Header for Requests List</h4>
+  <p>Lorem ipsum dolor sit amet, consectetur adipsicing elit, sed do eiusmud tempor incididunt ut labore et dolore magna alique.
+  </p>
+<% end %>
+
+<h1>Listing Requests</h1>
 
 <p>Enter 'Open', 'Assigned', or 'Completed' to view Requests by Status</p>
 
@@ -24,7 +31,7 @@
   </tr>
 
 <% @requests.each do |request| %>
-  <tr>
+  <tr class="<%= cycle :odd, :even %>">
     <td><%= request.id %></td>
     <td><%= request.description %></td>
     <td><%= request.status %></td>

@@ -11,3 +11,35 @@
  *= require_self
  *= require_tree .
  */
+/*
+#footer{
+  float:center;  
+  width:100%;
+  margin-left:50%
+}
+
+#container {
+  position:relative;
+  margin-left:316px;
+  margin-top:-130px;
+  max-width:960px;
+}
+
+#side{
+  position:relative;
+  top:25px;
+  margin-left:46px;
+  margin-top:-20px;
+  width:15%;
+}
+.odd {background:#ccccff; color:black;}
+.even{background:#dddddd; color:black;}
+
+table {
+  
+  width:99%;
+  margin-top:0;
+  margin-bottom:15px;
+  box-shadow: 4px 4px 3px gray;
+}*/
+
