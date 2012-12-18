@@ -6,7 +6,7 @@ class CommissionsController < ApplicationController
  #   @response = Response.find(params => {Request.find(params[:request_id]) => response_id})
  #   @response = Response.find(params[:response_id])
  #  @commissions = @response.commissions
-    @commissions = Commission.all
+    @commissions = Commission.all.page(params[:page]).per(5)
 
     respond_to do |format|
       format.html # index.html.erb

@@ -12,34 +12,81 @@
  *= require_tree .
  */
 /*
-#footer{
-  float:center;  
-  width:100%;
-  margin-left:50%
+@charset "utf-8";
+/* CSS Document */
+
+body {
+	font-family: 100% Arial, Helvetica, sans-serif;
+	background: #eeeeee; 
+	margin: 0; /* it's good practice to zero the margin and padding of the body element to account for differing browser defaults */
+	padding: 0;
+	text-align: center; /* this centers the container in IE 5* browsers. The text is then set to the left aligned default in the #container selector */
+/*	color: #000000; */
+}
+.oneColFixCtrHdr #container {
+	width: 780px;  /* using 20px less than a full 800px width allows for browser chrome and avoids a horizontal scroll bar */
+	background: #ffffff; 
+	margin: 10px auto; /* the auto margins (in conjunction with a width) center the page */
+	border: 1px solid #fff;
+	text-align: left; /* this overrides the text-align: center on the body element. */
+}
+.oneColFixCtrHdr #header {
+	background: #2790b0; 
+	padding: 10px 10px 10px 20px;
+	color: #fff;  /* this padding matches the left alignment of the elements in the divs that appear beneath it. If an image is used in the #header instead of text, you may want to remove the padding. */
+}
+.oneColFixCtrHdr #header h1 {
+	margin: 0; /* zeroing the margin of the last element in the #header div will avoid margin collapse - an unexplainable space between divs. If the div has a border around it, this is not necessary as that also avoids the margin collapse */
+	padding: 10px 0; /* using padding instead of margin will allow you to keep the element away from the edges of the div */
+}
+.oneColFixCtrHdr #mainContent {
+	padding: 0 20px; /* remember that padding is the space inside the div box and margin is the space outside the div box */
+	background: #F0F8FF;
+}
+.oneColFixCtrHdr #footer {
+	padding: 10px 10px; 
+	background:#2790b0; 
+}
+.oneColFixCtrHdr #footer p {
+	margin: 0; 
+	padding: 10px 0; 
 }
 
-#container {
-  position:relative;
-  margin-left:316px;
-  margin-top:-130px;
-  max-width:960px;
+#header a{
+	color:#ccddff;
 }
-
-#side{
-  position:relative;
-  top:25px;
-  margin-left:46px;
-  margin-top:-20px;
-  width:15%;
-}
-.odd {background:#ccccff; color:black;}
-.even{background:#dddddd; color:black;}
 
 table {
-  
-  width:99%;
-  margin-top:0;
-  margin-bottom:15px;
-  box-shadow: 4px 4px 3px gray;
-}*/
+	background-color:#E8E8E8;
+	box-shadow: gray 5px 5px 3px;
+	border: 1px solid gray;
+	text-align: left;
+	border-collapse: collapse;
+}
 
+th {
+	background-color: #99C2FF;
+	text-align: center;
+	padding: 5px 5px;
+}
+
+table, td, th {
+	border: 1px solid gray;
+	padding: 5px 5px;
+}
+
+.button {
+    display: block;
+    float: right;
+    height: 18px;
+    margin-top:-50px; 
+    margin-right: 6px;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:12px;
+    font-weight:bold;
+    border: 1px solid gray;
+    box-shadow: gray 3px 3px 2px;
+    margin-bottom:5px;
+    padding:8px;
+}

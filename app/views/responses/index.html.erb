@@ -1,11 +1,7 @@
-<% content_for :side do %>
-  <h4>Side Bar Header for Responses List</h4>
-  <p>Lorem ipsum dolor sit amet, consectetur adipsicing elit, sed do eiusmud tempor incididunt ut labore et dolore magna alique.
-  </p>
-<% end %>
 
 <h1>Listing responses</h1>
 
+<%= paginate @responses %>
 <table>
   <tr>
     <th>Request</th>
@@ -28,4 +24,6 @@
       <% end %>
       </table>
     <br />
+<div>    
 <%= link_to 'Back to Requests', requests_path %>
+</div>

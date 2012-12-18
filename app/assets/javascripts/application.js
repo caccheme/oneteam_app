@@ -14,3 +14,10 @@
 //= require jquery_ujs
 //= require_tree .
 
+$(function() {
+  $("#request_end_date").datepicker();
+});
+
+$(function() {
+  $("#request_start_date").datepicker();
+});

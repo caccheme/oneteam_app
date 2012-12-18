@@ -6,36 +6,33 @@
     <%= javascript_include_tag "application" %>  
     <%= csrf_meta_tags %>
   </head>
-  <body>
-    <div id="employee_nav">
-	    <% if current_employee %>
-        Logged in as <%= current_employee.name %>.
-      Not <%= current_employee.name %>? 
-        <%= link_to "Log out", log_out_path %>
-	    <% else %>
-        <%= link_to "Sign up", sign_up_path %>
-        <%= link_to "Log in", log_in_path %>
-	    <% end %>
+
+<body class="oneColFixCtrHdr">
+
+<div id="container">
+  
+  <div id="header">
+    <div id="navigation">
+      <% if current_employee %>
+         Logged in as <%= current_employee.name %>. Not <%= current_employee.name %>? 
+         <%= link_to "Log out", log_out_path %>
+       <% else %>
+         <%= link_to "Sign up", sign_up_path %>
+         <%= link_to "Log in", log_in_path %>
+       <% end %>
     </div>
- <!--   <div id="messages">
-      <% flash.each do |name, msg| %>
-        <% content_tag :div, msg, :id => "flash_#{name}" %>
-        <p class="notice"><%= notice %>
-        </p>
-      <%end %>-->
-    </div>
-    <div id="side">
-        <%= yield(:side) || render(:partial => 'side_image') %>
-    </div>
-    <div id="container">
-      <div id="main">
-        <%= yield %>
-      </div>
-      <div class="clear"></div>
-    </div>
-    <div id="footer">
-      <p>Done working in OneTeam? <%= link_to "Log out", log_out_path %>
-      </p>
-    </div>
-  </body>
+  </div>
+  
+  <div id="mainContent">
+    <%= yield %>
+  </div>
+  
+  <div id="footer">
+    <p></p>
+    <!--<p>Done working in OneTeam? <%= link_to "Log out", log_out_path %></p>-->
+  </div>
+
+</div>
+
+</body>
 </html>

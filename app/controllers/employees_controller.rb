@@ -2,7 +2,7 @@ class EmployeesController < ApplicationController
 respond_to :html, :json
 
   def index
-    @employees = Employee.all
+    @employees = Employee.all.page(params[:page]).per(5)
     respond_with(@employees) 
 
   end

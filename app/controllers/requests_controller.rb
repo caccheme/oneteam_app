@@ -1,8 +1,12 @@
 class RequestsController < ApplicationController
+#before_filter :authorize, :except => :index
 respond_to :html, :json
 
   def index
-    @requests = Request.where("status LIKE ?", "%#{params[:search]}%")
+ #   @requests = Request.where("status LIKE ?", "%#{params[:search]}%").page(params[:page]).per(4)
+     @requests = Request.order("id").page(params[:page]).per(5)    
+ #   @requests = Request.find(:all)
+ #   @date = params[:month] ? Date.parse(params[:month]) : Date.today
 #    @requests = Request.where(:status.matches => 'open')
 #    @requests = Request.all
 #    respond_with(@requests)
@@ -18,8 +22,16 @@ respond_to :html, :json
     respond_with(@request)
   end
 
-  def edit
+  def edit   
     @request = Request.find(params[:id])
+
+#    if Employee.find(session[:employee_id]).id = @request.find(session[:employee_id]).employee_id
+#      render 'edit'
+#    else
+#      put "You are not the owner of this request"
+#    end
+
+ 
   end
 
   def create

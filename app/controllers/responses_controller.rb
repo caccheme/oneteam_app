@@ -1,7 +1,7 @@
 class ResponsesController < ApplicationController
   def index
     @request = Request.find(params[:request_id])
-    @responses = @request.responses
+    @responses = @request.responses.page(params[:page]).per(5)
 
     respond_to do |format|
       format.html # index.html.erb

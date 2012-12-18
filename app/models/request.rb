@@ -14,9 +14,9 @@ class Request < ActiveRecord::Base
 
   # or where('request.end_date' < current_date)
 
- def current_date
-      ::Time.zone ? ::Time.zone.today : ::Date.today
- end
+# def current_date
+#      ::Time.zone ? ::Time.zone.today : ::Date.today
+# end
 
 #  default_scope Request.see_available
 #  default_scope :conditions => ["end_date <= ?", "too_late?"]
