@@ -4,11 +4,10 @@
 <%= paginate @employees %>
 <table>
   <tr>
-    <th>Employee ID</th>
+    <th>ID</th>
     <th>Name</th>
     <th>Email</th>
-    
-    <th>Years with company</th>
+    <th>Years w/ Company</th>
     <th>Manager</th>
     <th>Position</th>
     <th>Department</th>
@@ -26,7 +25,6 @@
     <td><%= employee.id %></td>
     <td><%= employee.name %></td>
     <td><%= employee.email %></td>
- 
     <td><%= employee.years_with_company %></td>
     <td><%= employee.manager %></td>
     <td><%= employee.position %></td>

@@ -1,15 +1,9 @@
 class RequestsController < ApplicationController
-#before_filter :authorize, :except => :index
-respond_to :html, :json
+ respond_to :html, :json
+ #before_filter :check_enddate
 
   def index
- #   @requests = Request.where("status LIKE ?", "%#{params[:search]}%").page(params[:page]).per(4)
-     @requests = Request.order("id").page(params[:page]).per(5)    
- #   @requests = Request.find(:all)
- #   @date = params[:month] ? Date.parse(params[:month]) : Date.today
-#    @requests = Request.where(:status.matches => 'open')
-#    @requests = Request.all
-#    respond_with(@requests)
+    @requests = Request.where("end_date >= ?", Date.today).page(params[:page]).per(5)
   end
 
   def show
@@ -30,8 +24,6 @@ respond_to :html, :json
 #    else
 #      put "You are not the owner of this request"
 #    end
-
- 
   end
 
   def create
