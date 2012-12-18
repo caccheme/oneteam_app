@@ -6,20 +6,23 @@
 
 <table>
   <tr>
-    <th>Response ID</th>
-    <th>Employee ID</th>
+    <th>Developer ID</th>
+    <th>Developer Profile</th>
     <th>Request ID</th>
-    <th>Comment</th>
-
+    <th>Request Description</th>
+    <th>Comment to Developer</th>
+    <th>Date</th>
     <th></th>
   </tr>
 
 <% @commissions.each do |commission| %>
   <tr class="<%= cycle :odd, :even %>">
-    <td><%= commission.response_id %></td>
     <td><%= commission.employee_id %></td>
+    <td><%= link_to 'Profile', employee_path(commission.employee_id) %></td>
     <td><%= commission.request_id %></td>
+    <td><%= link_to 'Show Request', request_path(commission.request_id) %></td>
     <td><%= commission.comment %></td>
+    <td><%= commission.created_at %></td>
     <td><%= link_to 'Destroy', commission, method: :delete, data: { confirm: 'Are you sure?' } %>
   </tr>
 <% end %>

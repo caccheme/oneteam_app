@@ -3,9 +3,12 @@
 
 <%= paginate @requests %>
 
-<div class="button">
+<p>
 <%= link_to 'Create a New Request', new_request_path %>
-</div>
+</p>
+<p>
+<%= link_to 'View Requests Currently in Progress', commissions_path %>
+</p>
 
 <table class="table">
   <tr>
