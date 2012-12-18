@@ -57,7 +57,7 @@ body {
 }
 
 table {
-	background-color:#E8E8E8;
+	background-color:#ffffff;
 	box-shadow: gray 5px 5px 3px;
 	border: 1px solid gray;
 	text-align: left;
@@ -89,4 +89,14 @@ table, td, th {
     box-shadow: gray 3px 3px 2px;
     margin-bottom:5px;
     padding:8px;
+}
+
+#banner {
+	margin-top:-10px;
+	margin-left:-20px;
+}
+
+#logo {
+	margin-left:250px;
+	margin-top:-53px;
 }

@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     <%= f.label :status %><br />
-    <%= f.text_field :status %>
+    <%= f.select :status, ['open','assigned','in progress','completed'], :selected => 'open' %>
   </div>
   <div class="field">
     <%= f.label :start_date %> (YYYY/MM/DD)<br />
