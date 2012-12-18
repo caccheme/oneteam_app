@@ -3,7 +3,8 @@ class RequestsController < ApplicationController
  #before_filter :check_enddate
 
   def index
-    @requests = Request.where("end_date >= ?", Date.today).page(params[:page]).per(5)
+    @requests = Request.where("end_date >= ? and status = ?", Date.today, "open").page(params[:page]).per(5)
+#    @requests = Request.order(:id).page(params[:page]).per(5)
   end
 
   def show
