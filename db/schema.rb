@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121219182221) do
+ActiveRecord::Schema.define(:version => 20121219194838) do
 
   create_table "admin_notes", :force => true do |t|
     t.string   "resource_id",     :null => false
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(:version => 20121219182221) do
     t.integer  "request_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.string   "name"
   end
 
   create_table "developers", :force => true do |t|
@@ -107,8 +108,9 @@ ActiveRecord::Schema.define(:version => 20121219182221) do
     t.integer  "request_id"
     t.integer  "employee_id"
     t.string   "comment"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.string   "employee_name"
   end
 
 end
