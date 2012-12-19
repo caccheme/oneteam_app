@@ -3,7 +3,9 @@ class RequestsController < ApplicationController
  #before_filter :check_enddate
 
   def index
+    @progress = Request.where("status ='in progress'").where("end_date >= ?", Date.today).page(params[:page]).per(5)
     @requests = Request.where("status = 'open'").where("end_date >= ?", Date.today).page(params[:page]).per(5)
+
   end
 
   def show
