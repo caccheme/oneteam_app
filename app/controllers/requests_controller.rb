@@ -4,7 +4,6 @@ class RequestsController < ApplicationController
 
   def index
     @requests = Request.where("status = 'open'").where("end_date >= ?", Date.today).page(params[:page]).per(5)
-#    @requests = Request.order(:id).page(params[:page]).per(5)
   end
 
   def show
