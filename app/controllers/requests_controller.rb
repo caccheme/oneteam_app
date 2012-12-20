@@ -1,9 +1,12 @@
 class RequestsController < ApplicationController
  respond_to :html, :json
+ #before_filter :correct_employee, only: [:edit, :update]
  #before_filter :check_enddate
+  #before_filter :authorize, only: [:edit, :update]
+  before_filter :authorize, :except => :index
 
   def index
-    @requests = Request.where("status = 'open'").where("end_date >= ?", Date.today).page(params[:page]).per(5)
+    @requests = Request.where("end_date >= ?", Date.today).page(params[:page]).per(5)
   end
 
   def show
@@ -59,14 +62,5 @@ class RequestsController < ApplicationController
     @request.destroy
     respond_with(@request)
   end
-
-
-  def project_status
-    if Request.where("start_date <= ?", Date.today)
-      print "in progress"
-    elsif Request.where("end_date >= ?", Date.today)
-      print "expired"
-    end
-  end
-
+  
 end

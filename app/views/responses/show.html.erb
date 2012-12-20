@@ -14,6 +14,8 @@
   <b>Comment:</b>
   <%= @response.comment %>
 </p>
-
-<%= link_to 'Edit', edit_request_response_path(@request, response) %> | 
+<% if author? %>
+<%= link_to 'Edit', edit_request_response_path(@request, response) %>
+<% end %>
+ | 
 <%= link_to 'Back', requests_path %>
