@@ -12,6 +12,10 @@
   <% end %>
   
   <div class="field">
+    <%= f.hidden_field :employee_id, :value => current_employee.id %><br />
+  </div>
+
+  <div class="field">
     <%= f.label :description %><br />
     <%= f.text_area :description %>
   </div>

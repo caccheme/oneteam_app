@@ -1,5 +1,5 @@
 class Request < ActiveRecord::Base
-  attr_accessible :description, :status, :request_id, :start_date, :end_date
+  attr_accessible :description, :status, :request_id, :start_date, :end_date, :employee_id
 
   has_many :responses
   accepts_nested_attributes_for :responses, :allow_destroy => true

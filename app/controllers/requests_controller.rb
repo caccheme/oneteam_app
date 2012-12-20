@@ -22,11 +22,11 @@ class RequestsController < ApplicationController
   def edit   
     @request = Request.find(params[:id])
 
-#    if Employee.find(session[:employee_id]).id = @request.find(session[:employee_id]).employee_id
-#      render 'edit'
-#    else
-#      put "You are not the owner of this request"
-#    end
+    if @current_employee.id = @request.employee_id
+      render 'edit'
+    else
+      "You are not the owner of this request"
+    end
   end
 
   def create
@@ -45,6 +45,13 @@ class RequestsController < ApplicationController
 
   def update
     @request = Request.find(params[:id])
+
+
+    if @current_employee.id == @request.employee_id
+      render 'update'
+    else
+      "You are not the owner of this request"
+    end
 
     respond_to do |format|
       if @request.update_attributes(params[:request])
