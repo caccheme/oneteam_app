@@ -4,7 +4,6 @@ class RequestsController < ApplicationController
 
   def index
     @requests = Request.where("status = 'open'").where("end_date >= ?", Date.today).page(params[:page]).per(5)
-
   end
 
   def show
@@ -60,4 +59,14 @@ class RequestsController < ApplicationController
     @request.destroy
     respond_with(@request)
   end
+
+
+  def project_status
+    if Request.where("start_date <= ?", Date.today)
+      print "in progress"
+    elsif Request.where("end_date >= ?", Date.today)
+      print "expired"
+    end
+  end
+
 end

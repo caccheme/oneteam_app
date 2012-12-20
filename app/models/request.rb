@@ -8,10 +8,18 @@ class Request < ActiveRecord::Base
   validates_presence_of :description, :status
   validates :description, :length => { :in => 5..200 }
 
-  scope :available, includes(:requests).where('requests.status' => "open")
-  scope :taken, includes(:requests).where('requests.status' => "assigned")
-  scope :completed, includes(:requests).where('request.status' => "completed") 
-
+ 
+  def project_status
+    if Request.where("start_date <= ?", Date.today)
+      "in progress"
+    elsif Request.where("end_date >= ?", Date.today)
+      "expired"
+    elsif Request.where("start_date >= ?",Date.today).where(":status => 'open'")
+      "open"
+    elsif Request.where("start_date >= ?", Date.today).where(":status => 'assigned'")
+      "assigned"  
+    end
+  end
   # or where('request.end_date' < current_date)
 
 # def current_date
