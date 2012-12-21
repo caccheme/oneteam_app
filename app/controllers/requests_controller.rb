@@ -6,7 +6,8 @@ class RequestsController < ApplicationController
  before_filter :authorize, :except => :index
 
   def index
-    @requests = Request.where("end_date >= ?", Date.today).page(params[:page]).per(5)
+    @requests = Request.order(:id).page(params[:page]).per(5)
+#    @requests = Request.where("end_date >= ?", Date.today).page(params[:page]).per(5)
   end
 
   def show
@@ -48,7 +49,7 @@ class RequestsController < ApplicationController
     @request = Request.find(params[:id])
 
 
-    if @current_employee.id == @request.employee_id
+#    if @current_employee.id == @request.employee_id
       respond_to do |format|
         if @request.update_attributes(params[:request])
           format.html { redirect_to @request, notice: 'Request was successfully updated.' }
@@ -58,9 +59,9 @@ class RequestsController < ApplicationController
           format.json { render json: @request.errors, status: :unprocessable_entity }
         end
       end
-    else
-      "You are not the owner of this request"
-    end   
+ #   else
+ #     "You are not the owner of this request"
+ #   end   
   end
 
   def destroy
