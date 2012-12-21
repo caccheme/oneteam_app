@@ -11,15 +11,16 @@
 
 <table class="table">
   <tr>
+    <th>Requestor</th>
     <th>Req ID</th>
     <th>Request Description</th>
     <th>Status</th>
     <th>Start</th>
     <th>End</th>
-    
+    <% if author? %>
     <th>Edit</th>
     <th>Delete</th>
-    
+    <% end %>
     <th>Show</th>
     <th>Responses</th>
     <th>Are you interested?</th>
@@ -27,15 +28,16 @@
 
 <% @requests.each do |request| %>
   <tr >
+    <td><%= request.employee_id %></td>
     <td><%= request.id %></td>
     <td><%= request.description %></td>
     <td><%= request.project_status %></td>
     <td><%= request.start_date %></td>
     <td><%= request.end_date %></td>
-
+    <% if author? %> 
       <td><%= link_to 'Change Request', edit_request_path(request, @response) %></td>
       <td><%= link_to 'Remove Request', request, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-
+    <% end %>
     <td><%= link_to 'Details', request %></td>
     <td><%= link_to 'Responses', request_responses_path(request) %></td>
     <td><%= link_to 'Volunteer', new_request_response_path(request) %></td>

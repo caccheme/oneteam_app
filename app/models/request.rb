@@ -20,6 +20,8 @@ class Request < ActiveRecord::Base
     elsif("start_date = 'Date.today'");("status=> 'assigned'")
       "assigned"  
     end
-  end  
+  end 
+
+
 end
 

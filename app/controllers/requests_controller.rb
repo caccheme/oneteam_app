@@ -3,7 +3,7 @@ class RequestsController < ApplicationController
  #before_filter :correct_employee, only: [:edit, :update]
  #before_filter :check_enddate
   #before_filter :authorize, only: [:edit, :update]
-  before_filter :authorize, :except => :index
+ before_filter :authorize, :except => :index
 
   def index
     @requests = Request.where("end_date >= ?", Date.today).page(params[:page]).per(5)
@@ -19,14 +19,15 @@ class RequestsController < ApplicationController
     respond_with(@request)
   end
 
-  def edit   
+  def edit 
+  #  @request = Request.find(:first, :conditions=>["employee_id=? and id=?", current_employee.id, params[:id]])  
     @request = Request.find(params[:id])
 
-    if @current_employee.id = @request.employee_id
-      render 'edit'
-    else
-      "You are not the owner of this request"
-    end
+  #  if @current_employee.id = @request.employee_id
+  #    render 'edit'
+  #  else
+  #    "You are not the owner of this request"
+  #  end
   end
 
   def create
@@ -48,20 +49,18 @@ class RequestsController < ApplicationController
 
 
     if @current_employee.id == @request.employee_id
-      render 'update'
+      respond_to do |format|
+        if @request.update_attributes(params[:request])
+          format.html { redirect_to @request, notice: 'Request was successfully updated.' }
+          format.json { head :no_content }
+        else
+          format.html { render action: "edit" }
+          format.json { render json: @request.errors, status: :unprocessable_entity }
+        end
+      end
     else
       "You are not the owner of this request"
-    end
-
-    respond_to do |format|
-      if @request.update_attributes(params[:request])
-        format.html { redirect_to @request, notice: 'Request was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @request.errors, status: :unprocessable_entity }
-      end
-    end
+    end   
   end
 
   def destroy

@@ -13,7 +13,9 @@
     <th>Request Description</th>
     <th>Comment to Developer</th>
     <th>Date</th>
+    <% if author? %>
     <th></th>
+    <% end %>
   </tr>
 
 <% @commissions.each do |commission| %>
@@ -25,7 +27,9 @@
     <td><%= link_to 'Show Request', request_path(commission.request_id) %></td>
     <td><%= commission.comment %></td>
     <td><%= commission.created_at %></td>
+    <% if author? %>
     <td><%= link_to 'Destroy', commission, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <% end %>    
   </tr>
 <% end %>
 </table>
