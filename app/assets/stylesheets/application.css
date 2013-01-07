@@ -68,6 +68,23 @@ body {
 	color:#ccddff;
 }
 
+li {
+	display: inline;
+	border: solid;
+	border-width: 1px 1px 0 1px;
+	margin: 0 0.5em 0 0;
+}
+
+li a {
+	padding: 0 1em;
+}
+
+
+
+
+
+
+
 table {
 	box-shadow: gray 5px 5px 3px;
 	border: 1px solid gray;

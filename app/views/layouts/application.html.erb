@@ -14,9 +14,7 @@
   <div id="header">
     <div id="banner">
       <%= image_tag "OneTeamBanner3.png" %>
-    </div>    
-  
-
+    </div>   
 
     <div id="navigation">
       <% if current_employee %>
@@ -27,6 +25,15 @@
          <%= link_to "Log in", log_in_path %>
        <% end %>
     </div>
+    
+  </div>
+
+  <div id="tabs">
+    <ul>  
+      <li><%= link_to "All Requests", requests_path%></li>
+      <li><%= link_to "My Profile", employee_path(current_employee.id) %></li>
+      <li>Requests I've Posted</li>
+    </ul>
   </div>
   
   <div id="mainContent">
