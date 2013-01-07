@@ -1,9 +1,7 @@
 class RequestsController < ApplicationController
  respond_to :html, :json
- #before_filter :correct_employee, only: [:edit, :update]
- #before_filter :check_enddate
-  #before_filter :authorize, only: [:edit, :update]
- before_filter :authorize, :except => :index
+
+ before_filter :signed_in_employee
 
   def index
     @requests = Request.order(:id).page(params[:page]).per(5)
@@ -48,17 +46,24 @@ class RequestsController < ApplicationController
   def update
     @request = Request.find(params[:id])
 
+    if @request.update_attributes(params[:request])
+     flash[:succss] = "Request updated"
+     redirect_to @request
+    else
+     render 'edit'
+    end
+  end 
 
 #    if @current_employee.id == @request.employee_id
-      respond_to do |format|
-        if @request.update_attributes(params[:request])
-          format.html { redirect_to @request, notice: 'Request was successfully updated.' }
-          format.json { head :no_content }
-        else
-          format.html { render action: "edit" }
-          format.json { render json: @request.errors, status: :unprocessable_entity }
-        end
-      end
+#      respond_to do |format|
+#        if @request.update_attributes(params[:request])
+#          format.html { redirect_to @request, notice: 'Request was successfully updated.' }
+#          format.json { head :no_content }
+#        else
+#          format.html { render action: "edit" }
+#          format.json { render json: @request.errors, status: :unprocessable_entity }
+#        end
+#      end
  #   else
  #     "You are not the owner of this request"
  #   end   
@@ -70,4 +75,4 @@ class RequestsController < ApplicationController
     respond_with(@request)
   end
   
-end
+

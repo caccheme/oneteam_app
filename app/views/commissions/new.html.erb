@@ -2,5 +2,5 @@
 
 <%= render 'form' %>
 
-<p>I changed my mind. <%= link_to 'Go Back to Responses (for this Request), without Submitting', request_responses_path(@response.request_id) %>
+<p>I changed my mind. <%= link_to 'Cancel Selection', request_responses_path(@response.request_id) %>
 </p>
