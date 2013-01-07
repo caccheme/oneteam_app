@@ -1,6 +1,4 @@
-<h1>Listing Requests</h1>
-
-<%= paginate @requests %>
+<h1>All Requests</h1>
 
 <p>
 <%= link_to 'Create a New Request', new_request_path %>
@@ -8,6 +6,8 @@
 <p>
 <%= link_to 'View Developer Assignments', commissions_path %>
 </p>
+
+<%= paginate @requests %>
 
 <table class="table">
   <tr>
@@ -17,7 +17,7 @@
     <th>Status</th>
     <th>Start</th>
     <th>End</th>
-    <% if author? %>
+    <% if author? (request) %>
       <th>Edit</th>
       <th>Delete</th>
       <th>Responses</th>
@@ -34,7 +34,7 @@
     <td><%= request.project_status %></td>
     <td><%= request.start_date %></td>
     <td><%= request.end_date %></td>
-    <% if author? %>
+    <% if author? (request)%>
       <td><%= link_to 'Change Request', edit_request_path(request, @response) %></td>
       <td><%= link_to 'Remove Request', request, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       <td><%= link_to 'Responses', request_responses_path(request) %></td>

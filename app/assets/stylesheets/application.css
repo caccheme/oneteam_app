@@ -43,6 +43,10 @@ body {
 .oneColFixCtrHdr #mainContent {
 	padding: 0 20px; /* remember that padding is the space inside the div box and margin is the space outside the div box */
 	background: #FfffFF;
+	border: 1px solid;
+	clear: both;
+	border-radius: 15px;
+	margin: 0 0 3px 0;
 }
 
 .oneColFixCtrHdr #mainContent a{
@@ -70,20 +74,19 @@ body {
 
 li {
 	display: inline;
-	border: solid;
+	border: 1px solid;
 	border-width: 1px 1px 0 1px;
-	margin: 0 0.5em 0 0;
+	border-top-right-radius: 5px;
+	border-top-left-radius: 5px;	
+	float: left;
+	margin: 0 5px 0 5px; 
+	padding: 0.5em 1em;
+	
 }
 
 li a {
 	padding: 0 1em;
 }
-
-
-
-
-
-
 
 table {
 	box-shadow: gray 5px 5px 3px;

@@ -21,12 +21,8 @@ private
     end
   end
 
- def author? 
-    if request[:employee_id] == current_employee.id
-      true
-    else
-      false
-    end
+ def author? (request)
+     request[:employee_id] == current_employee.id
  end
 
 end
