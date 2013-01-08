@@ -1,13 +1,17 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Employee ID:</b>
-  <%= @employee.id %>
-</p>
+<div id="profile_pic">
+      <%= image_tag "profile-avatar.png" %>
+</div>
 
 <p>
   <b>Name:</b>
   <%= @employee.name %>
+</p>
+
+<p>
+  <b>Employee ID:</b>
+  <%= @employee.id %>
 </p>
 
 <p>

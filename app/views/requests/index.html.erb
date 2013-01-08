@@ -7,44 +7,30 @@
 <%= link_to 'View Developer Assignments', commissions_path %>
 </p>
 
-<%= paginate @requests %>
-
 <table class="table">
   <tr>
-    <th>Requestor</th>
-    <th>Req ID</th>
     <th>Request Description</th>
     <th>Status</th>
-    <th>Start</th>
-    <th>End</th>
-    <% if author? (request) %>
-      <th>Edit</th>
-      <th>Delete</th>
-      <th>Responses</th>
-    <% end %>
-    <th>Show</th>
-    <th>Are you interested?</th>
+    <th>Start Date</th>
+    <th>End Date</th>
+
   </tr>
 
 <% @requests.each do |request| %>
   <tr >
-    <td><%= request.employee_id %></td>
-    <td><%= request.id %></td>
     <td><%= request.description %></td>
     <td><%= request.project_status %></td>
     <td><%= request.start_date %></td>
     <td><%= request.end_date %></td>
-    <% if author? (request)%>
-      <td><%= link_to 'Change Request', edit_request_path(request, @response) %></td>
-      <td><%= link_to 'Remove Request', request, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      <td><%= link_to 'Responses', request_responses_path(request) %></td>
-    <% end %>
     <td><%= link_to 'Details', request %></td>
-    <td><%= link_to 'Volunteer', new_request_response_path(request) %></td>
+    <td><%= link_to 'Apply', new_request_response_path(request) %></td>
+    <% if author? (request)%>
+      <td><%= link_to 'Edit', edit_request_path(request, @response) %></td>
+      <td><%= link_to 'Delete', request, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td><%= link_to 'Select volunteer', request_responses_path(request) %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>
 
-<br />
-
-
+<%= paginate @requests %>

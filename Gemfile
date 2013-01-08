@@ -9,8 +9,6 @@ group :development do
 	gem 'sqlite3', '1.3.5'
 end
 
-#gem 'activeadmin'
-
 group :assets do
   gem 'sass-rails',   '3.2.5'
   gem 'coffee-rails', '3.2.2'

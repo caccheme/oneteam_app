@@ -6,15 +6,30 @@
 </p>
 
 <p>
+  <b>Requestor:</b>
+  <%= Employee.find(@request.employee_id).name %>
+</p>
+
+<p>
   <b>Description:</b>
   <%= @request.description %>
+</p>
+
+<p>
+  <b>Start Date:</b>
+  <%= @request.start_date %>
+</p>
+
+<p>
+  <b>End Date:</b>
+  <%= @request.end_date %>
 </p>
 
 <p>
   <b>Status:</b>
   <%= @request.status %>
 </p>
-<% if author? %>
+<% if author? (request) %>
 <%= link_to 'Edit Request', edit_request_path(@request) %> 
 <% end %>
 |

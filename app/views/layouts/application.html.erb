@@ -27,16 +27,9 @@
     </div>
     
   </div>
-
-  <div id="tabs">
-    <ul>  
-      <li><%= link_to "All Requests", requests_path%></li>
-      <li><%= link_to "My Profile", employee_path(current_employee.id) %></li>
-      <li><%= link_to "Requests I've Posted", requests_path(current_employee.id) %></li> <!--need to fix this later -->
-    </ul>
-  </div>
   
   <div id="mainContent">
+
     <%= yield %>
   </div>
   

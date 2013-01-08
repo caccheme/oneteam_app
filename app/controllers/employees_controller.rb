@@ -1,5 +1,6 @@
 class EmployeesController < ApplicationController
 respond_to :html, :json
+before_filter :signed_in_employee
 
   def index
     @employees = Employee.order(:id).page(params[:page]).per(5)
