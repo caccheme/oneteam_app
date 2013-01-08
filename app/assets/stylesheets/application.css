@@ -73,6 +73,7 @@ body {
 	color:#ccddff;
 }
 
+/*
 li {
 	display: inline;
 	border: 1px solid;
@@ -88,7 +89,7 @@ li {
 
 li a {
 	padding: 0 1em;
-}
+} */
 
 table {
 	box-shadow: gray 5px 5px 3px;

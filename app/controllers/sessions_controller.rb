@@ -7,16 +7,16 @@ class SessionsController < ApplicationController
     employee = Employee.authenticate(params[:email], params[:password])
     if employee
     	session[:employee_id] = employee.id
-        redirect_to requests_url, :notice => "Logged in!"
+      redirect_to requests_url
     else
-    	flash.now.alert = "Invalid email or password"
+    	flash[:notice] = "Invalid email or password"
       render "new"
     end
   end
 
   def destroy
     session[:employee_id] = nil
-    redirect_to root_url, :notice => "Logged out!"
+    redirect_to root_url
   end
 
   def self.sweep(time = 1.hour)

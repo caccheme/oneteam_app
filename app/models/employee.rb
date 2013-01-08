@@ -11,7 +11,7 @@ class Employee < ActiveRecord::Base
   validates_confirmation_of :password
   validates_presence_of :password, :on => :create
   validates :password, :length => { :in => 5..20 }
-  validates_presence_of :email, :name, :years_with_company, :manager, :position, :location, :department, :group, :skills, :skills_interested_in  
+  validates_presence_of :email, :name  
   validates_uniqueness_of :email, :name
 
 

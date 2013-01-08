@@ -1,5 +1,5 @@
 
-<h1>Listing employees</h1>
+<h1>Employees List</h1>
 
 <%= paginate @employees %>
 <table>
@@ -7,9 +7,7 @@
     <th>Employee ID</th>
     <th>Employee Name</th>
     <th>Email</th>
-    <th></th>
-    <th></th>
-    <th></th>
+
   </tr>
 
 <% @employees.each do |employee| %>
@@ -18,8 +16,10 @@
     <td><%= employee.name %></td>
     <td><%= employee.email %></td>
     <td><%= link_to 'Show', employee %></td>
-    <td><%= link_to 'Edit', edit_employee_path(employee) %></td>
-    <td><%= link_to 'Destroy', employee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% if is_owner? %>
+      <td><%= link_to 'Edit', edit_employee_path(employee) %></td>
+      <td><%= link_to 'Destroy', employee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>
