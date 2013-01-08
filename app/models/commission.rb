@@ -5,4 +5,6 @@ class Commission < ActiveRecord::Base
   has_many :requests, :through => :responses
   has_many :employees, :through => :responses
 
+  accepts_nested_attributes_for :requests
+
 end

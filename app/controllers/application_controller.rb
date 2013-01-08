@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   helper_method :current_employee
   helper_method :author?
-  helper_method :is_owner?
+  helper_method :owner?
 #  helper_method :correct_employee?
 
 private
@@ -27,17 +27,8 @@ private
      request[:employee_id] == current_employee.id
  end
 
-# def is_owner? (employee) 
-#    params[:employee_id] == current_employee.id
-# end
-
- def is_owner?
-   current_employee.id == params[:id]
- end
-
-# def correct_user?
-#    @employee = Employee.find(params[:id])
-#    redirect_to(root_path) unless current_employee 
-# end
+  def owner? (employee)
+    employee[:id] == current_employee.id
+  end
 
 end

@@ -1,4 +1,5 @@
 class CommissionsController < ApplicationController
+  before_filter :correct_user, only: [:edit, :update, :destroy]
   def index
 
  #   @response = Response.find(params[Request.find(params[:request_id]).response_id])

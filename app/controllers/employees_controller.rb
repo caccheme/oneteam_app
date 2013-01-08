@@ -1,9 +1,10 @@
 class EmployeesController < ApplicationController
 respond_to :html, :json
 before_filter :signed_in_employee, only: [:edit, :update, :index]
+#before_filter :correct_user, only: [:edit, :update, :destroy]
 # before_filter :correct_employee?,   only: [:edit, :update]
 before_filter :current_employee
-before_filter :is_owner, :only => [:edit, :update, :destroy]
+# before_filter :owner?, :only => [:edit, :update, :destroy]
 
   def index
     @employees = Employee.order(:id).page(params[:page]).per(10)
@@ -21,8 +22,7 @@ before_filter :is_owner, :only => [:edit, :update, :destroy]
 
   def new
     @employee = Employee.new
-    respond_with(@employee)
- 
+    respond_with(@employee) 
   end
 
   def edit

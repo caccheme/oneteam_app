@@ -1,6 +1,7 @@
 class RequestsController < ApplicationController
  respond_to :html, :json
  before_filter :signed_in_employee
+ before_filter :correct_user, only: [:edit, :update, :destroy]
 
   def index
    @requests = Request.order(:id).page(params[:page]).per(5)

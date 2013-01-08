@@ -16,7 +16,7 @@
     <td><%= employee.name %></td>
     <td><%= employee.email %></td>
     <td><%= link_to 'Show', employee %></td>
-    <% if is_owner? %>
+    <% if owner? (employee) %>
       <td><%= link_to 'Edit', edit_employee_path(employee) %></td>
       <td><%= link_to 'Destroy', employee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     <% end %>
