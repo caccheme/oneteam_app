@@ -29,9 +29,7 @@
   <b>Status:</b>
   <%= @request.status %>
 </p>
-<% if author? (request) %>
-<%= link_to 'Edit Request', edit_request_path(@request) %> 
-<% end %>
-|
+
+
 <%= link_to 'Back to Requests', requests_path %> |
 

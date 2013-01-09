@@ -23,7 +23,7 @@ private
   end
 
   def author? (request)
-     request[:employee_id] == current_employee.id
+    request[:employee_id] == current_employee.id
   end
 
   def owner? (employee)

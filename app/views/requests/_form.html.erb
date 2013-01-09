@@ -20,7 +20,7 @@
     <%= f.text_area :description %>
   </div>
   <div class="field">
-    <%= f.hidden_field :status, ['open','assigned','in progress','completed'], :selected => 'open' %>
+    <%= f.hidden_field :status, :value => 'open' %>
   </div>
   <div class="field">
     <%= f.label :start_date %> (YYYY/MM/DD)<br />

@@ -38,8 +38,7 @@ class ResponsesController < ApplicationController
 
     respond_to do |format|
       if @response.save
-        format.html { redirect_to requests_path, notice: 'Thank you for volunteering!'}
- #      need to somehow update the status to assigned at this point  
+        format.html { redirect_to @request, notice: 'Thank you for volunteering!'}
       else
        format.html { render :action => 'new'}
        format.json { render json: @response.errors, status: :unprocessable_entity }
