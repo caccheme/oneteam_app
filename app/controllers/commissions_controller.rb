@@ -1,5 +1,6 @@
 class CommissionsController < ApplicationController
-  before_filter :correct_user, only: [:edit, :update, :destroy]
+  before_filter :signed_in_employee
+  
   def index
     @commissions = Commission.order(:request_id).page(params[:page]).per(5)
 
@@ -22,7 +23,6 @@ class CommissionsController < ApplicationController
   def new
     @response = Response.find(params[:response_id])
     @commission = @response.commissions.build
-    
 
     respond_to do |format|
       format.html # new.html.erb
@@ -41,7 +41,7 @@ class CommissionsController < ApplicationController
 
     respond_to do |format|
       if @commission.save
-         format.html { redirect_to edit_request_path(@response.request_id), :notice => 'Successfully created commission, please update request status.' }
+         format.html { redirect_to requests_path, :notice => 'Successfully assigned developer.' }
       else
         format.html { render action: "new" }
         format.json { render json: @commission.errors, status: :unprocessable_entity }
@@ -55,7 +55,7 @@ class CommissionsController < ApplicationController
 
     respond_to do |format|
       if @commission.update_attributes(params[:commission])
-        format.html { redirect_to response_commissions_path, notice: 'Commission was successfully updated.' }
+        format.html { redirect_to requests_path, notice: 'Commission was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
