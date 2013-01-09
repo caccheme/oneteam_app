@@ -14,55 +14,50 @@
     </div>
   <% end %>
 
-<p>
-  <%= f.label :name %><br />
-  <%= f.text_field :name %>
-</p>
-
-<p>
-  <%= f.label :email %><br />
-  <%= f.text_field :email %>
-</p>
-
-<p>
-  <%= f.label :years_with_company %><br />
-  <%= f.text_field :years_with_company %>
-</p>
-
-<p>
-  <%= f.label :manager %><br />
-  <%= f.text_field :manager %>
-</p>
-
-<p>
-  <%= f.label :position %><br />
-  <%= f.text_field :position %>
-</p>
-
-<p>
-  <%= f.label :department %><br />
-  <%= f.text_field :department %>
-</p>
-
-<p>
-  <%= f.label :group %><br />
-  <%= f.text_field :group %>
-</p>
-
-<p>
-  <%= f.label :location %><br />
-  <%= f.text_field :location %>
-</p>
-
-<p>
-  <%= f.label :skills %><br />
-  <%= f.text_field :skills %>
-</p>
-
-<p>
-  <%= f.label :skills_interested_in %><br />
-  <%= f.text_field :skills_interested_in %>
-</p>
+    <div class="field">
+      <%= f.label :first_name %><br/>
+      <%= f.text_field :first_name %>
+    </div>
+    <div class="field">
+      <%= f.label :last_name %><br/>
+      <%= f.text_field :last_name %>
+    </div>
+    <div class="field">
+      <%= f.label :email %><br/>
+      <%= f.text_field :email %>
+    </div>
+    <div class="field">
+      <%= f.label 'Office' %><br />
+      <%= f.select :location, ['Boston', 'Chicago', 'Los Angeles', 'Bentonville', 'Ontario', 'Tokyo', 'London', 'Paris'], :selected => 'Boston' %>
+    </div>
+    <div class="field">
+      <%= f.label :department %><br />
+      <%= f.select :department, ['IT', 'HR', 'Marketing', 'Research', 'QA', 'Sales'], :selected => 'IT' %>
+    </div>
+    <div class="field">
+      <%= f.label :group %><br />
+      <%= f.select :group, ['Development', 'Strategy', 'Management'], :selected => 'Development' %>
+    </div>
+    <div class="field">
+      <%= f.label 'Job title' %><br />
+      <%= f.select :position, ['Analyst', 'Researcher', 'Sales Associate', 'Software Developer'], :selected => 'Analyst' %>
+    </div>
+    <div class="field">
+      <%= f.label 'Supervisor' %><br />
+      <%= f.text_field :manager %>
+    </div>
+    <div class="field">
+      <%= f.label :years_with_company %><br />
+      <%= f.number_field :years_with_company %>
+    </div>
+    <div class="field">
+      <%= f.label :skills %><br />
+      <%= f.text_field :skills %>
+    </div>
+    <div class="field">
+      <%= f.label :skills_interested_in %><br />
+      <%= f.text_field :skills_interested_in %>
+    </div>
 
 <p>
   <%= f.label :password %><br />

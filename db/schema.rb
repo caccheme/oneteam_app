@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121220213015) do
+ActiveRecord::Schema.define(:version => 20130109214906) do
 
   create_table "admin_notes", :force => true do |t|
     t.string   "resource_id",     :null => false
@@ -66,7 +66,7 @@ ActiveRecord::Schema.define(:version => 20121220213015) do
     t.string   "email"
     t.string   "password_hash"
     t.string   "password_salt"
-    t.string   "years_with_company"
+    t.integer  "years_with_company",   :limit => 255
     t.string   "manager"
     t.string   "position"
     t.string   "department"
@@ -74,8 +74,11 @@ ActiveRecord::Schema.define(:version => 20121220213015) do
     t.string   "location"
     t.string   "skills"
     t.string   "skills_interested_in"
-    t.datetime "created_at",           :null => false
-    t.datetime "updated_at",           :null => false
+    t.datetime "created_at",                          :null => false
+    t.datetime "updated_at",                          :null => false
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "description"
   end
 
   create_table "feedbacks", :force => true do |t|

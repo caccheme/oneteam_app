@@ -8,6 +8,8 @@
 </div>
 
 <div id="innercontainer">
+</br>
+  <%= link_to 'View My Profile', @employee %> 
 
   <h1>Update Profile</h1>
 
@@ -25,8 +27,12 @@
     <% end %>
 
     <div class="field">
-      <%= f.label :name %><br/>
-      <%= f.text_field :name %>
+      <%= f.label :first_name %><br/>
+      <%= f.text_field :first_name %>
+    </div>
+    <div class="field">
+      <%= f.label :last_name %><br/>
+      <%= f.text_field :last_name %>
     </div>
     <div class="field">
       <%= f.label :email %><br/>
@@ -38,14 +44,12 @@
     </div>
     <div class="field">
       <%= f.label :department %><br />
-      <%= f.select :department, ['IT', 'HR', 'Kids', 'Marketing', 'Research', 'QA', 'Sales'], :selected => 'IT' %>
+      <%= f.select :department, ['IT', 'HR', 'Marketing', 'Research', 'QA', 'Sales'], :selected => 'IT' %>
     </div>
-
     <div class="field">
       <%= f.label :group %><br />
-      <%= f.select :group, ['Development', 'Strategy', 'Boys', 'Girls', 'Management'], :selected => 'Development' %>
+      <%= f.select :group, ['Development', 'Strategy', 'Management'], :selected => 'Development' %>
     </div>
-
     <div class="field">
       <%= f.label 'Job title' %><br />
       <%= f.text_field :position %>
@@ -54,10 +58,9 @@
       <%= f.label 'Supervisor' %><br />
       <%= f.text_field :manager %>
     </div>
-
     <div class="field">
       <%= f.label :years_with_company %><br />
-      <%= f.text_field :years_with_company %>
+      <%= f.number_field :years_with_company %>
     </div>
 
     <div class="field">
@@ -73,6 +76,5 @@
     </div>
   <% end %>
 
-  <%= link_to 'View My Profile', @employee %> 
 
 </div>
