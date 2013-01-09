@@ -1,4 +1,3 @@
-
 <h1>Responses to request <%= @request.id %>:</h1>
 <h4>"<%= @request.description %>"</h4>
 
@@ -7,7 +6,6 @@
     <th>Request</th>
     <th>Employee </th>
     <th>Comment</th>
-
   </tr>
 
     <% @responses.each do |response| %>
@@ -15,9 +13,7 @@
        <td><%= response.request_id %></td>
        <td><%= link_to response.employee_name, employee_path(response.employee_id) %></td>
        <td><%= response.comment %></td> 
-       <% if author? (request)%> 
-         <td><%= link_to 'Select This Developer', new_response_commission_path(response) %></td>    
-       <% end %>    
+       <td><%= link_to 'Select This Developer', new_response_commission_path(response) %></td>   
       </tr>
       <% end %>
       </table>

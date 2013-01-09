@@ -1,12 +1,6 @@
 class CommissionsController < ApplicationController
   before_filter :correct_user, only: [:edit, :update, :destroy]
   def index
-
- #   @response = Response.find(params[Request.find(params[:request_id]).response_id])
- #   @response = Response.find(params[:response_id, :value => Request.find(params[:request_id]).response_id])
- #   @response = Response.find(params => {Request.find(params[:request_id]) => response_id})
- #   @response = Response.find(params[:response_id])
- #  @commissions = @response.commissions
     @commissions = Commission.order(:request_id).page(params[:page]).per(5)
 
     respond_to do |format|
@@ -17,7 +11,6 @@ class CommissionsController < ApplicationController
 
   def show
     @response = Response.find(params[:response_id])
-  #  @commission = Commission.find(params[:id])
     @commission = @response.commission.find(params[:id])
 
     respond_to do |format|
@@ -48,10 +41,7 @@ class CommissionsController < ApplicationController
 
     respond_to do |format|
       if @commission.save
-  #      format.html { redirect_to response_commissions_path(commission), notice: 'Commission was successfully created.' }
-  #      format.json { render json: @commission, status: :created, location: @commission }
-         format.html { redirect_to edit_request_path(@response.request_id), notice: 'Successfully created commission, please update request status.' }
- #       response_commissions_path(@commission.response_id)
+         format.html { redirect_to edit_request_path(@response.request_id), :notice => 'Successfully created commission, please update request status.' }
       else
         format.html { render action: "new" }
         format.json { render json: @commission.errors, status: :unprocessable_entity }
@@ -74,14 +64,9 @@ class CommissionsController < ApplicationController
     end
   end
 
-  def destroy
-#    @response = Response.find(params[:response_id])
- #   @commission = @response.commission.find(params[:id])
-    
+  def destroy    
     @commission = Commission.find(params[:id])
     @commission.destroy
-
-#response_commission_path(@commission.response_id, @commission.id)
 
     respond_to do |format|
       format.html { redirect_to commissions_url }

@@ -3,7 +3,6 @@ class ApplicationController < ActionController::Base
   helper_method :current_employee
   helper_method :author?
   helper_method :owner?
-#  helper_method :correct_employee?
 
 private
 
@@ -23,9 +22,9 @@ private
     end
   end
 
- def author? (request)
+  def author? (request)
      request[:employee_id] == current_employee.id
- end
+  end
 
   def owner? (employee)
     employee[:id] == current_employee.id
