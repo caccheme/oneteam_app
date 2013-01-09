@@ -33,29 +33,33 @@
       <%= f.text_field :email %>
     </div>
     <div class="field">
-      <%= f.label :years_with_company %><br />
-      <%= f.text_field :years_with_company %>
-    </div>
-    <div class="field">
-      <%= f.label :manager %><br />
-      <%= f.text_field :manager %>
-    </div>
-    <div class="field">
-      <%= f.label :position %><br />
-      <%= f.text_field :position %>
+      <%= f.label 'Office' %><br />
+      <%= f.select :location, ['Boston', 'Chicago', 'Los Angeles', 'Bentonville', 'Ontario', 'Tokyo', 'London', 'Paris'], :selected => 'Boston' %>
     </div>
     <div class="field">
       <%= f.label :department %><br />
-      <%= f.text_field :department %>
+      <%= f.select :department, ['IT', 'HR', 'Kids', 'Marketing', 'Research', 'QA', 'Sales'], :selected => 'IT' %>
     </div>
+
     <div class="field">
       <%= f.label :group %><br />
-      <%= f.text_field :group %>
+      <%= f.select :group, ['Development', 'Strategy', 'Boys', 'Girls', 'Management'], :selected => 'Development' %>
+    </div>
+
+    <div class="field">
+      <%= f.label 'Job title' %><br />
+      <%= f.text_field :position %>
     </div>
     <div class="field">
-      <%= f.label :location %><br />
-      <%= f.text_field :location %>
+      <%= f.label 'Supervisor' %><br />
+      <%= f.text_field :manager %>
     </div>
+
+    <div class="field">
+      <%= f.label :years_with_company %><br />
+      <%= f.text_field :years_with_company %>
+    </div>
+
     <div class="field">
       <%= f.label :skills %><br />
       <%= f.text_field :skills %>
