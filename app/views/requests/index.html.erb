@@ -1,7 +1,11 @@
-<b><%= flash[:notice] %></b>
+
 
 <h1>All Requests</h1>
 
+<b><%= flash[:notice] %></b>
+<p>
+  <%= link_to 'My Profile', edit_employee_path(current_employee) %>
+</p>  
 <p>
 <%= link_to 'Create a New Request', new_request_path %>
 </p>
