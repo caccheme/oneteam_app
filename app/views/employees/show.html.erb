@@ -4,14 +4,15 @@
   <ul>
     <li><%= link_to 'All Requests', requests_path%></li>
     <li><%= link_to "Requests I've Posted",  _my_requests_path %></li>
+    <li><%= link_to 'Developer Assignments', commissions_path %></li>
     <li id="selected"><%= link_to 'My Profile', employee_path(current_employee) %></li>
   </ul>
 </div>
 
 <div id="innercontainer">
-
 <div id="profile_pic">
-      <%= image_tag "profile-avatar.png" %>
+  <%= link_to 'Update My Profile', edit_employee_path(current_employee) %> </br>
+  <%= image_tag "profile-avatar.png" %>
 </div>
 
 <p>
@@ -69,5 +70,4 @@
   <%= @employee.skills_interested_in %>
 </p>
 
-<%= link_to 'Update My Profile', edit_employee_path(current_employee) %> 
 </div>

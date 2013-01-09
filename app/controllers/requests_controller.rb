@@ -3,11 +3,11 @@ class RequestsController < ApplicationController
  before_filter :signed_in_employee
 
   def my_requests
-    @requests = Request.order(:id).page(params[:page]).per(5)
+    @requests = Request.order(:id).page(params[:page])
   end
 
   def index
-   @requests = Request.order(:id).page(params[:page]).per(5)
+    @requests = Request.order(:id).page(params[:page]).per(5)
   end
 
   def show
