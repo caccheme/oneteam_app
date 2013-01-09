@@ -7,6 +7,8 @@ OneteamApp::Application.routes.draw do
   get "log_out" => "sessions#destroy", :as => "log_out"
   get "log_in" => "sessions#new", :as => "log_in"
   get "sign_up" => "employees#new", :as => "sign_up"
+  get "_my_requests" => "requests#my_requests", :as => "_my_requests"
+
   root :to => "sessions#new" 
   
   resources :requests do 

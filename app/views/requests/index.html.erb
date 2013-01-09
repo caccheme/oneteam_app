@@ -1,37 +1,17 @@
+<div id="tabs"> 
+  <ul>
+    <li id="selected"><%= link_to 'All Requests', requests_path%></li>
+    <li><%= link_to "Requests I've Posted",  _my_requests_path %></li>
+    <li><%= link_to 'Update My Profile', edit_employee_path(current_employee) %></li>
+  </ul>
+</div>
+
 <p id="notice"><%= notice %></p>
 
-<p><%= link_to 'My Profile', edit_employee_path(current_employee) %></p>  
+<p></p>  
 <p><%= link_to 'Create a New Request', new_request_path %></p>
 <p><%= link_to 'View Developer Assignments', commissions_path %></p>
 
-<h3>
-  Requests I've Posted:
-</h3>
-
-<%= paginate @requests %>
-<table class="table">
-  <tr>
-    <th>Request Description</th>
-    <th>Status</th>
-    <th>Start Date</th>
-    <th>End Date</th>
-  </tr>
-<% @requests.each do |request| %>
-  <tr >
-    <% if author? (request)%>
-      <td><%= request.description %></td>
-      <td><%= request.project_status %></td>
-      <td><%= request.start_date %></td>
-      <td><%= request.end_date %></td>
-      <td><%= link_to 'Details', request %></td>
-      <td><%= link_to 'Apply', new_request_response_path(request) %></td>
-      <td><%= link_to 'Edit', edit_request_path(request, @response) %></td>
-      <td><%= link_to 'Delete', request, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      <td><%= link_to 'Select volunteer', request_responses_path(request) %></td>
-    <% end %>
-  </tr>
-<% end %>
-</table>
 
 <h1>All Requests</h1>
 
