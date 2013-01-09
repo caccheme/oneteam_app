@@ -2,6 +2,10 @@ class RequestsController < ApplicationController
  respond_to :html, :json
  before_filter :signed_in_employee
 
+  def my_requests
+    @requests = Request.order(:id).page(params[:page]).per(5)
+  end
+
   def index
    @requests = Request.order(:id).page(params[:page]).per(5)
   end
