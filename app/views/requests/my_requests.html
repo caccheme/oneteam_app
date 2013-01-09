@@ -11,7 +11,9 @@
     <th>Start Date</th>
     <th>End Date</th>
   </tr>
-
+  
+<% @requests.each do |request| %>
+  <tr >
     <% if author? (request)%>
       <td><%= request.description %></td>
       <td><%= request.project_status %></td>
@@ -22,4 +24,5 @@
       <td><%= link_to 'Select volunteer', request_responses_path(request) %></td>
     <% end %>
   </tr>
+<% end %>
 </table>
