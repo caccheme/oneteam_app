@@ -140,6 +140,7 @@ table, td {
 #profile_pic {
 	float:left;
 	margin-right: 30px;
+	margin-top:15px;
 	height: 700px;
 }
 
@@ -154,7 +155,7 @@ table, td {
 	border: solid;
 	border-width: 1px 1px 0 1px;
 	margin: 0 0.5em 0 0;
-	border-top-left-radius:5px;
+	border-top-left-radius:10px;
 	border-top-right-radius:45px;
 
 }

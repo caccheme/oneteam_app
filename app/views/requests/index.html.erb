@@ -2,7 +2,6 @@
   <ul>
     <li id="selected"><%= link_to 'All Requests', requests_path%></li>
     <li><%= link_to "Requests I've Posted",  _my_requests_path %></li>
-    <li><%= link_to 'Create a New Request', new_request_path %></li>
     <li><%= link_to 'Update My Profile', edit_employee_path(current_employee) %></li>
   </ul>
 </div>
@@ -10,6 +9,7 @@
 <div id="innercontainer">
 <p id="notice"><%= notice %></p>
 
+<p><%= link_to 'Create a New Request', new_request_path %></p>
 <p><%= link_to 'View Developer Assignments', commissions_path %></p>
 
 <h1>All Requests</h1>

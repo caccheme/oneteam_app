@@ -1,35 +1,31 @@
 <p id="notice"><%= notice %></p>
 
+<div id="innercontainer">
+
 <p>
-  <b>Request ID:</b>
-  <%= @request.id %>
+  <b>Request ID:</b> <%= @request.id %>
 </p>
 
 <p>
-  <b>Requestor:</b>
-  <%= Employee.find(@request.employee_id).name %>
+  <b>Requestor:</b> <%= Employee.find(@request.employee_id).name %>
 </p>
 
 <p>
-  <b>Description:</b>
-  <%= @request.description %>
+  <b>Description:</b> <%= @request.description %>
 </p>
 
 <p>
-  <b>Start Date:</b>
-  <%= @request.start_date %>
+  <b>Start Date:</b> <%= @request.start_date %>
 </p>
 
 <p>
-  <b>End Date:</b>
-  <%= @request.end_date %>
+  <b>End Date:</b> <%= @request.end_date %>
 </p>
 
 <p>
-  <b>Status:</b>
-  <%= @request.status %>
+  <b>Status:</b> <%= @request.status %>
 </p>
 
+<%= link_to 'Back to Requests', requests_path %> 
 
-<%= link_to 'Back to Requests', requests_path %> |
-
+</div>

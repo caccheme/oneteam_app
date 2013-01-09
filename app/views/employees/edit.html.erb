@@ -1,62 +1,73 @@
-<h1>Update Profile</h1>
+<div id="tabs"> 
+  <ul>
+    <li><%= link_to 'All Requests', requests_path%></li>
+    <li><%= link_to "Requests I've Posted",  _my_requests_path %></li>
+    <li id="selected"><%= link_to 'Update My Profile', edit_employee_path(current_employee) %></li>
+  </ul>
+</div>
 
-<%= form_for(@employee) do |f| %>
-  <% if @employee.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@employee.errors.count, "error") %> prohibited this employee from being saved:</h2>
+<div id="innercontainer">
 
-      <ul>
-      <% @employee.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+  <h1>Update Profile</h1>
+
+  <%= form_for(@employee) do |f| %>
+    <% if @employee.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@employee.errors.count, "error") %> prohibited this employee from being saved:</h2>
+
+        <ul>
+        <% @employee.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :name %><br/>
+      <%= f.text_field :name %>
+    </div>
+    <div class="field">
+      <%= f.label :email %><br/>
+      <%= f.text_field :email %>
+    </div>
+    <div class="field">
+      <%= f.label :years_with_company %><br />
+      <%= f.text_field :years_with_company %>
+    </div>
+    <div class="field">
+      <%= f.label :manager %><br />
+      <%= f.text_field :manager %>
+    </div>
+    <div class="field">
+      <%= f.label :position %><br />
+      <%= f.text_field :position %>
+    </div>
+    <div class="field">
+      <%= f.label :department %><br />
+      <%= f.text_field :department %>
+    </div>
+    <div class="field">
+      <%= f.label :group %><br />
+      <%= f.text_field :group %>
+    </div>
+    <div class="field">
+      <%= f.label :location %><br />
+      <%= f.text_field :location %>
+    </div>
+    <div class="field">
+      <%= f.label :skills %><br />
+      <%= f.text_field :skills %>
+    </div>
+    <div class="field">
+      <%= f.label :skills_interested_in %><br />
+      <%= f.text_field :skills_interested_in %>
+    </div>
+    <div class="actions">
+      <%= f.submit 'Update Profile' %>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br/>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br/>
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :years_with_company %><br />
-    <%= f.text_field :years_with_company %>
-  </div>
-  <div class="field">
-    <%= f.label :manager %><br />
-    <%= f.text_field :manager %>
-  </div>
-  <div class="field">
-    <%= f.label :position %><br />
-    <%= f.text_field :position %>
-  </div>
-  <div class="field">
-    <%= f.label :department %><br />
-    <%= f.text_field :department %>
-  </div>
-  <div class="field">
-    <%= f.label :group %><br />
-    <%= f.text_field :group %>
-  </div>
-  <div class="field">
-    <%= f.label :location %><br />
-    <%= f.text_field :location %>
-  </div>
-  <div class="field">
-    <%= f.label :skills %><br />
-    <%= f.text_field :skills %>
-  </div>
-  <div class="field">
-    <%= f.label :skills_interested_in %><br />
-    <%= f.text_field :skills_interested_in %>
-  </div>
-  <div class="actions">
-    <%= f.submit 'Update Profile' %>
-  </div>
-<% end %>
-
-<%= link_to 'Show', @employee %> |
-<%= link_to 'Back to Requests', requests_path %>
+  <%= link_to 'Show', @employee %> |
+  <%= link_to 'Back to Requests', requests_path %>
+</div>
