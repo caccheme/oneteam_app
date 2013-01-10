@@ -22,7 +22,7 @@ class ResponsesController < ApplicationController
 
   def new
     @request = Request.find(params[:request_id])
-    @session = Employee.find(session[:employee_id])
+    @session = Employee.find(current_employee[:id])
     @response = @request.responses.build
 
     respond_to do |format|
@@ -33,7 +33,7 @@ class ResponsesController < ApplicationController
 
   def create
    @request = Request.find(params[:request_id])
-   @session = Employee.find(session[:employee_id])
+   @session = Employee.find(current_employee[:id])
    @response = @request.responses.build(params[:response])
 
     respond_to do |format|
@@ -53,7 +53,7 @@ class ResponsesController < ApplicationController
 
   def update
     @request = Request.find(params[:request_id])
-    @session = Employee.find(session[:employee_id])  
+    @session = Employee.find(current_employee[:id])  
     @response = @request.responses.find(params[:id])
     if @response.update_attributes(params[:response])
       
@@ -71,4 +71,5 @@ class ResponsesController < ApplicationController
     flash[:notice] = "Successfully destroyed comment."
     redirect_to request_responses_url(@response.request_id)
   end
+
 end

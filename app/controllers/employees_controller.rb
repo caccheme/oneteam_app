@@ -34,7 +34,7 @@ before_filter :current_employee
  
     if @employee.save
       flash[:notice] = "Successfully created account profile."
-      redirect_to root_url, :notice => "Signed up!"
+      redirect_to root_url, :notice => "Your account was created. Sign in!"
     else
       render "new"
     end
