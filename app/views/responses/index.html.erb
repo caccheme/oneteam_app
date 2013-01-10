@@ -27,7 +27,7 @@
        <td><%= response.request_id %></td>
        <td><%= link_to response.employee_name, employee_path(response.employee_id) %></td>
        <td><%= response.comment %></td> 
-       <% if author? (request)%>
+       <% if author? (response)%>
        <td><%= link_to 'Select This Developer', new_response_commission_path(response) %></td>
        <% end %>   
       </tr>
