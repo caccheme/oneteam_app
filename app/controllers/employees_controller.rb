@@ -45,7 +45,7 @@ before_filter :current_employee
 
     respond_to do |format|
       if @employee.update_attributes(params[:employee])
-        format.html { redirect_to @employee, notice: 'Employee was successfully updated.' }
+        format.html { redirect_to @employee, notice: 'Employee profile was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
