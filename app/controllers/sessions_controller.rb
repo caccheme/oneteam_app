@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
         cookies[:auth_token] = employee.auth_token
       end
         redirect_to requests_url
-   else
+    else
       redirect_to root_url, :notice => "Invalid email or password"      
     end
   end

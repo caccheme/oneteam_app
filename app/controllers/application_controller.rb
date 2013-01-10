@@ -21,9 +21,7 @@ private
   end
 
   def signed_in?
-    if session[:employee_id]
-      true
-    end
+    !current_employee.nil?
   end
 
   def author? (request)
