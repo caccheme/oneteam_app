@@ -32,7 +32,6 @@
     <td><%= request.start_date %></td>
     <td><%= request.end_date %></td>
     <td><%= link_to 'Details', request %></td>
-    <td><%= link_to 'Apply', new_request_response_path(request) %></td>
     <td><%= link_to 'Edit', edit_request_path(request, @response) %></td>
     <td><%= link_to 'Delete', request, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     <td><%= link_to 'Select volunteer', request_responses_path(request) %></td>
