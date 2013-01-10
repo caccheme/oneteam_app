@@ -38,7 +38,6 @@ class RequestsController < ApplicationController
       end
     end
   end
-
   def update
     @request = Request.find(params[:id])
 
@@ -55,9 +54,4 @@ class RequestsController < ApplicationController
     @request.destroy
     respond_with(@request)
   end
-  
-  def requestor_name
-    Employee.find(@request.employee_id).name
-  end
-
 end

@@ -17,6 +17,6 @@ class Request < ActiveRecord::Base
       "open"
     end
   end
-
+  
 end
 

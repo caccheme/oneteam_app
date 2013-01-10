@@ -3,8 +3,7 @@
 <div id="tabs"> 
   <ul>
   	<li id="selected"><%= link_to 'New Request' %></li>
-    <li><%= link_to 'All Requests', requests_path%></li>
-    <li><%= link_to "Requests I've Posted",  'my_requests' %></li>
+    <li><%= link_to 'All Requests', requests_path %></li>
     <li><%= link_to 'Developer Assignments', commissions_path %></li>
     <li><%= link_to 'My Profile', employee_path(current_employee) %></li> 
   </ul>
@@ -17,7 +16,7 @@
 </p>
 
 <p>
-  <b>Requestor:</b> <%= Employee.find(@request.employee_id).name %>
+  <b>Requestor:</b> <%= Employee.find_by_id(@request.employee_id).first_name %> <%= Employee.find_by_id(@request.employee_id).last_name %>
 </p>
 
 <p>
