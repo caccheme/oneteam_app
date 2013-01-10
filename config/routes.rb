@@ -1,7 +1,7 @@
 OneteamApp::Application.routes.draw do
+  get "password_resets/new"
+
   resources :feedbacks
-
-
   resources :commissions
 
   get "log_out" => "sessions#destroy", :as => "log_out"
@@ -22,5 +22,5 @@ OneteamApp::Application.routes.draw do
   resources :sessions
   resources :requests
   resources :responses
-  
+  resources :password_resets
 end

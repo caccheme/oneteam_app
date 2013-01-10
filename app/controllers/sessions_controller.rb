@@ -4,19 +4,22 @@ class SessionsController < ApplicationController
   end
 
   def create
-    employee = Employee.authenticate(params[:email], params[:password])
-    if employee
-    	session[:employee_id] = employee.id
-      redirect_to requests_url
-    else
-    	flash[:notice] = "Invalid email or password"
-      render "new"
+    employee = Employee.find_by_email(params[:email])
+    if employee && employee.authenticate(params[:password])
+      if params[:remember_me]
+        cookies.permanent[:auth_token] = employee.auth_token
+      else
+        cookies[:auth_token] = employee.auth_token
+      end
+        redirect_to requests_url
+   else
+      redirect_to root_url, :notice => "Invalid email or password"      
     end
   end
 
   def destroy
-    session[:employee_id] = nil
-    redirect_to root_url
+    cookies.delete(:auth_token)
+    redirect_to root_url, :notice => "Logged out!"
   end
 
 #  def self.sweep(time = 1.hour)

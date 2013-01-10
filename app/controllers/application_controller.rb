@@ -6,8 +6,12 @@ class ApplicationController < ActionController::Base
 
 private
 
-  def current_employee 
-    @current_employee ||= Employee.find(session[:employee_id]) if session[:employee_id]
+#  def current_employee 
+#    @current_employee ||= Employee.find(session[:employee_id]) if session[:employee_id]
+#  end
+
+  def current_employee
+    @current_employee ||= Employee.find_by_auth_token!(cookies[:auth_token]) if cookies[:auth_token]
   end
 
   def signed_in_employee
