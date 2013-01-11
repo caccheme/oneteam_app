@@ -1,11 +1,11 @@
 class Request < ActiveRecord::Base
-  attr_accessible :description, :status, :request_id, :start_date, :end_date, :employee_id
+  attr_accessible :description, :status, :request_id, :start_date, :end_date, :employee_id, :title, :relevant_skills, :location, :group
 
   has_many :responses
   accepts_nested_attributes_for :responses, :allow_destroy => true
   belongs_to :employee
 
-  validates_presence_of :description, :status
+  validates_presence_of :title, :description
   validates :description, :length => { :in => 5..200 }
 
   def project_status

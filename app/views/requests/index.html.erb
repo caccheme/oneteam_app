@@ -18,7 +18,8 @@
 <%= paginate @requests %>
 <table class="table">
   <tr>
-    <th>Request Description</th>
+    <th>Title</th>
+    <th>Description</th>
     <th>Status</th>
     <th>Start Date</th>
     <th>End Date</th>
@@ -26,6 +27,7 @@
 
 <% @requests.each do |request| %>
   <tr >
+    <td><%= request.title %></td>
     <td><%= request.description %></td>
     <td><%= request.project_status %></td>
     <td><%= request.start_date %></td>

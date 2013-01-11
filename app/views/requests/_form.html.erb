@@ -14,7 +14,10 @@
   <div class="field">
     <%= f.hidden_field :employee_id, :value => current_employee.id %><br />
   </div>
-
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
   <div class="field">
     <%= f.label "Please describe your request below:" %><br />
     <%= f.text_area :description %>
@@ -30,6 +33,14 @@
     <%= f.label :end_date %> (YYYY/MM/DD)<br />
     <%= f.date_select :end_date %>
   </div>  
+  <div class="field">
+    <%= f.label :group %><br />
+    <%= f.select :group, ['Development', 'Strategy', 'Management'], :selected => 'Development' %>
+  </div>
+  <div class="field">
+    <%= f.label 'Office' %> <br />
+    <%= f.select :location, ['Boston', 'Chicago', 'Los Angeles', 'Bentonville', 'Ontario', 'Tokyo', 'London', 'Paris'], :selected => 'Boston' %>
+  </div>
   <div class="actions">
     <%= f.submit "Save Request" %>
   </div>

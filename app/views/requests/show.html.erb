@@ -15,25 +15,30 @@
 <p>
   <b>Request ID:</b> <%= @request.id %>
 </p>
-
 <p>
-  <b>Requestor:</b> <%= Employee.find_by_id(@request.employee_id).first_name %> <%= Employee.find_by_id(@request.employee_id).last_name %>
+  <b>Request Created By:</b> <%= Employee.find_by_id(@request.employee_id).first_name %> <%= Employee.find_by_id(@request.employee_id).last_name %>
+</p>
+<p>
+  <b>Group:</b> <%= @request.group %>
+</p>
+<p>
+  <b>Office:</b> <%= @request.location %>
 </p>
 
+<p>
+  <b>Request Title:</b> <%= @request.title %>
+</p>
 <p>
   <b>Description:</b> <%= @request.description %>
 </p>
-
+<p>
+  <b>Status:</b> <%= @request.status %>
+</p>
 <p>
   <b>Start Date:</b> <%= @request.start_date %>
 </p>
-
 <p>
   <b>End Date:</b> <%= @request.end_date %>
-</p>
-
-<p>
-  <b>Status:</b> <%= @request.status %>
 </p>
 
 </div>

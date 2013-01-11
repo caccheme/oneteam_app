@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130110162758) do
+ActiveRecord::Schema.define(:version => 20130111172345) do
 
   create_table "admin_notes", :force => true do |t|
     t.string   "resource_id",     :null => false
@@ -105,11 +105,15 @@ ActiveRecord::Schema.define(:version => 20130110162758) do
   create_table "requests", :force => true do |t|
     t.string   "description"
     t.string   "status"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
     t.date     "start_date"
     t.date     "end_date"
     t.integer  "employee_id"
+    t.string   "title"
+    t.string   "group"
+    t.string   "location"
+    t.string   "relevant_skills"
   end
 
   create_table "responses", :force => true do |t|
