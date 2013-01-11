@@ -7,7 +7,7 @@
  *
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
- *
+ *= require jquery.ui.datepicker
  *= require_self
  *= require_tree .
  */
@@ -177,3 +177,18 @@ table, td {
 #mainContent #field ul li {
 	display: inline;
 }
+
+/*
+#button {
+	background-color: #E0E0D1;
+	border:1px solid #cccccf;
+	border-radius: 5px;
+	box-shadow: 2px 2px gray;
+}
+
+#button a {
+	text-decoration: none;
+	font-color:black;
+}
+*/
+

@@ -42,7 +42,7 @@ class RequestsController < ApplicationController
     @request = Request.find(params[:id])
 
     if @request.update_attributes(params[:request])
-     flash[:succss] = "Request updated"
+     flash[:success] = "Request updated"
      redirect_to @request
     else
      render 'edit'
