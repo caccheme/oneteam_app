@@ -1,4 +1,6 @@
 OneteamApp::Application.routes.draw do
+  get "calendars/index"
+
   get "password_resets/new"
 
   resources :feedbacks
@@ -8,6 +10,7 @@ OneteamApp::Application.routes.draw do
   get "log_in" => "sessions#new", :as => "log_in"
   get "sign_up" => "employees#new", :as => "sign_up"
   get "my_requests" => "requests#my_requests", :as => "_my_requests"
+  get "requests_calendar" => "requests#requests_calendar", :as => "_requests_calendar"
   root :to => "sessions#new" 
   
   resources :requests do 
@@ -23,4 +26,5 @@ OneteamApp::Application.routes.draw do
   resources :requests
   resources :responses
   resources :password_resets
+
 end

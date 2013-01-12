@@ -6,6 +6,12 @@ class RequestsController < ApplicationController
     @requests = Request.order(:id).page(params[:page])
   end
 
+  def requests_calendar
+    @requests = Request.order(:id).page(params[:page]).per(5)
+    @requests_by_date = @requests.group_by(&:start_date)
+    @date = params[:date] ? Date.parse(params[:date]) : Date.today
+  end
+
   def index
     @requests = Request.order(:id).page(params[:page]).per(5)
   end
