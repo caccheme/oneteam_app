@@ -11,6 +11,7 @@ OneteamApp::Application.routes.draw do
   get "sign_up" => "employees#new", :as => "sign_up"
   get "my_requests" => "requests#my_requests", :as => "_my_requests"
   get "requests_calendar" => "requests#requests_calendar", :as => "_requests_calendar"
+  get "my_requests_calendar" => "requests#my_requests_calendar", :as => "_my_requests_calendar"
   root :to => "sessions#new" 
   
   resources :requests do 

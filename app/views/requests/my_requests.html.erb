@@ -13,7 +13,7 @@
 
 <p><%= link_to 'Create a New Request', new_request_path %></p>
 
-<h1>Requests I've Posted:</h1>
+<h1>Requests I've Posted:</h1><%= link_to "View Calendar", 'my_requests_calendar' %>
 
 <div id="requests">
 <% @requests.each do |request| %>
