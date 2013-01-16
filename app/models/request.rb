@@ -8,6 +8,10 @@ class Request < ActiveRecord::Base
   validates_presence_of :title, :description
   validates :description, :length => { :in => 5..200 }
 
+  def get_responses
+    Response.where(:request_id => id)
+  end
+
   def project_status
     if end_date <= Date.today 
       "expired"
