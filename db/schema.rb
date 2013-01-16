@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130111172345) do
+ActiveRecord::Schema.define(:version => 20130116075710) do
 
   create_table "admin_notes", :force => true do |t|
     t.string   "resource_id",     :null => false
@@ -83,6 +83,7 @@ ActiveRecord::Schema.define(:version => 20130111172345) do
     t.string   "password_reset_token"
     t.datetime "password_reset_sent_at"
     t.string   "password_digest"
+    t.string   "image"
   end
 
   create_table "feedbacks", :force => true do |t|

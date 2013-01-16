@@ -63,9 +63,20 @@
     <div id="field">
       <ul>
         <li><%= f.label 'Write a short description about yourself:' %></br>  <%= f.text_area :description %></li>
-        <li><%= image_tag "no-upload-pic.png" %>  <%= link_to "Upload Photo" %></li>
+        <li><%= image_tag "no-upload-pic.png" %>  </li>
       </ul>
     </div>
+
+    <%= image_tag @employee.image_url.to_s %>
+    
+    <div id="field">
+      <%= f.file_field :image %>
+    </div>
+
+  <div id="field">
+    <%= f.label :remote_image_url, "or image URL" %>
+    <%= f.text_field :remote_image_url %>
+  </div>
 
     <div id="field">
       <ul>

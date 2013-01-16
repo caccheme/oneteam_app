@@ -6,6 +6,7 @@
 <%= paginate @employees %>
 <table>
   <tr>
+    <th>Avatar</th>
     <th>Employee ID</th>
     <th>Employee Name</th>
     <th>Email</th>
@@ -14,6 +15,7 @@
 
 <% @employees.each do |employee| %>
   <tr>
+    <td><%= image_tag employee.image_url.to_s %></td>
     <td><%= employee.id %></td>
     <td><%= employee.first_name %> <%= employee.last_name %></td>
     <td><%= employee.email %></td>

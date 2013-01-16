@@ -2,13 +2,16 @@ class Employee < ActiveRecord::Base
   has_secure_password
 
   attr_protected :password_salt, :password_hash 
-  attr_accessible :employee_id, :password, :password_confirmation, :department, :email, :group, :location, :manager, :first_name, :last_name, :description, :position, :skills, :skills_interested_in, :years_with_company
+  attr_accessible :employee_id, :password, :password_confirmation, :department, :email, :group, :location, :manager, :first_name, :last_name, :description, :position, :skills, :skills_interested_in, :years_with_company, :image, :remote_image_url
 
   
   before_save :encrypt_password
 
   has_many :requests
   has_many :responses
+
+  mount_uploader :image, ImageUploader
+
 
   validates_confirmation_of :password
   validates_presence_of :password, :on => :create
