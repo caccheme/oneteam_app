@@ -23,8 +23,8 @@
   <p><%= link_to 'Apply', new_request_response_path(request) %>  | <%= link_to 'Details', request %>
     <% if author? (request) %>   | 
       <%= link_to 'Edit Request', edit_request_path(request, @response) %>  |
-      <%= link_to 'Delete', request, method: :delete, data: { confirm: 'Are you sure?' } %>  |
-      <%= link_to 'Select volunteer', request_responses_path(request) %></p>
+      <%= link_to 'Delete', request, method: :delete, data: { confirm: 'Are you sure?' } %>
+  </p>
     <% end %>
     <p></p>
 <% end %>  
