@@ -41,6 +41,19 @@
     <%= f.label 'Office' %> <br />
     <%= f.select :location, ['Boston', 'Chicago', 'Los Angeles', 'Bentonville', 'Ontario', 'Tokyo', 'London', 'Paris'], :selected => 'Boston' %>
   </div>
+   <div class="field">
+     <%= f.label :relevant_skills %>
+     <div class="chkbox">
+      <%= check_box_tag "relevant_skills[]","PHP" %>PHP <br/>
+     <%= check_box_tag "relevant_skills[]", "MySQL" %>MySQL <br/>
+     <%= check_box_tag "relevant_skills[]", "C+" %>C+ <br/>
+     <%= check_box_tag "relevant_skills[]", "Apache" %>Apache <br/>
+     <%= check_box_tag "relevant_skills[]", "Ruby on Rails" %>Ruby on Rails <br/>
+     <%= check_box_tag "relevant_skills[]", "SQL Server" %>SQL Server<br/>
+     <%= check_box_tag "relevant_skills[]", "Linux" %>Linux <br/>
+     </div>
+   </div>
+
   <div class="actions">
     <%= f.submit "Save Request" %>
   </div>

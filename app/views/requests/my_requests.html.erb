@@ -28,7 +28,8 @@
       <%= link_to 'Delete', request, method: :delete, data: { confirm: 'Are you sure?' } %>  |
       <%= link_to 'Select volunteer', request_responses_path(request) %></p>
 
- <p><%= request.responses %></p>
+  <p>Applicants:</br>
+  <%= request.responses %></p>
 
     <% end %>
 

@@ -8,4 +8,12 @@ class Response < ActiveRecord::Base
 
   validates_presence_of :comment, :employee_id
 
+  def initialize(attributes = {})
+    @name  = attributes[:employee_name]
+  end
+
+  def formatted_name
+    "#{@name}"
+  end
+
  end
