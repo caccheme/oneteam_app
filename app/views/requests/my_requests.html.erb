@@ -31,7 +31,9 @@
     <p>Applicants:</br>
     <% responses = request.get_responses %>
     <% responses.each do |response| %>
-    <%= response.employee_name %> 
+    <%= response.employee_name %>   |
+    <%= link_to 'View Profile', employee_path(response.employee_id) %>  |
+    <%= link_to 'Select Developer', new_response_commission_path(response) %>
     </p>
 
     <% end %>
