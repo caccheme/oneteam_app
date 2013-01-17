@@ -5,6 +5,7 @@ gem 'rails', '3.2.11'
 gem "bcrypt-ruby", :require => "bcrypt"
 gem 'kaminari'
 gem "carrierwave"
+gem "simple_form"
 
 group :development do
 	gem 'sqlite3', '1.3.5'

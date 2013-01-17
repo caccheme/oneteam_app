@@ -4,8 +4,15 @@ class ApplicationController < ActionController::Base
   helper_method :author?
   helper_method :owner?
   helper_method :assigner?
+  helper_method :check_for_cancel
 
 private
+
+  def check_for_cancel
+     if params[:commit] == 'Cancel'
+       redirect_to requests_path
+     end
+  end
 
   def current_employee
     @current_employee ||= Employee.find_by_auth_token!(cookies[:auth_token]) if cookies[:auth_token]

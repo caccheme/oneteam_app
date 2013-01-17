@@ -1,6 +1,7 @@
 class RequestsController < ApplicationController
  respond_to :html, :json
  before_filter :signed_in_employee
+ before_filter :check_for_cancel, :only => [:create, :update]
 
   def my_requests
     @requests = Request.order(:id).page(params[:page])

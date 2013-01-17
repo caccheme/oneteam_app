@@ -1,5 +1,5 @@
 class Request < ActiveRecord::Base
-  attr_accessible :description, :status, :request_id, :start_date, :end_date, :employee_id, :title, :relevant_skills, :location, :group
+  attr_accessible :description, :status, :request_id, :start_date, :end_date, :employee_id, :title, :relevant_skills, :location, :group, :responses_attributes
 
   has_many :responses
   accepts_nested_attributes_for :responses, :allow_destroy => true
@@ -10,6 +10,12 @@ class Request < ActiveRecord::Base
 
   def get_responses
     Response.where(:request_id => id)
+  end
+
+  def check_for_cancel
+     if params[:commit] == 'Cancel'
+       redirect_to requests_path
+     end
   end
 
   def project_status
