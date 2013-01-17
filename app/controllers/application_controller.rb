@@ -9,8 +9,9 @@ class ApplicationController < ActionController::Base
 private
 
   def check_for_cancel
+    session[:return_to] ||= request.referer
      if params[:commit] == 'Cancel'
-       redirect_to requests_path
+      redirect_to session[:return_to]
      end
   end
 

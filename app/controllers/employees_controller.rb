@@ -1,10 +1,8 @@
 class EmployeesController < ApplicationController
 respond_to :html, :json
 before_filter :signed_in_employee, only: [:edit, :update, :index]
-#before_filter :correct_user, only: [:edit, :update, :destroy]
-# before_filter :correct_employee?,   only: [:edit, :update]
 before_filter :current_employee
-# before_filter :owner?, :only => [:edit, :update, :destroy]
+before_filter :check_for_cancel, :only => [:create, :update]
 
   def index
     @employees = Employee.order(:id).page(params[:page]).per(10)

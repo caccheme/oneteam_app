@@ -1,90 +1,11 @@
-<h1>Please Submit Account and Profile Information</h1>
+<h1>Sign up for you OneTeam Account</h1>
 
-<%= form_for @employee do |f| %>
-
-<% if @employee.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@employee.errors.count, "error") %> prohibited this employee from being saved:</h2>
-
-      <ul>
-      <% @employee.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-    <div id="field">
-      <%= f.label :first_name %><br/>
-      <%= f.text_field :first_name %>
-    </div>
-    <div class="field">
-      <%= f.label :last_name %><br/>
-      <%= f.text_field :last_name %>
-    </div>
-    <div class="field">
-      <%= f.label :email %><br/>
-      <%= f.text_field :email %>
-    </div>
-    <div class="field">
-      <%= f.label 'Office' %><br />
-      <%= f.select :location, ['Boston', 'Chicago', 'Los Angeles', 'Bentonville', 'Ontario', 'Tokyo', 'London', 'Paris'], :selected => 'Boston' %>
-    </div>
-    <div class="field">
-      <%= f.label :department %><br />
-      <%= f.select :department, ['IT', 'HR', 'Marketing', 'Research', 'QA', 'Sales'], :selected => 'IT' %>
-    </div>
-    <div class="field">
-      <%= f.label :group %><br />
-      <%= f.select :group, ['Development', 'Strategy', 'Management'], :selected => 'Development' %>
-    </div>
-    <div class="field">
-      <%= f.label 'Job title' %><br />
-      <%= f.select :position, ['Analyst', 'Researcher', 'Sales Associate', 'Software Developer'], :selected => 'Analyst' %>
-    </div>
-    <div class="field">
-      <%= f.label 'Supervisor' %><br />
-      <%= f.text_field :manager %>
-    </div>
-    <div class="field">
-      <%= f.label :years_with_company %><br />
-      <%= f.number_field :years_with_company %>
-    </div>
-    <div class="field">
-      <%= f.label 'Describe yourself in a few words' %><br />
-      <%= f.text_area :description %>
-    </div>
-    <div class="field">
-      <%= f.label :skills %><br />
-      <%= f.text_field :skills %>
-    </div>
-    <div class="field">
-      <%= f.label :skills_interested_in %><br />
-      <%= f.text_field :skills_interested_in %>
-    </div>
-
-<p>
-  <%= f.label :password %><br />
-  <%= f.password_field :password %>
-</p>
-
-<p>
-  <%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %>
-</p>
-
-<p>Your password must include:</p>
-  <ul>
-    <li>At least 5 characters</li>
-  </ul>
-</p>
-
-<p>
-  <%= f.submit "Create my OneTeam Account and Profile" %>
-</p>
-
+<%= simple_form_for @employee do |f| %>
+  <%= f.input :first_name %>
+  <%= f.input :last_name %>
+  <%= f.input :email %>
+  <%= f.input :password, hint: 'at least 5 characters' %>
+  <%= f.input :password_confirmation %>
+  <%= f.button :submit, "Create my OneTeam Account" %> 
+  <%= f.submit 'Cancel' %>
 <% end %>
-
-<div id="button">
-<%= link_to 'Cancel', root_url %>
-</div>
