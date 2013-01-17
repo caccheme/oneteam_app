@@ -8,8 +8,7 @@
   <%= f.input :position, label: 'Job title' %>
   <%= f.input :manager, label: 'Direct Supervisor' %></br>
   <%= f.input :years_with_company %></br>
-  <%= f.label :description, label: 'Describe yourself in a few words' %>
-  <%= f.text_area :description %></br>
+  <%= f.input :description, as: :text, label: 'Describe yourself in a few words' %>
   <%= image_tag @employee.image_url, :height => 100 %>
   <%= f.file_field :image %>
   <%= f.input :skills, as: :check_boxes, :collection => ['PHP', 'MySQL', 'C#', 'Apache', 'Ruby on Rails', 'SQL Server', 'Linux'] %>

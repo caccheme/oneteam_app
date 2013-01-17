@@ -7,3 +7,9 @@ jQuery ->
     dateFormat: 'yy-mm-dd'
   $('#request_end_date').datepicker
     dateFormat: 'yy-mm-dd'
+  $( "#datepicker" ).datepicker({
+  showOn: "button",
+  buttonImage: "images/calendar_icon.png",
+  buttonImageOnly: true
+  });
+

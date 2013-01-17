@@ -3,10 +3,8 @@
   <%= f.input :title %>
   <%= f.label :description %>
   <%= f.text_area :description %></br>
-  <%= f.label :start_date %>
-  <%= f.text_field :start_date %></br>
-  <%= f.label :end_date %>
-  <%= f.text_field :end_date %>
+  <%= f.input :start_date, as: :string %>
+  <%= f.input :end_date, as: :string %>
   <%= f.input :group, :collection => ['Development', 'Strategy', 'Management'] %>
   <%= f.input :location, :collection => ['Boston', 'Chicago', 'Los Angeles', 'Bentonville', 'Ontario', 'Tokyo', 'London', 'Paris'] %>
   <%= f.input :relevant_skills, as: :check_boxes, :collection => ['PHP', 'MySQL', 'C#', 'Apache', 'Ruby on Rails', 'SQL Server', 'Linux'] %>
@@ -16,3 +14,4 @@
   <%= f.button :submit %> 
   <%= f.submit 'Cancel' %>
 <% end %>
+<p></p>
