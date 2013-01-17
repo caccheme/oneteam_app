@@ -42,17 +42,7 @@ class ImageUploader < CarrierWave::Uploader::Base
  #  end
 
   version :thumb do 
-    process :resize_to_width => [48, nil]
-  end
-
-  def resize_to_width(width, height)
-    manipulate! do |img|
-      if img[:width] >= width
-        img.resize "#{width}x#{img[:height]}"
-      end
-      img = yield(img) if block_given?
-      img
-    end
+    process :resize_to_fill => [100, 100]
   end
 
   # Add a white list of extensions which are allowed to be uploaded.

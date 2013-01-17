@@ -67,7 +67,7 @@
       </ul>
     </div>
 
-    <%= image_tag @employee.image_url(:thumb) %>
+    <%= image_tag @employee.image_url(:thumb), :height => 100 %>
     
     <div id="field">
       <%= f.file_field :image %>

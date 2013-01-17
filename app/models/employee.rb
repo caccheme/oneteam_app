@@ -14,8 +14,7 @@ class Employee < ActiveRecord::Base
   accepts_nested_attributes_for :responses
 
   mount_uploader :image, ImageUploader
-
-
+  
   validates_confirmation_of :password
   validates_presence_of :password, :on => :create
   validates :password, :length => { :in => 5..20 }, :on => :create

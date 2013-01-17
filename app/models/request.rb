@@ -12,11 +12,6 @@ class Request < ActiveRecord::Base
     Response.where(:request_id => id)
   end
 
-  def check_for_cancel
-     if params[:commit] == 'Cancel'
-       redirect_to requests_path
-     end
-  end
 
   def project_status
     if end_date <= Date.today 
