@@ -2,7 +2,7 @@
   <%= f.error_notification %>
   <%= f.input :title %>
   <%= f.input :description, as: :text %>
-  <%= f.input :start_date, as: :string, type: :button %>
+  <%= f.input :start_date, as: :string %>
   <%= f.input :end_date, as: :string %>
   <%= f.input :group, :collection => ['Development', 'Strategy', 'Management'] %>
   <%= f.input :location, :collection => ['Boston', 'Chicago', 'Los Angeles', 'Bentonville', 'Ontario', 'Tokyo', 'London', 'Paris'] %>
