@@ -6,7 +6,6 @@
     <%= javascript_include_tag "application" %>  
     <%= csrf_meta_tags %>
   </head>
-
 <body class="oneColFixCtrHdr">
 
 <div id="container">
@@ -22,13 +21,12 @@
          <%= link_to "Log out", log_out_path %>
        <% else %>
          
-       <% end %>
+      <% end %>
     </div>
     
   </div>
   
   <div id="mainContent">
-
     <%= yield %>
   </div>
   

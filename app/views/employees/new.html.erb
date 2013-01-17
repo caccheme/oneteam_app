@@ -1,3 +1,6 @@
+<p></p>
+<div id="innercontainer">
+
 <h1>Sign up for you OneTeam Account</h1>
 
 <%= simple_form_for @employee do |f| %>
@@ -6,6 +9,9 @@
   <%= f.input :email %>
   <%= f.input :password, hint: 'at least 5 characters' %>
   <%= f.input :password_confirmation %>
-  <%= f.button :submit, "Create my OneTeam Account" %> 
+  <%= f.submit 'Create my OneTeam Account' %> 
   <%= f.submit 'Cancel' %>
+  <p></p>
 <% end %>
+
+</div>

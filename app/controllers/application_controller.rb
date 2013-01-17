@@ -11,7 +11,7 @@ private
   def check_for_cancel
     session[:return_to] ||= request.referer
      if params[:commit] == 'Cancel'
-      redirect_to session[:return_to]
+       redirect_to session[:return_to]
      end
   end
 

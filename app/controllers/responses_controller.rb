@@ -1,5 +1,6 @@
 class ResponsesController < ApplicationController
   before_filter :correct_user, only: [:edit, :update, :destroy]
+
   def index
     @request = Request.find(params[:request_id])
     @responses = @request.responses.page(params[:page]).per(5)
@@ -71,5 +72,6 @@ class ResponsesController < ApplicationController
     flash[:notice] = "Successfully destroyed comment."
     redirect_to request_responses_url(@response.request_id)
   end
+
 
 end

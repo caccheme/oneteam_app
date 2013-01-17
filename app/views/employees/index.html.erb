@@ -1,5 +1,14 @@
 <p id="notice"><%= notice %></p>
 
+<div id="tabs"> 
+  <ul>
+    <li><%= link_to 'All Requests', requests_path%></li>
+    <li><%= link_to "Requests I've Posted",  _my_requests_path %></li>
+    <li><%= link_to 'Developer Assignments', commissions_path %></li>
+    <li id="selected"><%= link_to 'Employees List', edit_employee_path(current_employee) %></li>
+  </ul>
+</div>
+
 <div id="innercontainer">
 <h1>Employees List</h1>
 
@@ -28,9 +37,5 @@
   </tr>
 <% end %>
 </table>
-
-<br />
-<div>    
-<%= link_to 'Back to Requests', requests_path %>
-</div>
+<p></p>
 </div>

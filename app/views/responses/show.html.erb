@@ -4,16 +4,15 @@
   <b>Request:</b>
   <%= @response.request_id %>
 </p>
-
 <p>
   <b>Employee ID:</b>
   <%= @response.employee_id %>
 </p>
-
 <p>
   <b>Comment:</b>
   <%= @response.comment %>
 </p>
+
 <% if author? (response)%>
 <%= link_to 'Edit', edit_request_response_path(@request, response) %>
 <% end %>

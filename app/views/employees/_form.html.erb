@@ -14,7 +14,6 @@
   <%= f.file_field :image %>
   <%= f.input :skills, as: :check_boxes, :collection => ['PHP', 'MySQL', 'C#', 'Apache', 'Ruby on Rails', 'SQL Server', 'Linux'] %>
    <%= f.input :skills_interested_in, as: :check_boxes, :collection => ['PHP', 'MySQL', 'C#', 'Apache', 'Ruby on Rails', 'SQL Server', 'Linux'] %></br>
-  <%= f.input :password %>
   <%= f.error :base %>
   <%= f.button :submit %> 
   <%= f.submit 'Cancel' %>
