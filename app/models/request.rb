@@ -12,16 +12,20 @@ class Request < ActiveRecord::Base
     Response.where(:request_id => id)
   end
 
-
-  def project_status
+  def project_status 
     if end_date <= Date.today 
-      "expired"
+      "Closed, Completed"
+    elsif end_date <= Date.today 
+      "Expired"  
     elsif start_date <= Date.today 
-      "in progress"
+      "Open, In progress"
     elsif start_date >= Date.today 
-      "open"
+      "Open, Not Started"  
+    elsif start_date >= Date.today  
+      "Assigned"
     end
   end
-  
-end
 
+#need to add method or way to mark && assigned to the project status, perhaps after figure out 'assigned' link method
+
+end
