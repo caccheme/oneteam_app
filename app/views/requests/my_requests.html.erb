@@ -15,6 +15,7 @@
 <h1>Requests I've Posted:</h1><%= link_to "View Calendar", 'my_requests_calendar' %>
 
 <div id="requests">
+
 <% @requests.each do |request| %>
   <% if author? (request) %> 
   ----------------------------------------------------------------------------------------------------    
@@ -23,19 +24,25 @@
     Description: <%= request.description %></br>
       <%= link_to 'Edit', edit_request_path(request, @response) %>  |
       <%= link_to 'Delete', request, method: :delete, data: { confirm: 'Are you sure?' } %>  
-  </p>
-
+</p>
     <b>Applicants:</b></br>
     <% responses = request.get_responses %>
     <% responses.each do |response| %>
     <%= response.employee_name %>   |
     <%= link_to 'View Profile', employee_path(response.employee_id) %>  |
-    <%= link_to 'Select Developer', new_response_commission_path(response) %>
-    </p>
 
+      <% commissions = request.responses.get_commissions %>
+      <% commissions.each do |commission| %>
+        <% if request.response.commission %>
+          <%= "Selected" %>  
+        <% else %>       
+          <%= link_to 'Select Developer', new_response_commission_path(response) %>
+        <% end %>
+      <% end %>  
+</p>
     <% end %>
   <% end %>
-<% end %>  
+<% end %> 
 </div>
 
 </div>

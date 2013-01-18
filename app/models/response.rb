@@ -8,4 +8,8 @@ class Response < ActiveRecord::Base
 
   validates_presence_of :comment, :employee_id
 
+  def get_commissions
+    Commission.where(:response_id => id)
+  end
+
  end

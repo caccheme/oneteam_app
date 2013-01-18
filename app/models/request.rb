@@ -1,8 +1,8 @@
 class Request < ActiveRecord::Base
   attr_accessible :description, :status, :request_id, :start_date, :end_date, :employee_id, :title, :relevant_skills, :location, :group, :responses_attributes
 
-  has_many :responses
-  accepts_nested_attributes_for :responses, :allow_destroy => true
+  has_many :responses, :dependent => :destroy
+  accepts_nested_attributes_for :responses
   belongs_to :employee
 
   validates_presence_of :title, :description
@@ -11,6 +11,11 @@ class Request < ActiveRecord::Base
   def get_responses
     Response.where(:request_id => id)
   end
+
+  def get_commissions
+    Commission.where(:response_id => id)
+  end
+
 
   def project_status 
     if end_date <= Date.today 
