@@ -15,25 +15,24 @@
 
 <div id="requests">
 <% @requests.each do |request| %>
-----------------------------------------------------------------------------------------------------
-  <p><b><%= request.title %></b> <%= request.start_date %> to <%= request.end_date %> 
-  (Status: <%= request.project_status %>)</p>
-
-  Posted by: <%= Employee.find(request[:employee_id]).first_name %> <%= Employee.find(request[:employee_id]).last_name %> in <%= Employee.find(request[:employee_id]).location %> Office (Group: <%= Employee.find(request[:employee_id]).group %>)</br>
-    Description: <%= request.description %>
-    
-  <p><%= link_to 'Apply', new_request_response_path(request) %>
-
-
-    | <%= link_to 'Details', request %>
-    <% if author? (request) %>   | 
-      <%= link_to 'Edit Request', edit_request_path(request, @response) %>  |
-      <%= link_to 'Delete', request, method: :delete, data: { confirm: 'Are you sure?' } %>
+      ----------------------------------------------------------------------------------------------------
+  <p><b><%= request.title %></b> 
+        <%= request.start_date %> to <%= request.end_date %> (Status: <%= request.project_status %>)</p>
+        Posted by: <%= Employee.find(request[:employee_id]).first_name %> <%= Employee.find(request[:employee_id]).last_name %> in <%= Employee.find(request[:employee_id]).location %> Office (Group: <%= Employee.find(request[:employee_id]).group %>)</br>
+        Description: <%= request.description %>
   </p>
-    <% end %>
-    <p></p>
-<% end %>  
 
-</div>
+     <% responses = request.get_responses %>
+     <% responses.each do |response| %>
+        <% if response.employee_id == current_employee.id %>    
+           <%= "Applied" %>        
+        <% else %> 
+            <%= link_to "Apply", new_request_response_path(request) %> 
+        <% end %> 
+      <% end %>
+
+  <p></p>
+    
+<% end %>  
 
 </div>
