@@ -4,7 +4,6 @@
   <ul>
     <li id="selected"><%= link_to 'All Requests', requests_path%></li>
     <li><%= link_to "Requests I've Posted",  'my_requests' %></li>
-    <li><%= link_to 'Developer Assignments', commissions_path %></li>
     <li><%= link_to 'My Profile', employee_path(current_employee) %></li> 
   </ul>
 </div>
@@ -24,22 +23,19 @@
         Description: <%= request.description %>
   </p>
 
-<% if !@responses.nil? %>
-  <% @responses.each do |response| %>
-    <% if response.employee_id == current_employee.id %>
-    <% empstatus = 1 %>
-    Applied
-    <% end %>
-  <% end %>
-<% else %>
+
   <% if author? (request) %>
     You posted this request so you can't apply
-  <% else %>
+  <% elsif request.employee_id != current_employee.id %>
     <%= link_to "Apply", new_request_response_path(request) %>
+  <% elsif responses = request.get_responses %>
+    <% responses.each do |response| %>
+      <% if response.employee_id == current_employee.id %>
+        <%= "Applied" %>
+      <% end %>  
+    <% end %>
   <% end %>
 </br>
-<% end %>
 </br>
-<% end %> 
-
+<% end %>
 </div>
