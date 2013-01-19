@@ -13,9 +13,8 @@ class Request < ActiveRecord::Base
   end
 
   def get_commissions
-    Commission.where(:response_id => id)
+    Commission.where(:request_id => id)
   end
-
 
   def project_status 
     if end_date <= Date.today 

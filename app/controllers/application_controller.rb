@@ -5,13 +5,10 @@ class ApplicationController < ActionController::Base
   helper_method :owner?
   helper_method :assigner?
   helper_method :check_for_cancel
-  helper_method :get_commissions
 
 private
 
-  def get_commissions
-    Commission.where(:response_id => id)
-  end
+
 
 
   def check_for_cancel

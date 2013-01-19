@@ -17,6 +17,7 @@
 <div id="requests">
 
 <% @requests.each do |request| %>
+
   <% if author? (request) %> 
   ----------------------------------------------------------------------------------------------------    
   <p><h3><%= request.title %></h3> <%= request.start_date %> to <%= request.end_date %> (Status: <%= request.status %>)</p>
@@ -28,17 +29,16 @@
     <b>Applicants:</b></br>
     <% responses = request.get_responses %>
     <% responses.each do |response| %>
-    <%= response.employee_name %>   |
-    <%= link_to 'View Profile', employee_path(response.employee_id) %>  |
 
-      <% commissions = request.responses.get_commissions %>
+    <%= response.employee_name %>   |  <%= link_to 'View Profile', employee_path(response.employee_id) %>  |    
+        
+      <% commissions = request.get_commissions %>
       <% commissions.each do |commission| %>
-        <% if request.response.commission %>
-          <%= "Selected" %>  
-        <% else %>       
-          <%= link_to 'Select Developer', new_response_commission_path(response) %>
+        <% if commission.employee_id == response.employee_id %>
+          <%= "Selected" %>
+        <% else %>
         <% end %>
-      <% end %>  
+      <% end %>
 </p>
     <% end %>
   <% end %>
@@ -46,3 +46,5 @@
 </div>
 
 </div>
+
+<!--           <%= link_to "Select Developer", new_response_commission_path(response) %> -->
