@@ -16,28 +16,22 @@ class Request < ActiveRecord::Base
     Commission.where(:request_id => id)
   end
 
-  def selected? 
-    Response.find_by_id
-    Commission.find_by_id
-    if response[:employee_id].blank? == false && commission[:employee_id].blank? == false 
-      true
-    end
-  end
-
   def project_status 
     if end_date <= Date.today 
       "Closed, Completed"
     elsif end_date <= Date.today 
-      "Expired"  
+      "Expired"   
     elsif start_date <= Date.today 
       "Open, In progress"
     elsif start_date >= Date.today 
       "Open, Not Started"  
-    elsif start_date >= Date.today  
+    elsif start_date >= Date.today   
       "Assigned"
     end
+
+
   end
 
-#need to add method or way to mark && assigned to the project status, perhaps after figure out 'assigned' link method
+#need to add method or way to mark '&& condition' then 'assigned' to the project status, perhaps after figure out 'assigned' link method
 
 end

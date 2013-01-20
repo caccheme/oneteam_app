@@ -32,10 +32,10 @@
     <%= response.employee_name %>   |  
     <%= link_to 'View Profile', employee_path(response.employee_id) %>  |    
       <% commissions = request.get_commissions %>
-      <% if commissions %>
+      <% if commissions.blank? == false %>
         <% commissions.each do |commission| %>  
           <% if response.employee_id == commission.employee_id %>
-            <%= "selected" %> 
+            <%= "Selected" %> 
           <% end %>
         <% end %>  
       <% elsif response.blank? == false  %>
@@ -48,9 +48,3 @@
 </div>
 
 </div>
-
-
-
-<!--           <%= link_to "Select Developer", new_response_commission_path(response) %> 
-response && response[:commission].blank? %>
-          <%= link_to "Select Developer", new_response_commission_path(response) %>-->
