@@ -29,16 +29,18 @@
     <b>Applicants:</b></br>
     <% responses = request.get_responses %>
     <% responses.each do |response| %>
-
-    <%= response.employee_name %>   |  <%= link_to 'View Profile', employee_path(response.employee_id) %>  |    
-        
+    <%= response.employee_name %>   |  
+    <%= link_to 'View Profile', employee_path(response.employee_id) %>  |    
       <% commissions = request.get_commissions %>
-      <% commissions.each do |commission| %>
-        <% if commission.employee_id == response.employee_id %>
-          <%= "Selected" %>
-        <% else %>
-        <% end %>
-      <% end %>
+      <% if commissions %>
+        <% commissions.each do |commission| %>  
+          <% if response.employee_id == commission.employee_id %>
+            <%= "selected" %> 
+          <% end %>
+        <% end %>  
+      <% elsif response.blank? == false  %>
+        <%= link_to "Select Developer", new_response_commission_path(response) %>
+      <% end %>    
 </p>
     <% end %>
   <% end %>
@@ -47,4 +49,8 @@
 
 </div>
 
-<!--           <%= link_to "Select Developer", new_response_commission_path(response) %> -->
+
+
+<!--           <%= link_to "Select Developer", new_response_commission_path(response) %> 
+response && response[:commission].blank? %>
+          <%= link_to "Select Developer", new_response_commission_path(response) %>-->

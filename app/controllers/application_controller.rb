@@ -6,10 +6,8 @@ class ApplicationController < ActionController::Base
   helper_method :assigner?
   helper_method :check_for_cancel
 
+
 private
-
-
-
 
   def check_for_cancel
     session[:return_to] ||= request.referer
