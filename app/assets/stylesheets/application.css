@@ -216,3 +216,7 @@ table, td {
 	float:left;
 	padding: 3px;
 }
+
+.textarea {
+	height: 100px;
+}

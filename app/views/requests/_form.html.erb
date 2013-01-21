@@ -1,12 +1,12 @@
 <%= simple_form_for(@request) do |f| %>
   <%= f.error_notification %>
   <%= f.input :title %>
-  <%= f.input :description, as: :text %>
+  <%= f.input :description, as: :text, :input_html => { :class => 'textarea'}  %>
   <%= f.input :start_date, as: :string %>
   <%= f.input :end_date, as: :string %>
   <%= f.input :group, :collection => ['Development', 'Strategy', 'Management'] %>
-  <%= f.input :location, :collection => ['Boston', 'Chicago', 'Los Angeles', 'Bentonville', 'Ontario', 'Tokyo', 'London', 'Paris'] %>
-  <%= f.input :relevant_skills, as: :check_boxes, :collection => ['PHP', 'MySQL', 'C#', 'Apache', 'Ruby on Rails', 'SQL Server', 'Linux'] %>
+  <%= f.input :location, :collection => ['Boston', 'Chicago', 'Los Angeles', 'Bentonville', 'Ontario', 'Tokyo', 'London', 'Paris'], :wrapper_html => { :class => 'inline' }  %>
+  <%= f.input :relevant_skills, as: :check_boxes, :collection => ['PHP', 'MySQL', 'C#', 'Apache', 'Ruby on Rails', 'SQL Server', 'Linux'], :wrapper_html => { :class => 'inline' }  %>
   <%= f.hidden_field :employee_id, :value => current_employee.id %>
   <%= f.hidden_field :status, :value => 'open' %>
   <%= f.error :base %>
