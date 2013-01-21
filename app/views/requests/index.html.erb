@@ -22,19 +22,25 @@
         Posted by: <%= request.employee.first_name %> <%= request.employee.last_name %> in <%= request.employee.location %> Office (Group: <%= request.employee.group %>)</br>
         Description: <%= request.description %>
   </p>
+  
 
-
+  
+<% applied = 0 %>
   <% if author? (request) %>
-    You posted this request
-  <% elsif request.employee_id != current_employee.id %>
-    <%= link_to "Apply", new_request_response_path(request) %>
-  <% elsif responses = request.get_responses %>
-    <% responses.each do |response| %>
+    <%= "You posted this request." %>
+  <% else %>
+    <% responses = request.get_responses %>
+    <% responses.each do |response| %>     
       <% if response.employee_id == current_employee.id %>
         <%= "Applied" %>
+        <% applied = 1 %>
       <% end %>
     <% end %>
+    <% if applied == 0 %>
+      <%= link_to "Apply", new_request_response_path(request) %>
+    <% end %>
   <% end %>
+
 </br>
 </br>
 <% end %>
