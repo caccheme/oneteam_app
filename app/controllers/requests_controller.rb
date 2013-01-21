@@ -4,7 +4,7 @@ class RequestsController < ApplicationController
  before_filter :check_for_cancel, :only => [:create, :update]
 
   def my_requests
-    @requests = Request.order(:id).page(params[:page])
+    @requests = Request.order(:id).page(params[:page]).per(5)
   end
 
   def requests_calendar

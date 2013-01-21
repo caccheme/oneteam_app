@@ -12,11 +12,11 @@
 
 <h1>All Requests</h1><%= link_to "View Calendar", 'requests_calendar' %>
 
+
+
 <div id="requests">
 <% @requests.each do |request| %>
       ----------------------------------------------------------------------------------------------------
-
-<% empstatus = 0 %>
   <p><b><%= request.title %></b>
         <%= request.start_date %> to <%= request.end_date %> (Status: <%= request.status %>)</p>
         Posted by: <%= request.employee.first_name %> <%= request.employee.last_name %> in <%= request.employee.location %> Office (Group: <%= request.employee.group %>)</br>
@@ -24,7 +24,6 @@
   </p>
     
 <% applied = 0 %>
-
 <% commissions = request.get_commissions %>
 <% if commissions.blank? == false %>
   <%= "Developer already selected" %> 
@@ -44,8 +43,6 @@
     <% end %>
   <% end %>
 <% end %>
-
-
 
 </br>
 </br>
