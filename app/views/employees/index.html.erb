@@ -24,7 +24,6 @@
 <% @employees.each do |employee| %>
   <tr>
     <td><%= image_tag employee.image_url, :height => 25 %></td>
-
     <td><%= employee.id %></td>
     <td><%= employee.first_name %> <%= employee.last_name %></td>
     <td><%= employee.email %></td>
