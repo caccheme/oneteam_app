@@ -16,52 +16,34 @@
 <%= image_tag @employee.image_url, :height => 100 %>
 
 </div>
-<p>
-  <b>Name:</b>
-  <%= @employee.first_name %> <%= @employee.last_name %>
-</p>
-<p>
-  <b>Employee ID:</b>
-  <%= @employee.id %>
-</p>
-<p>
-  <b>Email:</b>
-  <%= @employee.email %>
-</p>
-<p>
-  <b>Description:</b>
-  <%= @employee.description %>
-</p>
-<p>
-  <b>Years with company:</b>
-  <%= @employee.years_with_company %>
-</p>
-<p>
-  <b>Manager:</b>
-  <%= @employee.manager %>
-</p>
-<p>
-  <b>Position:</b>
-  <%= @employee.position %>
-</p>
-<p>
-  <b>Department:</b>
-  <%= @employee.department %>
-</p>
-<p>
-  <b>Group:</b>
-  <%= @employee.group %>
-</p>
-<p>
-  <b>Location:</b>
-  <%= @employee.location %>
-</p>
-<p>
-  <b>Skills:</b>
-  <%= @employee.skills %>
-</p>
-<p>
-  <b>Skills interested in:</b>
-  <%= @employee.skills_interested_in %>
-</p>
+<div id = "profile">
+<ul>
+  <li>First Name: <%= @employee.first_name %></li>
+  <li>Last Name: <%= @employee.last_name %></li>
+  <li>Email: <%= @employee.email %></li>
+  <li>Office: <%= @employee.location %></li>
+  <li>Department: <%= @employee.department %></li>
+  <li>Group: <%= @employee.group %></li>
+  <li>Job Title: <%= @employee.position %></li>
+  <li>Immediate Supervisor: <%= @employee.manager %></li>
+  <li>Years with Company: <%= @employee.years_with_company %></li>
+</ul>
+
+<ul>
+  <li>Current Skills: <%= @employee.skills %></li>
+  <li>Desired Skills: <%= @employee.skills_interested_in %></li>
+</ul>
+
+<ul>
+  <li>Short Description about <%= @employee.first_name %>: <%= @employee.description %></li>
+</ul>
+
+<ul>
+  <li>Projects I've Worked on:</li>
+  <li>code to list projects  </li>
+  <li>Request Title: Start date to End Date (Status)  </li>
+  <li>Request Description:   </li>
+</ul> 
+
+</div>
 </div>

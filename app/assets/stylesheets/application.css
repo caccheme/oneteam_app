@@ -140,6 +140,8 @@ table, td {
 #profile_pic {
 	margin-right: 30px;
 	margin-top:15px;
+	float:left;
+	height: 1500px;
 }
 
 #tabs ul {
@@ -177,6 +179,15 @@ table, td {
 #mainContent #field ul li {
 	display: inline;
 }
+
+#mainContent #profile {
+	margin-top: 25px;
+}
+
+#mainContent #profile ul li {
+	list-style: none;
+}
+
 
 #requests {
 	margin-left:20px;
