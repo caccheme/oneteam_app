@@ -22,10 +22,13 @@
         Posted by: <%= request.employee.first_name %> <%= request.employee.last_name %> in <%= request.employee.location %> Office (Group: <%= request.employee.group %>)</br>
         Description: <%= request.description %>
   </p>
-  
-
-  
+    
 <% applied = 0 %>
+
+<% commissions = request.get_commissions %>
+<% if commissions.blank? == false %>
+  <%= "Developer already selected" %> 
+<% else %>
   <% if author? (request) %>
     <%= "You posted this request." %>
   <% else %>
@@ -40,6 +43,9 @@
       <%= link_to "Apply", new_request_response_path(request) %>
     <% end %>
   <% end %>
+<% end %>
+
+
 
 </br>
 </br>
