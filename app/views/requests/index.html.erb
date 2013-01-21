@@ -26,20 +26,20 @@
 <% applied = 0 %>
 <% commissions = request.get_commissions %>
 <% if commissions.blank? == false %>
-  <%= "Developer already selected" %> 
+  <div id = "note"><%= "Developer already selected" %></div> 
 <% else %>
   <% if author? (request) %>
-    <%= "You posted this request." %>
+    <div id = "note"><%= "You posted this request." %></div>
   <% else %>
     <% responses = request.get_responses %>
     <% responses.each do |response| %>     
       <% if response.employee_id == current_employee.id %>
-        <%= "Applied" %>
+        <div id = "no-click-button" ><%= "Applied" %></div>
         <% applied = 1 %>
       <% end %>
     <% end %>
     <% if applied == 0 %>
-      <%= link_to "Apply", new_request_response_path(request) %>
+      <div id = "button"><%= link_to "Apply", new_request_response_path(request) %></div>
     <% end %>
   <% end %>
 <% end %>

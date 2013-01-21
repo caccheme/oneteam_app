@@ -178,20 +178,41 @@ table, td {
 	display: inline;
 }
 
-/*
-#button {
-	background-color: #E0E0D1;
-	border:1px solid #cccccf;
-	border-radius: 5px;
-	box-shadow: 2px 2px gray;
-}
 
-#button a {
-	text-decoration: none;
-	font-color:black;
-}
-*/
+
 
 #requests {
 	margin-left:20px;
+}
+
+#note {
+	font-style: italic;
+	float: left;
+	color: #7A7A52;
+}
+
+#button {
+	background-color: #E0E0D1;
+	border:1px solid 	#2E2E1F;
+	border-radius: 5px;
+	box-shadow: 2px 2px gray;
+	float:left;
+	padding: 3px;
+}
+
+#button a {
+	font-weight:bold;
+	text-decoration: none;
+	font-color:black;
+}
+
+#no-click-button {	
+	font-style: italic;
+	background-color: #E0E0D1;
+	color: 	#7A7A52;
+	background-color: #E0E0D1;
+	border: 1px solid #ADAD85;
+	border-radius: 5px;
+	float:left;
+	padding: 3px;
 }
