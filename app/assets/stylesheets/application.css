@@ -178,9 +178,6 @@ table, td {
 	display: inline;
 }
 
-
-
-
 #requests {
 	margin-left:20px;
 }
@@ -220,3 +217,9 @@ table, td {
 .textarea {
 	height: 100px;
 }
+
+.inline {
+  display: inline;
+  float: left;
+}
+
