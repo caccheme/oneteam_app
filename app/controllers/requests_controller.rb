@@ -5,7 +5,7 @@ class RequestsController < ApplicationController
 
 
   def my_requests
-    @requests = Request.order(:id).page(params[:page]).per(3)
+    @requests = Request.order(:id).page(params[:page]).per(5)
   end
 
   def requests_calendar

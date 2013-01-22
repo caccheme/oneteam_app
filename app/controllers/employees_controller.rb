@@ -4,6 +4,8 @@ before_filter :signed_in_employee, only: [:edit, :update, :index]
 before_filter :current_employee
 before_filter :check_for_cancel, :only => [:create, :update]
 
+
+
   def index
     @employees = Employee.order(:id).page(params[:page]).per(10)
     respond_with(@employees) 
@@ -11,6 +13,7 @@ before_filter :check_for_cancel, :only => [:create, :update]
 
   def show
     @employee = Employee.find(params[:id])
+    @commissions = Commission.all
 
     respond_to do |format|
       format.html # show.html.erb
@@ -61,11 +64,11 @@ before_filter :check_for_cancel, :only => [:create, :update]
     @employee = Employee.find(params[:id])
     @skills = Skill.all
  
-    @employee.current_skills = params[:current_skills].to_a
-    @employee.current_skills = @employee.skills.join(", ")
+    @employee.current_skills = params[:current_skills]
+    @employee.current_skills = @employee.skills
  
-    @employee.skills_interested_in = params[:skills_interested_in].to_a
-    @employee.skills_interested_in = @employee.skills_interested_in.join(", ")
+    @employee.skills_interested_in = params[:skills_interested_in]
+    @employee.skills_interested_in = @employee.skills_interested_in
 
     respond_to do |format|
       if @employee.update_attributes(params[:employee])

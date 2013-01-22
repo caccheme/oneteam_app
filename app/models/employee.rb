@@ -2,12 +2,14 @@ class Employee < ActiveRecord::Base
   has_secure_password
 
   attr_protected :password_salt, :password_hash 
-  attr_accessible :employee_id, :password, :password_confirmation, :department, :email, :group, :location, :manager, :first_name, :last_name, :description, :position, :current_skills, :skills_interested_in, :years_with_company, :image, :requests_attributes, :responses_attributes
+  attr_accessible :employee_id, :password, :password_confirmation, :department, :email, :group, :location, :manager, :first_name, :last_name, :description, :position, :current_skills, :skills_interested_in, :years_with_company, :image
 
   before_save :encrypt_password
 
-  has_many :requests
-  has_many :responses
+  has_many :requests, dependent: :destroy
+  belongs_to :request
+  has_many :responses, :through => :requests
+  has_many :commissions, :through => :responses
   has_and_belongs_to_many :skills
   belongs_to :skills
 

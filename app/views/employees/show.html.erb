@@ -4,14 +4,14 @@
   <ul>
     <li><%= link_to 'All Requests', requests_path%></li>
     <li><%= link_to "Requests I've Posted",  _my_requests_path %></li>
-    <li id="selected"><%= link_to 'My Profile', employee_path(current_employee) %></li>
+    <li id="selected"><%= link_to 'Profile', employee_path(current_employee) %></li>
   </ul>
 </div>
 
 <div id="innercontainer">
 
 <div id="profile_pic">
-  <%= link_to 'Update My Profile', edit_employee_path(current_employee) %> </br>
+  <%= link_to 'Update Profile', edit_employee_path(current_employee) %> </br>
 
 <%= image_tag @employee.image_url, :height => 100 %>
 
@@ -32,18 +32,20 @@
 <ul>
   <li>Current Skills: <%= @employee.skills %></li>
   <li>Desired Skills: <%= @employee.skills_interested_in %></li>
-</ul>
-
-<ul>
+  <li></br></li>
   <li>Short Description about <%= @employee.first_name %>: <%= @employee.description %></li>
-</ul>
+</ul>  </br>
 
 <ul>
-  <li>Projects I've Worked on:</li>
-  <li>code to list projects  </li>
-  <li>Request Title: Start date to End Date (Status)  </li>
-  <li>Request Description:   </li>
-</ul> 
-
+  <li>Projects I've Worked on:</li>  
+  <li></br></li>
+<% @commissions.each do |commission| %>
+  <% if commission.employee_id == current_employee.id %>
+    <li><%= Request.find(commission.request_id).title %>: <%= Request.find(commission.request_id).start_date %> to <%= Request.find(commission.request_id).end_date %> (<%= Request.find(commission.request_id).project_status %>)</li>
+    <li><%= Request.find(commission.request_id).description %></li>
+      <%= image_tag "divider-line-2.jpg" %></br>            
+  <% end %>
+<% end %>
+</ul>
 </div>
 </div>
