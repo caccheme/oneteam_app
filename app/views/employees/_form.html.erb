@@ -1,18 +1,42 @@
+<%= hidden_field_tag "employee[skill][]", "" %>
+<%= hidden_field_tag "employee[skills_interested_in][]", "" %>
+
 <%= simple_form_for(@employee) do |f| %>
   <%= f.error_notification %>
-  <%= f.input :first_name %>
-  <%= f.input :last_name %>
-  <%= f.input :email %>
-  <%= f.input :location, label: 'Office', :collection => ['Boston', 'Chicago', 'Los Angeles', 'Bentonville', 'Ontario', 'Tokyo', 'London', 'Paris'] %>
-  <%= f.input :group, :collection => ['Development', 'Strategy', 'Management'] %>
-  <%= f.input :position, label: 'Job title' %>
+  <%= f.input :first_name, :wrapper_html => { :class => "inline", :id => "text"} %>
+  <%= f.input :last_name, :wrapper_html => { :class => "inline", :id => "text"} %></br>
+  <%= f.input :email, :wrapper_html => { :class => "inline"}, :input_html => { :class => "text"} %>
+  <%= f.input :location, label: 'Office', :collection => ['NY', 'IL', 'AR', 'TX', 'JPN', 'UK', 'FR'], :wrapper_html => { :class => "inline"} %>
+  <%= f.input :department, label: 'Department', :collection => ['IT', 'HR'] %>
+  <%= f.input :group, :collection => ['Dev.', 'Str', 'Res.'], :wrapper_html => { :class => "inline"} %>
+  <%= f.input :position, label: 'Job title', :wrapper_html => { :class => "inline"} %>
   <%= f.input :manager, label: 'Direct Supervisor' %></br>
-  <%= f.input :years_with_company %></br>
-  <%= f.input :description, as: :text, label: 'Describe yourself in a few words' %>
+  <%= f.input :years_with_company, :input_html => { :cols => 2 }  %></br>
+  <%= f.input :description, as: :text, label: 'Describe yourself in a few words', :input_html => { :class => 'textarea'} %>
   <%= image_tag @employee.image_url, :height => 100 %>
   <%= f.file_field :image %>
-  <%= f.input :skills, as: :check_boxes, :collection => ['PHP', 'MySQL', 'C#', 'Apache', 'Ruby on Rails', 'SQL Server', 'Linux'] %>
-   <%= f.input :skills_interested_in, as: :check_boxes, :collection => ['PHP', 'MySQL', 'C#', 'Apache', 'Ruby on Rails', 'SQL Server', 'Linux'] %></br>
+  <div id = "label">
+  <ul><%= f.label :current_skills %>
+  </div>
+    <% @skills.each do |skill| %>
+     <div id = "chkbx" >
+      <li><%= check_box_tag "current_skill[]", skill.language %>
+      <%= skill.language %></li>
+    </div>
+    <% end %>
+  </ul>
+
+  <div id = "label" >
+  <ul><%= f.label :skills_interested_in %>
+  </div>
+    <% @skills.each do |skill| %>
+     <div id = "chkbx" >
+      <li><%= check_box_tag "skills_interested_in[]", skill.language %>
+      <%= skill.language %></li>
+    </div>
+    <% end %>
+  </ul>
+</br>
   <%= f.error :base %>
   <%= f.button :submit %> 
   <%= f.submit 'Cancel' %>

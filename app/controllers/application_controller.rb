@@ -4,10 +4,13 @@ class ApplicationController < ActionController::Base
   helper_method :author?
   helper_method :owner?
   helper_method :assigner?
-  helper_method :check_for_cancel
-
+  helper_method :check_for_cancel, :current_date
 
 private
+
+  def current_date
+    DateTime.now
+  end
 
   def check_for_cancel
     session[:return_to] ||= request.referer

@@ -234,3 +234,16 @@ table, td {
   float: left;
 }
 
+.text {
+	length: 25px;
+}
+
+#chkbx {
+	list-style: none;
+	margin-left:125px;
+	padding-bottom: 5px;
+}
+
+#label {
+	margin-left: -40px;
+}

@@ -15,6 +15,7 @@
 
 
 <div id="requests">
+<%= paginate @requests %>
 <% @requests.each do |request| %>
     <%= image_tag "divider-line.jpg" %>
   <p><b><%= request.title %></b>

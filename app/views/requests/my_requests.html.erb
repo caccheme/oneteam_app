@@ -15,7 +15,7 @@
 <h1>Requests I've Posted:</h1><%= link_to "View Calendar", 'my_requests_calendar' %>
 
 <div id="requests">
-
+<%= paginate @requests %>
 <% @requests.each do |request| %>
 
   <% if author? (request) %> 
@@ -25,6 +25,7 @@
     Description: <%= request.description %></br>
       <% commissions = request.get_commissions %>
       <% if commissions.blank? %>
+        <%= link_to 'Edit', edit_request_path(request, @response) %>  |
         <%= "Active" %>  |
         <%= link_to 'Cancel', request, method: :delete, data: { confirm: 'Are you sure?' } %>  
       <% end %>      

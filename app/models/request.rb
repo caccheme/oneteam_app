@@ -5,6 +5,9 @@ class Request < ActiveRecord::Base
   accepts_nested_attributes_for :responses
   belongs_to :employee
 
+  has_and_belongs_to_many :skills
+  belongs_to :skills
+
   validates_presence_of :title, :description
   validates :description, :length => { :in => 5..200 }
 
