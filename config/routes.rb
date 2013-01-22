@@ -1,6 +1,4 @@
 OneteamApp::Application.routes.draw do
-  resources :skills
-
 
   get "calendars/index"
 
@@ -30,6 +28,5 @@ OneteamApp::Application.routes.draw do
   resources :requests
   resources :responses
   resources :password_resets
-  resources :skills
 
 end

@@ -1,7 +1,8 @@
-<%= hidden_field_tag "employee[current_skills][]", "" %>
-<%= hidden_field_tag "employee[skills_interested_in][]", "" %>
+
 
 <%= simple_form_for(@request) do |f| %>
+<%= hidden_field_tag "employee[current_skills][]", "" %>
+<%= hidden_field_tag "employee[skills_interested_in][]", "" %>
   <%= f.error_notification %>
   <%= f.input :title %>
   <%= f.input :description, as: :text, :input_html => { :class => 'textarea'}  %>
