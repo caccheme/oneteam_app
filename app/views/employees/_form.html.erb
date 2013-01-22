@@ -12,9 +12,8 @@
   <%= f.input :description, as: :text, label: 'Describe yourself in a few words', :input_html => { :class => 'textarea'} %>
   <%= image_tag @employee.image_url, :height => 100 %>
   <%= f.file_field :image %>
-  <%= f.association :requests, as: :check_boxes %>
-  <%= f.input :skills, :collection => ["PHP", "MySQL", "C#", "Apache", "Ruby on Rails"], as: :check_boxes %>
-
+  <%= f.input :skills, label: 'Current skills', :collection => ["PHP", "MySQL", "C#", "Apache", "Ruby on Rails", "SQL Server", "Linux"], as: :check_boxes %>
+  <%= f.input :skills, label: 'Desired skills', :collection => ["PHP", "MySQL", "C#", "Apache", "Ruby on Rails", "SQL Server", "Linux"], as: :check_boxes %>
   <%= f.error :base %>
   <%= f.button :submit %> 
   <%= f.submit 'Cancel' %>

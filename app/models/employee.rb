@@ -8,16 +8,12 @@ class Employee < ActiveRecord::Base
   has_many :requests, dependent: :destroy
   belongs_to :request
 
-  has_many :skills, dependent: :destroy
-  
-
   has_many :responses, :through => :requests
   has_many :commissions, :through => :responses
   
 
   accepts_nested_attributes_for :requests
   accepts_nested_attributes_for :responses
-  accepts_nested_attributes_for :skills
 
   mount_uploader :image, ImageUploader
   
