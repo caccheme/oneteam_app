@@ -48,6 +48,7 @@ before_filter :check_for_cancel, :only => [:create, :update]
 
   def create
     @employee = Employee.new(params[:employee])
+    @skills = Skill.all
      
     if @employee.save
       flash[:notice] = "Successfully created account profile."

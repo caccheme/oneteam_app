@@ -5,7 +5,6 @@
   <% if @employee.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@employee.errors.count, "error") %> prohibited this employee from being saved:</h2>
-
       <ul>
       <% @employee.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
@@ -13,8 +12,8 @@
       </ul>
     </div>
   <% end %>
-<div class="editprofile">
- 
+
+
   <div class="field">
     <%= f.label :first_name %>
     <%= f.text_field :first_name %>
@@ -73,8 +72,6 @@
     <%= f.select :years_with_company, ['1', '2', '3', '4', '5', '6', '7', '8', '9'] %>
   </div>
  </div>
- 
-
      
 <div class="ninefld">
   <div class="field">
@@ -83,9 +80,9 @@
   </div>
 </div>
 <div class="grfield">
- <%= gravatar_for @employee %>
-    <a href="http://gravatar.com/emails">Upload
-      Photo</a>
+  <%= "Current Image:" %></br>
+  <%= image_tag @employee.image_url, :height => 80 %>
+   <%= f.file_field :image %></br>
 </div>
     
   <div class="seventhfld">
@@ -124,5 +121,5 @@
 <div class="cancelfld">
 <%= link_to "Cancel", employee_path(current_employee) %>
 </div>
-</div>
+
 <% end %>

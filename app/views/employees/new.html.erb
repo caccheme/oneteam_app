@@ -6,15 +6,51 @@
 <%= hidden_field_tag "employee[current_skills][]", "" %>
 <%= hidden_field_tag "employee[skills_interested_in][]", "" %>
 
-<%= simple_form_for @employee do |f| %>
-  <%= f.input :first_name %>
-  <%= f.input :last_name %>
-  <%= f.input :email %>
-  <%= f.input :password, hint: 'at least 5 characters' %>
-  <%= f.input :password_confirmation %>
-  <%= f.submit 'Create my OneTeam Account' %> 
-  <%= f.submit 'Cancel' %>
-  <p></p>
+<%= form_for(@employee) do |f| %>  
+  <div class="field">
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name %>
+  </div>
+  <div class="lnfield">
+  <div class="field">
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name %>
+  </div>
+  </div>
+  <div class="newfirst">
+    <div class="field">
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+    </div>
+  </div>
+  <div class="passfld">
+    <div class="field">
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+    </div>
+  </div>
+ <div class="newsecond">
+      <div class="field">
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation %>
+      </div>
+    <div class="currsk">
+    <div class="field">
+      <%= f.hidden_field :current_skills, :value => "" %> 
+    </div>
+  </div>
+  <div class="skint">
+    <div class="field">
+      <%= f.hidden_field :skills_interested_in, :value => "" %>
+    </div>
+  </div>
+</div>
+ 
+<div class="newsub">
+ <div class="actions">
+    <%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
+  </div>
+</div>
 <% end %>
 
 </div>
