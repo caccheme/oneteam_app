@@ -1,0 +1,68 @@
+<p id="notice"><%= notice %></p>
+
+<div id="tabs"> 
+  <ul>
+    <li><%= link_to 'All Requests', requests_path%></li>
+    <li id="selected"><%= link_to "Cancel My Request" %></li>
+    <li><%= link_to 'My Profile', employee_path(current_employee) %></li>     
+  </ul>
+</div>
+
+<div id="innercontainer">
+
+<div id="question">
+	<p>Are you sure you want to cancel this request?</p>
+</div>
+
+<p>
+  <b>Request ID:</b> <%= @request.id %>
+</p>
+<p>
+  <b>Request Created By:</b> <%= Employee.find_by_id(@request.employee_id).first_name %> <%= Employee.find_by_id(@request.employee_id).last_name %>
+</p>
+<p>
+  <b>Group:</b> <%= @request.group %>
+</p>
+<p>
+  <b>Office:</b> <%= @request.location %>
+</p>
+<p>
+  <b>Request Title:</b> <%= @request.title %>
+</p>
+<p>
+  <b>Description:</b> <%= @request.description %>
+</p>
+<p>
+  <b>Start Date:</b> <%= @request.start_date %>
+</p>
+<p>
+  <b>End Date:</b> <%= @request.end_date %>
+</p>
+<p>
+  <b>Relevant Skills:</b> <%= @request.relevant_skills %>
+</p>
+
+<%= form_for(@request) do |f| %>
+  <% if @request.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@request.errors.count, "error") %> prohibited this request from being saved:</h2>
+
+      <ul>
+      <% @request.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.hidden_field :status, :value => 'cancelled' %>
+
+  <div class="actions">
+    <%= f.submit 'Cancel Request' %>
+  </div>
+<% end %>
+<p></p>
+
+</br>
+
+</div>

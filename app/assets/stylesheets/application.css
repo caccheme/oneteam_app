@@ -176,7 +176,7 @@ table, td {
 	border-bottom: 15px solid white;
 }
 
-#mainContent #field ul li {
+#mainContent .field ul li {
 	display: inline;
 }
 
@@ -265,4 +265,9 @@ table, td {
       margin-left: 120px;
       padding-top: 5px;
       padding-left: 5px;
+}
+
+#question {
+	font-style: italic;
+	color:red;
 }

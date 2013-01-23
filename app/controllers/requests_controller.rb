@@ -3,6 +3,14 @@ class RequestsController < ApplicationController
  before_filter :signed_in_employee
  before_filter :check_for_cancel, :only => [:create, :update]
 
+  def cancel_request
+    @request = Request.find_by_employee_id(current_employee)
+
+    project_status = "CANCELLED"
+    @request.save
+
+    respond_with(@my_requests)
+  end
 
   def my_requests
     @requests = Request.find_all_by_employee_id(current_employee)
@@ -26,7 +34,7 @@ class RequestsController < ApplicationController
 
   def show
     @request = Request.find(params[:id])
-    
+
     respond_with(@request)
   end
 
@@ -71,7 +79,10 @@ class RequestsController < ApplicationController
     @request.relevant_skills = params[:relevant_skills].to_a
     @request.relevant_skills = @request.relevant_skills.join(", ")
 
-    if @request.update_attributes(params[:request])
+    if @request.update_attributes(params[:status])
+     flash[:success] = "Request cancelled"
+     redirect_to _my_requests_path
+    elsif @request.update_attributes(params[:request])
      flash[:success] = "Request updated"
      redirect_to @request
     else

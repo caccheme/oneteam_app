@@ -48,14 +48,6 @@
     <%= f.text_field :end_date %>
   </div>
 
-  <%= f.label :relevant_skills %>
-     <% @skills.each do |skill| %>
-     <div class = "inbox">
-       <%= check_box_tag "relevant_skills[]", @request.relevant_skills %>
-       <%= skill.language %>
-      </div> 
-     <% end %>
-  
  <div class="field">
     <%= f.label :group %><br />
     <%= f.select :group, ['Development', 'Strategy'] %>
@@ -64,6 +56,15 @@
     <%= f.label :location, "Office" %><br />
     <%= f.select :location, ['NY', 'AR', 'IL', 'UK', 'CA'] %>
   </div>
+  
+  <%= f.label :relevant_skills %>
+     <% @skills.each do |skill| %>
+     <div class = "inbox">
+       <%= check_box_tag "relevant_skills[]", skill.language, @request.relevant_skills %>
+       <%= skill.language %>
+      </div> 
+     <% end %>
+  
   <div class="field">
   <div class="actions">
     <%= f.submit %>

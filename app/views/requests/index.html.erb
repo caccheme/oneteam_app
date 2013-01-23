@@ -23,10 +23,13 @@
   </p>
     
 <% applied = 0 %>
+<% if request.status == 'cancelled' %>
+  <div id = "note"><%= "Cancelled" %></div>
+<% else %>  
 <% commissions = request.get_commissions %>
-<% if commissions.blank? == false %>
+ <% if commissions.blank? == false %>
   <div id = "note"><%= "Developer already selected" %></div> 
-<% else %>
+ <% else %>
   <% if author? (request) %>
     <div id = "note"><%= "You posted this request." %></div>
   <% else %>
@@ -41,8 +44,8 @@
       <div id = "button"><%= link_to "Apply", new_request_response_path(request) %></div>
     <% end %>
   <% end %>
+ <% end %>
 <% end %>
-
 </br>
 </br>
 <% end %>
