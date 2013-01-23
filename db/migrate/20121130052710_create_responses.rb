@@ -4,6 +4,7 @@ class CreateResponses < ActiveRecord::Migration
       t.integer :request_id
       t.integer :employee_id
       t.string :comment
+      t.string :employee_name
 
       t.timestamps
     end

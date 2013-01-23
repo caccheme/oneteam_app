@@ -15,7 +15,7 @@
   <%= image_tag @employee.image_url, :height => 80 %>
   <%= f.file_field :image %></br>
 
-  <%= f.input :current_skills, :collection => ['PHP', 'MySQL', 'C#', 'Apache', 'Ruby on Rails', 'SQL Server', 'Linux'], as: :check_boxes %>
+  <%= f.input :current_skills, :collection => ['PHP', 'MySQL', 'C#', 'Apache', 'Ruby on Rails', 'SQL Server', 'Linux'], as: :check_boxes, :input_html => { :values => [@employee.current_skills] } %>
   <%= f.input :desired_skills, :collection => ['PHP', 'MySQL', 'C#', 'Apache', 'Ruby on Rails', 'SQL Server', 'Linux'], as: :check_boxes %>
   <%= f.error :base %>
   <%= f.button :submit %> 

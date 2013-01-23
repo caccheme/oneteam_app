@@ -5,6 +5,7 @@ class CreateCommissions < ActiveRecord::Migration
       t.integer :employee_id
       t.string :comment
       t.integer :request_id
+      t.string :name
 
       t.timestamps
     end
