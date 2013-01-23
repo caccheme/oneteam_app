@@ -15,10 +15,8 @@
 <h1>Requests I've Posted:</h1><%= link_to "View Calendar", 'my_requests_calendar' %>
 
 <div id="requests">
-<%= paginate @requests %>
 <% @requests.each do |request| %>
 
-  <% if author? (request) %> 
   <%= image_tag "divider-line.jpg" %>
   <p><h3><%= request.title %></h3> <%= request.start_date %> to <%= request.end_date %> (Status: <%= request.status %>)</p>
    Posted by: <%= Employee.find(request[:employee_id]).first_name %> <%= Employee.find(request[:employee_id]).last_name %> in <%= Employee.find(request[:employee_id]).location %> Office (Group: <%= Employee.find(request[:employee_id]).group %>)</br>
@@ -49,7 +47,6 @@
 </p>
     <% end %>
   <% end %>
-<% end %> 
 </div>
 
 </div>

@@ -1,5 +1,5 @@
 class Request < ActiveRecord::Base
-  attr_accessible :description, :status, :request_id, :start_date, :end_date, :employee_id, :title, :relevant_skills, :location, :group, :responses_attributes
+  attr_accessible :description, :status, :request_id, :start_date, :end_date, :employee_id, :title, :relevant_skills, :location, :group, :responses_attributes, :required_skills
 
   has_many :responses, :dependent => :destroy
   accepts_nested_attributes_for :responses, :allow_destroy => true

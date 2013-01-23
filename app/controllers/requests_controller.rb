@@ -5,7 +5,7 @@ class RequestsController < ApplicationController
 
 
   def my_requests
-    @requests = Request.order(:id).page(params[:page]).per(5)
+    @requests = Request.find_all_by_employee_id(current_employee)
   end
 
   def requests_calendar
@@ -31,7 +31,6 @@ class RequestsController < ApplicationController
 
   def new
     @request = Request.new
-    @skills = Skill.all
 
     respond_with(@request)
   end
@@ -45,7 +44,6 @@ class RequestsController < ApplicationController
     @request = Request.new(params[:request])
     @request.relevant_skills = params[:relevant_skills].to_a
     @request.relevant_skills = @request.relevant_skills.join(", ")
-    @skill = Skill.all
 
     respond_to do |format|
       if @request.save

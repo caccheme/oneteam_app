@@ -1,7 +1,7 @@
 <%= simple_form_for(@employee) do |f| %>
   <%= f.error_notification %>
-  <%= f.input :first_name, :wrapper_html => { :class => "inline", :id => "text"} %>
-  <%= f.input :last_name, :wrapper_html => { :class => "inline", :id => "text"} %></br>
+  <%= f.input :first_name, :wrapper_html => { :class => "inline" } %>
+  <%= f.input :last_name, :wrapper_html => { :class => "inline" } %></br>
   <%= f.input :email, :wrapper_html => { :class => "inline"}, :input_html => { :class => "text"} %>
   <%= f.input :location, label: 'Office', :collection => ['NY', 'IL', 'AR', 'TX', 'JPN', 'UK', 'FR'], :wrapper_html => { :class => "inline"} %>
   <%= f.input :department, label: 'Department', :collection => ['IT', 'HR'] %>
@@ -10,10 +10,13 @@
   <%= f.input :manager, label: 'Direct Supervisor' %></br>
   <%= f.input :years_with_company, :input_html => { :cols => 2 }  %></br>
   <%= f.input :description, as: :text, label: 'Describe yourself in a few words', :input_html => { :class => 'textarea'} %>
-  <%= image_tag @employee.image_url, :height => 100 %>
-  <%= f.file_field :image %>
-  <%= f.input :skills, label: 'Current skills', :collection => ["PHP", "MySQL", "C#", "Apache", "Ruby on Rails", "SQL Server", "Linux"], as: :check_boxes %>
-  <%= f.input :skills, label: 'Desired skills', :collection => ["PHP", "MySQL", "C#", "Apache", "Ruby on Rails", "SQL Server", "Linux"], as: :check_boxes %>
+
+  <%= "Current Image:" %></br>
+  <%= image_tag @employee.image_url, :height => 80 %>
+  <%= f.file_field :image %></br>
+
+  <%= f.input :current_skills, :collection => ['PHP', 'MySQL', 'C#', 'Apache', 'Ruby on Rails', 'SQL Server', 'Linux'], as: :check_boxes %>
+  <%= f.input :desired_skills, :collection => ['PHP', 'MySQL', 'C#', 'Apache', 'Ruby on Rails', 'SQL Server', 'Linux'], as: :check_boxes %>
   <%= f.error :base %>
   <%= f.button :submit %> 
   <%= f.submit 'Cancel' %>

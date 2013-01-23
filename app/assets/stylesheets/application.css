@@ -234,10 +234,6 @@ table, td {
   float: left;
 }
 
-.text {
-	length: 25px;
-}
-
 #chkbx {
 	list-style: none;
 	margin-left:125px;

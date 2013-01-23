@@ -1,8 +1,5 @@
-
-
 <%= simple_form_for(@request) do |f| %>
-<%= hidden_field_tag "employee[current_skills][]", "" %>
-<%= hidden_field_tag "employee[skills_interested_in][]", "" %>
+<%= hidden_field_tag "employee[required_skills][]", "" %>
   <%= f.error_notification %>
   <%= f.input :title %>
   <%= f.input :description, as: :text, :input_html => { :class => 'textarea'}  %>
@@ -11,16 +8,9 @@
 
   <%= f.input :group, :collection => ['Development', 'Strategy', 'Management'], :wrapper_html => { :class => "inline"} %>
   <%= f.input :location, :collection => ['Boston', 'Chicago', 'Los Angeles', 'Bentonville', 'Ontario', 'Tokyo', 'London', 'Paris' ], :wrapper_html => { :class => "inline"} %></br></br>
-  <div id = "label">
-  <ul><%= f.label :relevant_skills %>
-  </div>
-    <% @skills.each do |skill| %>
-     <div id = "chkbx" >
-      <li><%= check_box_tag "relevant_skill[]", skill.language %>
-      <%= skill.language %></li>
-    </div>
-    <% end %>
-  </ul>
+
+  <%= f.input :required_skills, :collection => ['PHP', 'MySQL', 'C#', 'Apache', 'Ruby on Rails', 'SQL Server', 'Linux'], as: :check_boxes %>
+
   <%= f.hidden_field :employee_id, :value => current_employee.id %>
   <%= f.hidden_field :status, :value => 'open' %>
   <%= f.error :base %>
