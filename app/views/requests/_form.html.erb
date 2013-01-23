@@ -37,7 +37,7 @@
   <%= f.label :relevant_skills %>
      <% @skills.each do |skill| %>
      <div class = "inbox">
-       <%= check_box_tag "relevant_skills[]", skill.language %>
+       <%= check_box_tag "relevant_skills[]", skill.language, @request.relevant_skills.include?(skill.language) %>
        <%= skill.language %>
       </div> 
      <% end %>

@@ -44,7 +44,7 @@ class RequestsController < ApplicationController
     relevant_skills = params[:relevant_skills]
 
     if !params[:relevant_skills].nil?
-      relevant_skills = @employee.relevant_skills.split(", ")
+      relevant_skills = @request.relevant_skills.split(", ")
     end
 
   end
