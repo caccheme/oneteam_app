@@ -26,6 +26,7 @@ class RequestsController < ApplicationController
 
   def show
     @request = Request.find(params[:id])
+    
     respond_with(@request)
   end
 
@@ -38,15 +39,19 @@ class RequestsController < ApplicationController
 
   def edit 
     @request = Request.find(params[:id])
+    @skills = Skill.all
+
+    relevant_skills = params[:relevant_skills]
+
+    if !params[:relevant_skills].nil?
+      relevant_skills = @employee.relevant_skills.split(", ")
+    end
 
   end
 
   def create
     @request = current_employee.requests.build(params[:request])
     @skills = Skill.all 
-
-    @request.relevant_skills = params[:relevant_skills].to_a
-    @request.relevant_skills = @request.relevant_skills.join(", ")
 
     respond_to do |format|
       if @request.save
@@ -58,8 +63,13 @@ class RequestsController < ApplicationController
       end
     end
   end
+
   def update
     @request = Request.find(params[:id])
+    @skills = Skill.all
+
+    @request.relevant_skills = params[:relevant_skills].to_a
+    @request.relevant_skills = @request.relevant_skills.join(", ")
 
     if @request.update_attributes(params[:request])
      flash[:success] = "Request updated"
