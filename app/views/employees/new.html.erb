@@ -3,6 +3,9 @@
 
 <h1>Sign up for you OneTeam Account</h1>
 
+<%= hidden_field_tag "employee[current_skills][]", "" %>
+<%= hidden_field_tag "employee[skills_interested_in][]", "" %>
+
 <%= simple_form_for @employee do |f| %>
   <%= f.input :first_name %>
   <%= f.input :last_name %>

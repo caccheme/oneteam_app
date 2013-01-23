@@ -1,23 +1,128 @@
-<%= simple_form_for(@employee) do |f| %>
-  <%= f.error_notification %>
-  <%= f.input :first_name, :wrapper_html => { :class => "inline" } %>
-  <%= f.input :last_name, :wrapper_html => { :class => "inline" } %></br>
-  <%= f.input :email, :wrapper_html => { :class => "inline"}, :input_html => { :class => "text"} %>
-  <%= f.input :location, label: 'Office', :collection => ['NY', 'IL', 'AR', 'TX', 'JPN', 'UK', 'FR'], :wrapper_html => { :class => "inline"} %>
-  <%= f.input :department, label: 'Department', :collection => ['IT', 'HR'] %>
-  <%= f.input :group, :collection => ['Dev.', 'Str', 'Res.'], :wrapper_html => { :class => "inline"} %>
-  <%= f.input :position, label: 'Job title', :wrapper_html => { :class => "inline"} %>
-  <%= f.input :manager, label: 'Direct Supervisor' %></br>
-  <%= f.input :years_with_company, :input_html => { :cols => 2 }  %></br>
-  <%= f.input :description, as: :text, label: 'Describe yourself in a few words', :input_html => { :class => 'textarea'} %>
+<%= hidden_field_tag "employee[current_skills][]", "" %>
+<%= hidden_field_tag "employee[skills_interested_in][]", "" %>
 
-  <%= "Current Image:" %></br>
-  <%= image_tag @employee.image_url, :height => 80 %>
-  <%= f.file_field :image %></br>
+<%= form_for(@employee) do |f| %>
+  <% if @employee.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@employee.errors.count, "error") %> prohibited this employee from being saved:</h2>
 
-  <%= f.input :current_skills, :collection => ['PHP', 'MySQL', 'C#', 'Apache', 'Ruby on Rails', 'SQL Server', 'Linux'], as: :check_boxes, :input_html => { :values => [@employee.current_skills] } %>
-  <%= f.input :desired_skills, :collection => ['PHP', 'MySQL', 'C#', 'Apache', 'Ruby on Rails', 'SQL Server', 'Linux'], as: :check_boxes %>
-  <%= f.error :base %>
-  <%= f.button :submit %> 
-  <%= f.submit 'Cancel' %>
+      <ul>
+      <% @employee.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div class="editprofile">
+ 
+  <div class="field">
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name %>
+  </div>
+  <div class="lastn">
+  <div class="field">
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name %>
+  </div>
+  </div>
+  <div class="emailfld">
+  <div class="field">
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
+  </div>
+
+
+ <div class="firstfld">
+  <div class="field">
+    <%= f.label :office %>
+    <%= f.select :location, ['New York', 'Chicago', 'Los Angeles', 'Atlanta', 'Detroit', 'Boston', 'Mumbai', 'Houston'] %>
+
+  </div>
+</div>
+
+ <div class="secondfld">
+  <div class="field">
+    <%= f.label :department %>
+    <%= f.select :department, ['IT', 'Security' 'Programming'] %>
+  </div>
+  </div>
+<div class="thirdfld">
+  <div class="field">
+    <%= f.label :group %>
+    <%= f.select :group, ['Development', 'Interface Design', 'QA', 'Infrasructure'] %>
+  </div>
+</div>
+
+<div class="fourthfld">
+ <div class="field">
+    <%= f.label :job_title %>
+    <%= f.select :position, ['Engineer', 'Analyst', 'Project Lead', 'UI Specialist', 'QA Specialist'] %>
+  </div>
+</div>
+   <div class="fifthfld">
+ <div class="field">
+    <%= f.label :immediate_supervisor %>
+    <%= f.text_field :manager %>
+  </div>
+</div>
+
+<div class="sixthfld">
+  <div class="field">
+    <%= f.label :years_with_company %>
+    <%= f.select :years_with_company, ['1', '2', '3', '4', '5', '6', '7', '8', '9'] %>
+  </div>
+ </div>
+ 
+
+     
+<div class="ninefld">
+  <div class="field">
+    <%= f.label :description %><br/>
+    <%= f.text_area :description, :size => "40x6" %>
+  </div>
+</div>
+<div class="grfield">
+ <%= gravatar_for @employee %>
+    <a href="http://gravatar.com/emails">Upload
+      Photo</a>
+</div>
+    
+  <div class="seventhfld">
+ <div class="field">
+
+        <%= f.label :current_skills %>
+
+         <% @skills.each do |skill| %>
+      <div class="inbox">       
+       <%= check_box_tag "current_skills[]", skill.language, @employee.current_skills.include?(skill.language) %>
+       <%= skill.language %>
+     </div>
+       <% end %>
+       
+    </div>
+  </div>
+
+<div class="eightfld">
+   <div class="field">
+     <%= f.label :skills_interested_in, "Desired skills" %>
+      <% @skills.each do |skill| %>
+      <div class="inbox">
+         <%= check_box_tag "skills_interested_in[]", skill.language, @employee.skills_interested_in.include?(skill.language) %>
+       <%= skill.language %>
+     </div>
+    <% end %>
+      
+    </div>
+  </div>
+
+  <div class="submitfld">
+  <div class="actions">
+    <%= f.submit "Update Profile", class: "btn btn-large btn-primary" %>
+  </div>
+</div>
+<div class="cancelfld">
+<%= link_to "Cancel", employee_path(current_employee) %>
+</div>
+</div>
 <% end %>

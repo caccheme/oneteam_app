@@ -243,3 +243,26 @@ table, td {
 #label {
 	margin-left: -40px;
 }
+
+.inbox {
+   display: block;
+   margin-left: 150px;
+}
+
+.label {
+    float: left;
+    width: 100px;
+    text-align: right;
+    margin: 2px 10px;
+}
+
+.checkbox {
+      float: none;
+      margin: 0;
+      width: auto;
+      text-align: left;
+      display: block;
+      margin-left: 120px;
+      padding-top: 5px;
+      padding-left: 5px;
+}

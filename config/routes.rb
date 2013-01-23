@@ -1,4 +1,5 @@
 OneteamApp::Application.routes.draw do
+  resources :skills
 
   get "calendars/index"
 

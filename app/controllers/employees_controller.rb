@@ -6,11 +6,13 @@ before_filter :check_for_cancel, :only => [:create, :update]
 
   def index
     @employees = Employee.order(:id).page(params[:page]).per(10)
+
     respond_with(@employees)
   end
 
   def show
     @employee = Employee.find(params[:id])
+    @requests = Request.all
     @commissions = Commission.all
 
     respond_to do |format|
@@ -21,47 +23,32 @@ before_filter :check_for_cancel, :only => [:create, :update]
 
   def new
     @employee = Employee.new
-    @current_skills = params[:current_skills]
-    @desired_skills = params[:desired_skills]
-
-    if !params[:current_skills].nil?
-      current_skill = @employee.current_skill.split(", ")
-    end
-
-   skills_interested_in = params[:desired_skills]
-
-   if !params[:desired_skills].nil?
-     skills_interested_in = @employee.skills_interested_in.split(", ")
-   end
+    @skills = Skill.all
 
     respond_with(@employee)
   end
 
   def edit
     @employee = Employee.find(params[:id])
+    @skills = Skill.all
+    
+    current_skills = params[:current_skills]
 
-   current_skill = params[:current_skill]
-
-    if !params[:current_skill].nil?
-      current_skill = @employee.current_skill.split(", ")
+    if !params[:current_skills].nil?
+      current_skills = @employee.current_skills.split(", ")
     end
 
-   desired_skills = params[:desired_skills]
+    skills_interested_in = params[:skills_interested_in]
 
-   if !params[:desired_skills].nil?
-     desired_skills = @employee.desired_skills.split(", ")
-   end
+    if !params[:skills_interested_in].nil?
+      skills_interested_in = @employee.skills_interested_in.split(", ")
+    end
+
   end
 
   def create
     @employee = Employee.new(params[:employee])
-
-    @employee.current_skills = params[:current_skills].to_a
-    @employee.current_skills = @employee.current_skills.join(", ")
-   
-    @employee.desired_skills = params[:desired_skilss].to_a
-    @employee.desired_skills = @employee.desired_skills.join(", ")
-
+     
     if @employee.save
       flash[:notice] = "Successfully created account profile."
       redirect_to root_url, :notice => "Your account was created. Sign in!"
@@ -72,12 +59,13 @@ before_filter :check_for_cancel, :only => [:create, :update]
 
   def update
     @employee = Employee.find(params[:id])
+    @skills = Skill.all
 
-    @employee.current_skill = params[:current_skill].to_a
-    @employee.current_skill = @employee.current_skill.join(", ")
-   
-    @employee.desired_skills = params[:desired_skilss].to_a
-    @employee.desired_skills = @employee.desired_skills.join(", ")
+    @employee.current_skills = params[:current_skills].to_a
+    @employee.current_skills = @employee.current_skills.join(", ")
+
+    @employee.skills_interested_in = params[:skills_interested_in].to_a
+    @employee.skills_interested_in = @employee.skills_interested_in.join(", ")
 
     respond_to do |format|
       if @employee.update_attributes(params[:employee])

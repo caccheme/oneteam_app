@@ -31,6 +31,7 @@ class RequestsController < ApplicationController
 
   def new
     @request = Request.new
+    @skills = Skill.all  
 
     respond_with(@request)
   end
@@ -41,7 +42,9 @@ class RequestsController < ApplicationController
   end
 
   def create
-    @request = Request.new(params[:request])
+    @request = current_employee.requests.build(params[:request])
+    @skills = Skill.all 
+
     @request.relevant_skills = params[:relevant_skills].to_a
     @request.relevant_skills = @request.relevant_skills.join(", ")
 
