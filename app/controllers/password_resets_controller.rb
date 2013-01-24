@@ -5,7 +5,12 @@ class PasswordResetsController < ApplicationController
   def create
     employee = Employee.find_by_email(params[:email])
     employee.send_password_reset if employee
-    redirect_to root_url, :notice => "Email sent with password reset instructions."
+    if params[:cancel_button]
+      redirect_to root_url 
+    elsif params[:submit_button]
+      employee.send_password_reset
+      redirect_to root_url, :notice => "Email sent with password reset instructions." 
+    end
   end
 
   def edit
