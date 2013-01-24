@@ -16,6 +16,10 @@
 <div id="requests">
 <%= paginate @requests %>
 <% @requests.each do |request| %>
+
+
+<% if request.status == "cancelled" %>
+<% else %>
     <%= image_tag "divider-line.jpg" %>
   <p><b><%= request.title %></b>
         <%= request.start_date %> to <%= request.end_date %> (Status: <%= request.status %>)</p>
@@ -23,10 +27,7 @@
         Description: <%= request.description %>
   </p>
     
-<% applied = 0 %>
-<% if request.status == "cancelled" %>
-  <div id = "note"><%= "Cancelled" %></div>
-<% else %>  
+<% applied = 0 %>  
 <% commissions = request.get_commissions %>
  <% if commissions.blank? == false %>
   <div id = "note"><%= "Developer already selected" %></div> 

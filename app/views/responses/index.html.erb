@@ -4,14 +4,16 @@
   <ul>
     <li id="selected"><%= link_to 'Responses', request_responses_path(@request) %></li>
     <li><%= link_to 'All Requests', requests_path%></li>
+    <li><%= link_to "Requests I've posted", _my_requests_path %></li>
     <li><%= link_to 'My Profile', employee_path(current_employee) %></li> 
   </ul>
 </div>
 
 <div id="innercontainer">
 
-<h1>Responses to request <%= @request.id %>:</h1>
-<h4>"<%= @request.description %>"</h4>
+<h1>Response: </h1>
+<p>Request Title: <%= @request.title %></br>
+  Request Description: <%= @request.description %>"</p>
 
 <table>
   <tr>
