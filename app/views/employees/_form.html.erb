@@ -30,8 +30,6 @@
     <%= f.text_field :email %>
   </div>
   </div>
-
-
  <div class="firstfld">
   <div class="field">
     <%= f.label :office %>
@@ -116,10 +114,10 @@
   <div class="submitfld">
   <div class="actions">
     <%= f.submit "Update Profile", class: "btn btn-large btn-primary" %>
+    <div class="emp-cancel-update">
+      <%= f.submit 'Cancel', :action => 'update', :name => 'cancel_button' %>
+    </div>
   </div>
-</div>
-<div class="cancelfld">
-<%= link_to "Cancel", employee_path(current_employee) %>
 </div>
 
 <% end %>

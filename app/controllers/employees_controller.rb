@@ -68,11 +68,15 @@ before_filter :check_for_cancel, :only => [:create, :update]
     @employee.skills_interested_in = params[:skills_interested_in].to_a
     @employee.skills_interested_in = @employee.skills_interested_in.join(", ")
 
-    respond_to do |format|
-      if @employee.update_attributes(params[:employee])
+    if params[:cancel_button]
+      redirect_to @employee
+    elsif @employee.update_attributes(params[:employee])
+      respond_to do |format|
         format.html { redirect_to @employee, notice: 'Employee profile was successfully updated.' }
         format.json { head :no_content }
-      else
+      end  
+    elsif !@employee.update_attributes(params[:employee])
+      respond_to do |format|
         format.html { render action: "edit" }
         format.json { render json: @employee.errors, status: :unprocessable_entity }
       end
