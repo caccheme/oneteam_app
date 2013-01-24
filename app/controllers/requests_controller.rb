@@ -66,8 +66,7 @@ class RequestsController < ApplicationController
       redirect_to _my_requests_path  
     elsif @request.save
       respond_to do |format|
-        format.html { redirect_to @request, notice: 'Request was successfully created.' }
-        format.json { render json: @request, status: :created, location: @request  }
+        format.html { redirect_to _my_requests_path, notice: 'Request was successfully created.' }
       end  
     elsif !@request.save
       respond_to do |format|
@@ -102,4 +101,5 @@ class RequestsController < ApplicationController
     @request.destroy
     respond_with(@request)
   end
+
 end
