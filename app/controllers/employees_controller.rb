@@ -50,10 +50,12 @@ before_filter :check_for_cancel, :only => [:create, :update]
     @employee = Employee.new(params[:employee])
     @skills = Skill.all
      
-    if @employee.save
+    if params[:cancel_button]
+      redirect_to root_url
+    elsif @employee.save
       flash[:notice] = "Successfully created account profile."
       redirect_to root_url, :notice => "Your account was created. Sign in!"
-    else
+    elsif !@employee.save
       render "new"
     end
   end

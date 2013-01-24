@@ -6,7 +6,7 @@
 <%= hidden_field_tag "employee[current_skills][]", "" %>
 <%= hidden_field_tag "employee[skills_interested_in][]", "" %>
 
-<%= form_for(@employee) do |f| %>  
+<%= form_for(@employee) do |f| %>
   <div class="field">
     <%= f.label :first_name %>
     <%= f.text_field :first_name %>
@@ -34,21 +34,16 @@
         <%= f.label :password_confirmation %>
         <%= f.password_field :password_confirmation %>
       </div>
-    <div class="currsk">
-    <div class="field">
-      <%= f.hidden_field :current_skills, :value => "" %> 
-    </div>
-  </div>
-  <div class="skint">
-    <div class="field">
+      <%= f.hidden_field :current_skills, :value => "" %>
       <%= f.hidden_field :skills_interested_in, :value => "" %>
-    </div>
-  </div>
 </div>
  
 <div class="newsub">
  <div class="actions">
     <%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
+    <div class="emp-cancel-new">
+      <%= f.submit 'Cancel', :action => 'create', :name => 'cancel_button' %>
+    </div>
   </div>
 </div>
 <% end %>
