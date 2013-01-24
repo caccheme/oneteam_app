@@ -3,17 +3,17 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 jQuery ->
-  $( "#request_start_date" ).datepicker
-    showOn: "both",
-    buttonImage: "calendar.gif",
-    buttonImageOnly: true,
+
+  $( "#request_start_date" ).datepicker     
     dateFormat: 'yy-mm-dd',
     changeMonth: true,
-    changeYear: true
+    showOn: 'both',
+    buttonImageOnly: true,
+    buttonImage: 'images/calendar_icon1.png',
+
   $( "#request_end_date" ).datepicker
-    showOn: "both",
-    buttonImage: "calendar.gif",
+    showOn: 'both',
+    buttonImage: 'images/calendar_icon1.png',
     buttonImageOnly: true, 
     dateFormat: 'yy-mm-dd',
-    changeMonth: true,
-    changeYear: true
+    changeMonth: true

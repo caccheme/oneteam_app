@@ -176,10 +176,6 @@ table, td {
 	border-bottom: 15px solid white;
 }
 
-#mainContent .field ul li {
-	display: inline;
-}
-
 #mainContent #profile {
 	margin-top: 25px;
 }
@@ -234,19 +230,8 @@ table, td {
   float: left;
 }
 
-#chkbx {
-	list-style: none;
-	margin-left:125px;
-	padding-bottom: 5px;
-}
-
 #label {
 	margin-left: -40px;
-}
-
-.inbox {
-   display: block;
-   margin-left: 150px;
 }
 
 .label {

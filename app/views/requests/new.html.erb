@@ -28,11 +28,11 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :title %><br />
+    <%= f.label :title %>
     <%= f.text_field :title %>
   </div>
   <div class="field">
-    <%= f.label :description %><br />
+    <%= f.label :description %>
     <%= f.text_area :description, :size => "40x6" %>
   </div>
   <div class="field">
@@ -40,21 +40,25 @@
   </div>
    
   <div class="field">
-    <%= f.label :start_date %><br />
+    <%= f.label :start_date %>
     <%= f.text_field :start_date %>
   </div>
   <div class="field">
-    <%= f.label :end_date %><br />
+    <%= f.label :end_date %>
     <%= f.text_field :end_date %>
   </div>
 
- <div class="field">
-    <%= f.label :group %><br />
-    <%= f.select :group, ['Development', 'Strategy'] %>
+ <div class="field" id="left-column">
+  <ul>
+    <li><%= f.label :group %></li>
+    <li><%= f.select :group, ['Development', 'Strategy'] %></li>
+  </ul>
   </div>
-  <div class="field">
-    <%= f.label :location, "Office" %><br />
-    <%= f.select :location, ['NY', 'AR', 'IL', 'UK', 'CA'] %>
+  <div class="field" id="right-column" >
+  <ul> 
+    <li><%= f.label :location, "Office" %></li>
+    <li><%= f.select :location, ['NY', 'AR', 'IL', 'UK', 'CA'] %></li>
+  </ul>
   </div>
   
   <%= f.label :relevant_skills %>
