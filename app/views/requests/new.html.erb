@@ -72,10 +72,11 @@
   <div class="field">
   <div class="actions">
     <%= f.submit %>
+    <div class="req-cancel-new">
+      <%= f.submit 'Cancel', :action => 'create', :name => 'cancel_button' %>
+    </div>
   </div>
 <% end %>
 <p></p>
-<div class="req-cancel-new">
-<%= "Put cancel button in here later." %>
-</div>
+
 </div>

@@ -48,3 +48,65 @@
   font-size: 7px;
   padding-left: 20px;
 }
+
+
+label {
+  float: left;
+  width: 100px;
+  text-align: left;
+  margin: 2px 5px;
+}
+
+input {
+  margin-top: 2px;
+  position: relative;
+  top: -5px;
+}
+
+textarea {
+  margin-top: 2px;
+  display: block;
+  position:relative;
+  left: -105px;
+}
+
+#description {
+  margin-top:-25px;
+}
+
+#field {
+  margin-top:5px;
+}
+
+ul li {
+  display:inline;
+  list-style: none;
+}
+
+input[type='submit'] {
+  margin-left: 8px;
+  margin-top:20px;
+}
+
+.inbox{
+   display: block;
+   margin-left: 120px;
+}
+
+#left-column {
+    position: relative;
+    width: 50%;
+    left: -38px;
+}
+
+#right-column {
+    width: 68%;
+    float: right;
+    margin-top: -50px;
+    text-align: left;
+}
+
+.req-cancel-new {
+  margin-top:-44px;
+  margin-left: 175px;
+}

@@ -61,13 +61,18 @@ class RequestsController < ApplicationController
     @request = current_employee.requests.build(params[:request])
     @skills = Skill.all 
 
-    respond_to do |format|
-      if @request.save
+
+    if params[:cancel_button]
+      redirect_to _my_requests_path  
+    elsif @request.save
+      respond_to do |format|
         format.html { redirect_to @request, notice: 'Request was successfully created.' }
-        format.json { render json: @request, status: :created, location: @request }
-      else
-        format.html { render action: "new"}
-        format.json { render json: @request.errors, status: :unprocessable_entity }        
+        format.json { render json: @request, status: :created, location: @request  }
+      end  
+    elsif !@request.save
+      respond_to do |format|
+        format.html { render action: "new" }
+        format.json { render json: @request.errors, status: :unprocessable_entity }
       end
     end
   end
