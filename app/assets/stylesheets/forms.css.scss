@@ -32,21 +32,13 @@ ul li {
 }
 
 input[type='submit'] {
-  margin-left: 300px;
-  position: relative;
-  top: 8px;
+  margin-left: 8px;
+  margin-top:20px;
 }
 
 .inbox{
    display: block;
    margin-left: 120px;
-   margin-top: 0;
-   position: relative;
-   top: 22px;
-}
-
-input .inbox {
-  margin-top:20px;
 }
 
 #left-column {
@@ -60,4 +52,9 @@ input .inbox {
     float: right;
     margin-top: -50px;
     text-align: left;
+}
+
+.req-cancel-new {
+  margin-top:-38px;
+  margin-left: 175px;
 }
