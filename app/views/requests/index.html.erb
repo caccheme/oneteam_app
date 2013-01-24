@@ -23,7 +23,7 @@
   </p>
     
 <% applied = 0 %>
-<% if request.status == 'cancelled' %>
+<% if request.status == "cancelled" %>
   <div id = "note"><%= "Cancelled" %></div>
 <% else %>  
 <% commissions = request.get_commissions %>

@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
 private
 
   def project_status 
-    if status == 'cancelled'
+    if status == "cancelled"
        "CANCELLED"
     elsif end_date <= Date.today 
       status = "Closed, Completed"

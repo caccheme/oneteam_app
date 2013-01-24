@@ -4,6 +4,7 @@
   <ul>
     <li><%= link_to 'All Requests', requests_path%></li>
     <li id="selected"><%= link_to "Cancel My Request" %></li>
+    <li><%= link_to "Requests I've Posted", 'my_requests' %></li>
     <li><%= link_to 'My Profile', employee_path(current_employee) %></li>     
   </ul>
 </div>
@@ -61,6 +62,7 @@
     <%= f.submit 'Cancel Request' %>
   </div>
 <% end %>
+<%= link_to 'Go Back', 'my_requests' %> (without Cancelling Request)
 <p></p>
 
 </br>
