@@ -69,6 +69,15 @@ textarea {
   position:relative;
   top: 25px;
   left: -115px;
+  height: 120px;
+}
+
+.field_with_errors {
+  
+  & textarea {
+    margin-left: 120px;
+    margin-top: -20px;
+  }
 }
 
 .req-dates {
@@ -79,7 +88,11 @@ textarea {
 
 .req-select-checkboxes {
   position: relative;
-  top: 10px;  
+  top: 10px;
+  & ul li {
+    display:inline;
+    list-style: none;
+  } 
 }
 
 .language {
@@ -100,11 +113,6 @@ textarea {
 
 #field {
   margin-top:5px;
-}
-
-ul li {
-  display:inline;
-  list-style: none;
 }
 
 input[type='submit'] {
@@ -142,6 +150,12 @@ input[type='submit'] {
     & label {
       text-align:right;
       padding-right: 2px;
+      position:relative;
+      top: -10px;
+    }
+    & select {
+      position:relative;
+      top: -10px;
     }
 }
 

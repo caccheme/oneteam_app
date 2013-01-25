@@ -35,7 +35,7 @@
   <div class="field">
     <div class = "req-description">
     <%= f.label :description %>
-    <%= f.text_area :description, :size => "40x6" %>
+    <%= f.text_area :description %>
     </div>
   </div>
   <div class="field">
@@ -63,7 +63,7 @@
         <li><%= f.select :group, ['Development', 'Strategy'] %></li>
       </ul>
     </div>
-  </div>  
+    
   
   <div class="field" id="right-column" >
     <ul> 
@@ -86,7 +86,7 @@
   </div>
 </div>  
   <div class="field">
-    <div class="actions">
+    <div class="req-actions">
       <%= f.submit %>
         <div class="req-cancel-new">
           <%= f.submit 'Cancel', :action => 'create', :name => 'cancel_button' %>
@@ -94,4 +94,5 @@
     </div>
   </div>
 <% end %>
+</div>
 </div>  

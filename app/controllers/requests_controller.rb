@@ -48,11 +48,6 @@ class RequestsController < ApplicationController
       relevant_skills = @request.relevant_skills.split(", ")
     end
     
-    if @request.nil?
-      flash[:error] = "You haven't posted any requests."
-      redirect_to _my_requests_path
-    end  
-
   end
 
   def new

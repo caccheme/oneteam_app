@@ -11,7 +11,7 @@ class Request < ActiveRecord::Base
   has_and_belongs_to_many :skills
   belongs_to :skills
 
-  validates_presence_of :title, :description
+  validates_presence_of :title
   validates :description, :length => { :in => 5..200 }
 
   def get_responses
