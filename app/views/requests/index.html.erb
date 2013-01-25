@@ -25,15 +25,11 @@
 
     <%= image_tag "divider-line.jpg" %>
   <p><b><%= request.title %></b>
-        <%= request.start_date %> to <%= request.end_date %> (Status: <%= request.project_status %>)</p>
+        <%= request.start_date %> to <%= request.end_date %> (Status: <%= request.status %>)</p>
         Posted by: <%= request.employee.first_name %> <%= request.employee.last_name %> in <%= request.employee.location %> Office (Group: <%= request.employee.group %>)</br>
         Description: <%= request.description %>
   </p>    
     <% applied = 0 %>
-
-  <% if request.status == 'cancelled' %>
-      <div id = "note"><%= "Cancelled" %></div>  
-  <% elsif request.status != 'cancelled' %>
     <% commissions = request.get_commissions %>
       <% if commissions.blank? == false %>
         <div id = "note"><%= "Developer already selected" %></div> 
@@ -54,7 +50,6 @@
       <% end %>
     <% end %>
   <% end %>
-<% end %>
 </br>
 </br>
 <% end %>

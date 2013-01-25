@@ -30,12 +30,23 @@ class RequestsController < ApplicationController
 
   def index
     @requests = Request.order(:id).page(params[:page]).per(5)
+    @commissions = Commission.all
+    @responses = Response.find(:all, :conditions => :request_id == :id)
+#responses line should replace my method in request.rb, take out method there later.
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @requests }
+    end
   end
 
   def show
-    @request = Request.find(params[:id])
+    @request = Request.find_by_employee_id(current_employee)
+    
+    if @request.nil?
+      flash[:error] = "You haven't posted any requests."
+      redirect_to _my_requests_path
+    end  
 
-    respond_with(@request)
   end
 
   def new
@@ -61,13 +72,12 @@ class RequestsController < ApplicationController
     @request = current_employee.requests.build(params[:request])
     @skills = Skill.all 
 
-    if params[:cancel_button]
-      redirect_to _my_requests_path
-    end  
+     @request.relevant_skills = params[:relevant_skills].to_a
+     @request.relevant_skills = @request.relevant_skills.join(", ")
 
     respond_to do |format|
       if @request.save
-        format.html { redirect_to _my_requests_path, notice: 'Request was successfully created.' }
+        format.html { redirect_to @request, notice: 'Request was successfully created.' }
         format.json { render json: @request, status: :created, location: @request }
       else 
         format.html { render action: "new" }
@@ -83,19 +93,13 @@ class RequestsController < ApplicationController
     @request.relevant_skills = params[:relevant_skills].to_a
     @request.relevant_skills = @request.relevant_skills.join(", ")
 
-    if @request.update_attributes(params[:status])
-      flash[:success] = "Request cancelled"
-      redirect_to _my_requests_path
-    elsif @request.update_attributes(params[:request])
+    if @request.update_attributes(params[:request])
       flash[:success] = "Request updated"
-      redirect_to @request
+      redirect_to _my_requests_path
     else
       render 'edit'
     end
 
-    if params[:cancel_button]
-      redirect_to _my_requests_path  
-    end
   end 
 
   def destroy

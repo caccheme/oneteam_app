@@ -16,15 +16,15 @@ class Request < ActiveRecord::Base
     if :status == 'Cancelled'
        "Cancelled"
     elsif end_date <= Date.today 
-      status = "Closed, Completed"
+      "Closed, Completed"
     elsif end_date <= Date.today 
-      status = "Expired"   
+      "Expired"   
     elsif start_date <= Date.today 
-      status = "Open, In progress"
+      "Open, In progress"
     elsif start_date >= Date.today 
-      status = "Open, Not Started"  
+      "Open, Not Started"  
     elsif start_date >= Date.today   
-      status = "Assigned"
+      "Assigned"
     end
   end  
 
