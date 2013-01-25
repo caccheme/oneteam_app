@@ -15,9 +15,9 @@
 
 <div id="requests">
   <%= paginate @requests %>
-  <% @requests.each do |request| %></br>
+  <% @requests.each do |request| %>
     <% if request.status == 'cancelled' %>
-      <%= nil %>
+      <% nil %>
     <% elsif request.status != 'cancelled' %>
       <%= image_tag "divider-line.jpg" %>
 

@@ -9,44 +9,44 @@
 </div>
 
 <div id="innercontainer">
-
-<div id="profile_pic">
-  <%= link_to 'Update Profile', edit_employee_path(current_employee) %> </br>
-
-<%= image_tag @employee.image_url, :height => 100 %>
-
-</div>
-<div id = "profile">
-<ul>
-  <li>First Name: <%= @employee.first_name %></li></br>
-  <li>Last Name: <%= @employee.last_name %></li></br>
-  <li>Email: <%= @employee.email %></li></br>
-  <li>Office: <%= @employee.location %></li></br>
-  <li>Department: <%= @employee.department %></li></br>
-  <li>Group: <%= @employee.group %></li></br>
-  <li>Job Title: <%= @employee.position %></li></br>
-  <li>Immediate Supervisor: <%= @employee.manager %></li></br>
-  <li>Years with Company: <%= @employee.years_with_company %></li></br>
-</ul>
-<ul>
-  <li>Current Skills: <%= @employee.current_skills %></li></br>
-  <li>Desired Skills: <%= @employee.skills_interested_in %></li>
-</ul>
-
-<ul>
-  <li>Short Description about <%= @employee.first_name %>: <%= @employee.description %></li>
-</ul> 
-
-<ul>
-  <li>Projects I've Worked on:</li>  
-  <li></br></li>
-<% @commissions.each do |commission| %>
-  <% if commission.employee_id == current_employee.id %>
-    <li><%= Request.find(commission.request_id).title %>: <%= Request.find(commission.request_id).start_date %> to <%= Request.find(commission.request_id).end_date %> (<%= Request.find(commission.request_id).project_status %>)</li>
-    <li><%= Request.find(commission.request_id).description %></li>
-      <%= image_tag "divider-line-2.jpg" %></br>            
-  <% end %>
-<% end %>
-</ul>
-</div>
+  <div id="emp-left-column">
+    <div id="profile_pic">
+      <%= link_to 'Update Profile', edit_employee_path(current_employee) %> </br>
+      <%= image_tag @employee.image_url, :height => 100 %>
+    </div>
+  </div>
+  <div id = "emp-right-column">
+    <div id = "profile">
+      <ul>
+        <li>First Name: <%= @employee.first_name %></li></br>
+        <li>Last Name: <%= @employee.last_name %></li></br>
+        <li>Email: <%= @employee.email %></li></br>
+        <li>Office: <%= @employee.location %></li></br>
+        <li>Department: <%= @employee.department %></li></br>
+        <li>Group: <%= @employee.group %></li></br>
+        <li>Job Title: <%= @employee.position %></li></br>
+        <li>Immediate Supervisor: <%= @employee.manager %></li></br>
+        <li>Years with Company: <%= @employee.years_with_company %></li></br>
+      </ul>
+      <ul>
+        <li>Current Skills: <%= @employee.current_skills %></li></br>
+        <li>Desired Skills: <%= @employee.skills_interested_in %></li>
+      </ul>
+      <ul>
+        <li>Short Description about <%= @employee.first_name %>: <%= @employee.description %></li>
+      </ul> 
+      <ul>
+        <li>Projects I've Worked on:</li>  
+      </ul>
+      <ul>
+        <% @commissions.each do |commission| %>
+          <% if commission.employee_id == current_employee.id %>
+            <li><b><%= Request.find(commission.request_id).title %></b>: <%= Request.find(commission.request_id).start_date %> to <%= Request.find(commission.request_id).end_date %> (<%= Request.find(commission.request_id).project_status %>)</br></li>
+            <li><%= Request.find(commission.request_id).description %></li>
+            <%= image_tag "divider-line-2.jpg" %>            
+          <% end %>
+        <% end %>
+      </ul>
+    </div>  
+  </div>
 </div>
