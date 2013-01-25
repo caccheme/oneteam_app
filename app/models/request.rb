@@ -4,29 +4,15 @@ class Request < ActiveRecord::Base
 
   has_many :responses, :dependent => :destroy
   accepts_nested_attributes_for :responses, :allow_destroy => true
+
   has_many :commissions, :through => :responses
   belongs_to :commission
+
   has_and_belongs_to_many :skills
   belongs_to :skills
 
   validates_presence_of :title, :description
   validates :description, :length => { :in => 5..200 }
-
-  def project_status 
-    if :status == 'Cancelled'
-       "Cancelled"
-    elsif end_date <= Date.today 
-      "Closed, Completed"
-    elsif end_date <= Date.today 
-      "Expired"   
-    elsif start_date <= Date.today 
-      "Open, In progress"
-    elsif start_date >= Date.today 
-      "Open, Not Started"  
-    elsif start_date >= Date.today   
-      "Assigned"
-    end
-  end  
 
   def get_responses
     Response.where(:request_id => id)

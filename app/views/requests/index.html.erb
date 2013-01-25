@@ -14,43 +14,50 @@
 <h1>All Requests</h1><%= link_to "View Calendar", 'requests_calendar' %>
 
 <div id="requests">
-<%= paginate @requests %>
-<% @requests.each do |request| %>
+  <%= paginate @requests %>
+  <% @requests.each do |request| %></br>
+    <% if request.status == 'cancelled' %>
+      <%= nil %>
+    <% elsif request.status != 'cancelled' %>
+      <%= image_tag "divider-line.jpg" %>
 
-<%= request.status.blank? %>
-<%= request.status.nil? %>
-<%= request.status %>
-<%= request.project_status %>
-</br>
+      <p><b><%= request.title %>:</b> <%= request.start_date %> to <%= request.end_date %> (Status: <%= request.status %>)
+      </p>
+      <p>Posted by: <%= request.employee.first_name %> <%= request.employee.last_name %> in <%= request.employee.location %> Office (Group: <%= request.employee.group %>)
+      </p>
+      <p>Description: <%= request.description %>
+      </p> 
+      <% applied = 0 %>
 
-    <%= image_tag "divider-line.jpg" %>
-  <p><b><%= request.title %></b>
-        <%= request.start_date %> to <%= request.end_date %> (Status: <%= request.status %>)</p>
-        Posted by: <%= request.employee.first_name %> <%= request.employee.last_name %> in <%= request.employee.location %> Office (Group: <%= request.employee.group %>)</br>
-        Description: <%= request.description %>
-  </p>    
-    <% applied = 0 %>
-    <% commissions = request.get_commissions %>
-      <% if commissions.blank? == false %>
-        <div id = "note"><%= "Developer already selected" %></div> 
-      <% else %>
-        <% if author? (request) %>
-          <div id = "note"><%= "You posted this request." %></div>
+        <% commissions = request.get_commissions %>
+        <% if !commissions.blank? %>
+          <div id = "note">
+            <%= "Developer already selected" %>
+          </div> 
         <% else %>
-          <% responses = request.get_responses %>
-          <% responses.each do |response| %>     
-          <% if response.employee_id == current_employee.id %>
-            <div id = "no-click-button" ><%= "Applied" %></div>
-            <% applied = 1 %>
+          <% if author? (request) %>
+            <div id = "note">
+              <%= "You posted this request." %>
+            </div>
+          <% else %>
+            <% responses = request.get_responses %>
+            <% responses.each do |response| %>     
+            <% if response.employee_id == current_employee.id %>
+              <div id = "no-click-button" >
+                <%= "Applied" %>
+              </div>
+              <% applied = 1 %>
+            <% end %>
+          <% end %>
+          <% if applied == 0 %>
+            <div id = "button">
+              <%= link_to "Apply", new_request_response_path(request) %>
+            </div>
           <% end %>
         <% end %>
-
-      <% if applied == 0 %>
-        <div id = "button"><%= link_to "Apply", new_request_response_path(request) %></div>
       <% end %>
     <% end %>
   <% end %>
 </br>
 </br>
-<% end %>
 </div>

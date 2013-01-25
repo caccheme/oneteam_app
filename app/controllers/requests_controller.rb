@@ -94,6 +94,9 @@ class RequestsController < ApplicationController
     @request.relevant_skills = @request.relevant_skills.join(", ")
 
     if @request.update_attributes(params[:request])
+      flash[:success] = "Request cancelled."
+      redirect_to _my_requests_path
+    elsif @request.update_attributes(params[:request])
       flash[:success] = "Request updated"
       redirect_to _my_requests_path
     else

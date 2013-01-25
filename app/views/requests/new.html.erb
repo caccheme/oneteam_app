@@ -41,47 +41,48 @@
     <%= f.hidden_field :employee_id, :value => current_employee.id %>
   </div>
   <div class = "req-dates"> 
-  <div class="field">
-    <%= f.label :start_date %>
-    <%= f.text_field :start_date %>
-  </div>
+    <div class="field">
+      <%= f.label :start_date %>
+      <%= f.text_field :start_date %>
+    </div>
+  </div>  
   <div class="field">
     <%= f.label :end_date %>
     <%= f.text_field :end_date %>
   </div>
-  </div>
   <div class = "req-select-checkboxes">
- <div class="field" id="left-column">
-  <ul>
-    <li><%= f.label :group %></li>
-    <li><%= f.select :group, ['Development', 'Strategy'] %></li>
-  </ul>
-  </div>
+    <div class="field" id="left-column">
+      <ul>
+        <li><%= f.label :group %></li>
+        <li><%= f.select :group, ['Development', 'Strategy'] %></li>
+      </ul>
+    </div>
+  </div>  
+  
   <div class="field" id="right-column" >
-  <ul> 
-    <li><%= f.label :location, "Office" %></li>
-    <li><%= f.select :location, ['NY', 'AR', 'IL', 'UK', 'CA'] %></li>
-  </ul>
+    <ul> 
+      <li><%= f.label :location, "Office" %></li>
+      <li><%= f.select :location, ['NY', 'AR', 'IL', 'UK', 'CA'] %></li>
+    </ul>
   </div>
-
-  <%= f.label :relevant_skills %>
-     <% @skills.each do |skill| %>
-     <div class = "inbox">
-       <%= check_box_tag "relevant_skills[]", skill.language, @request.relevant_skills %>
-       <div class = "language"> 
-         <%= skill.language %>
-       </div>
+  <div class = "field" >
+    <%= f.label :relevant_skills %>
+    <% @skills.each do |skill| %>
+      <div class = "inbox">
+        <%= check_box_tag "relevant_skills[]", skill.language, @request.relevant_skills %>
+          <div class = "language"> 
+            <%= skill.language %>
+          </div>
       </div> 
-     <% end %>
+    <% end %>
   </div>
   <div class="field">
-  <div class="actions">
-    <%= f.submit %>
-    <div class="req-cancel-new">
-      <%= f.submit 'Cancel', :action => 'create', :name => 'cancel_button' %>
+    <div class="actions">
+      <%= f.submit %>
+        <div class="req-cancel-new">
+          <%= f.submit 'Cancel', :action => 'create', :name => 'cancel_button' %>
+        </div>
     </div>
   </div>
 <% end %>
-<p></p>
-
-</div>
+</div>  
