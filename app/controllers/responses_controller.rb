@@ -37,12 +37,16 @@ class ResponsesController < ApplicationController
    @session = Employee.find(current_employee[:id])
    @response = @request.responses.build(params[:response])
 
-    respond_to do |format|
-      if @response.save
-        format.html { redirect_to requests_path, notice: 'Thank you for volunteering!'}
-      else
-       format.html { render :action => 'new'}
-       format.json { render json: @response.errors, status: :unprocessable_entity }
+    if params[:cancel_button]
+      redirect_to requests_path
+    elsif @response.save  
+      respond_to do |format|
+          format.html { redirect_to requests_path, notice: 'Thank you for volunteering!'}
+      end
+    elsif !@response.save
+      respond_to do |format|
+        format.html { render :action => 'new'}
+        format.json { render json: @response.errors, status: :unprocessable_entity }
       end
     end
   end
