@@ -12,9 +12,6 @@
   <% end %>
 
   <div class="field">
-    <%= f.label 'Request ID:' %>
-    <%= @response.request_id %><br />
-    <%= link_to 'Request Description', request_path(@response.request_id) %>
     <%= f.hidden_field :request_id, :value => @response.request_id %>  
   </div>
 
@@ -31,9 +28,8 @@
   </div>
   
   <div class="field">
-    <%= f.label "Selected Developer:" %>
-    <%= @response.employee_id %><br />
-    <%= link_to 'Employee Profile', employee_path(@response.employee_id) %>
+    <%= f.label :developer, "Developer:" %>
+    <%= link_to @response.employee.first_name + " " + @response.employee.last_name, employee_path(@response.employee_id) %>
     <%= f.hidden_field :employee_id, :value => @response.employee_id %>
   </div>
 
@@ -46,5 +42,8 @@
   
   <div class="actions">
     <%= f.submit "Select Developer" %>
+      <div class="com-cancel-new">
+        <%= f.submit 'Cancel', :action => 'create', :name => 'cancel_button' %>
+      </div>
   </div>
 <% end %>

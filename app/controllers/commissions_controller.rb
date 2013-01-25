@@ -39,10 +39,14 @@ class CommissionsController < ApplicationController
     @response = Response.find(params[:response_id])   
     @commission = @response.commissions.build(params[:commission])
 
-    respond_to do |format|
-      if @commission.save
-         format.html { redirect_to _my_requests_path, :notice => 'Successfully assigned developer.' }
-      else
+    if params[:cancel_button]
+      redirect_to _my_requests_path
+    elsif @commission.save
+      respond_to do |format|
+        format.html { redirect_to _my_requests_path, :notice => 'Successfully assigned developer.' }
+      end
+    elsif !@commission.save
+      respond_to do |format|
         format.html { render action: "new" }
         format.json { render json: @commission.errors, status: :unprocessable_entity }
       end
