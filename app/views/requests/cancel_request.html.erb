@@ -16,50 +16,21 @@
 </div>
 
 <p>
-  <b>Request ID:</b> <%= @request.id %>
+  <b>Request:</b> <%= @request.title %> (<%= @request.start_date %> to <%= @request.end_date %>)
 </p>
 <p>
-  <b>Request Created By:</b> <%= Employee.find_by_id(@request.employee_id).first_name %> <%= Employee.find_by_id(@request.employee_id).last_name %>
-</p>
-<p>
-  <b>Group:</b> <%= @request.group %>
-</p>
-<p>
-  <b>Office:</b> <%= @request.location %>
-</p>
-<p>
-  <b>Request Title:</b> <%= @request.title %>
-</p>
-<p>
-  <b>Description:</b> <%= @request.description %>
-</p>
-<p>
-  <b>Start Date:</b> <%= @request.start_date %>
-</p>
-<p>
-  <b>End Date:</b> <%= @request.end_date %>
+  <%= @request.description %>
 </p>
 <p>
   <b>Relevant Skills:</b> <%= @request.relevant_skills %>
 </p>
 
 <%= form_for(@request) do |f| %>
-  <% if @request.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@request.errors.count, "error") %> prohibited this request from being saved:</h2>
 
-      <ul>
-      <% @request.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <%= f.hidden_field :status, :value => 'cancelled' %>
+  <%= f.hidden_field :status, :value => 'Cancelled' %>
 
   <div class="actions">
-    <%= f.submit 'Cancel Request' %>
+    <%= f.submit 'Cancel Request', :action => 'update' %>
   </div>
 <% end %>
 <%= link_to 'Go Back', 'my_requests' %> (without Cancelling Request)

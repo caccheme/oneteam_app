@@ -12,6 +12,22 @@ class Request < ActiveRecord::Base
   validates_presence_of :title, :description
   validates :description, :length => { :in => 5..200 }
 
+  def project_status 
+    if :status == 'Cancelled'
+       "Cancelled"
+    elsif end_date <= Date.today 
+      status = "Closed, Completed"
+    elsif end_date <= Date.today 
+      status = "Expired"   
+    elsif start_date <= Date.today 
+      status = "Open, In progress"
+    elsif start_date >= Date.today 
+      status = "Open, Not Started"  
+    elsif start_date >= Date.today   
+      status = "Assigned"
+    end
+  end  
+
   def get_responses
     Response.where(:request_id => id)
   end

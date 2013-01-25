@@ -18,67 +18,63 @@ ActiveRecord::Schema.define(:version => 20130123044505) do
     t.integer  "employee_id"
     t.string   "comment"
     t.integer  "request_id"
+    t.string   "name"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
-    t.string   "name"
   end
 
   create_table "employees", :force => true do |t|
-    t.string   "name"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "description"
     t.string   "email"
     t.string   "password_hash"
     t.string   "password_salt"
-    t.integer  "years_with_company",     :limit => 255
+    t.integer  "years_with_company"
     t.string   "manager"
     t.string   "position"
     t.string   "department"
     t.string   "group"
     t.string   "location"
+    t.string   "current_skills"
     t.string   "skills_interested_in"
-    t.datetime "created_at",                            :null => false
-    t.datetime "updated_at",                            :null => false
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "description"
     t.string   "auth_token"
-    t.string   "password_reset_token"
     t.datetime "password_reset_sent_at"
+    t.string   "password_reset_token"
     t.string   "password_digest"
     t.string   "image"
-    t.string   "current_skills"
-    t.string   "skills"
-    t.string   "desired_skills"
+    t.datetime "created_at",             :null => false
+    t.datetime "updated_at",             :null => false
   end
 
   create_table "feedbacks", :force => true do |t|
     t.string   "comment"
+    t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-    t.string   "name"
   end
 
   create_table "requests", :force => true do |t|
     t.string   "description"
     t.string   "status"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
-    t.date     "start_date"
-    t.date     "end_date"
-    t.integer  "employee_id"
+    t.string   "relevant_skills"
     t.string   "title"
     t.string   "group"
     t.string   "location"
-    t.string   "relevant_skills"
-    t.string   "required_skills"
+    t.integer  "employee_id"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
   create_table "responses", :force => true do |t|
     t.integer  "request_id"
     t.integer  "employee_id"
     t.string   "comment"
+    t.string   "employee_name"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
-    t.string   "employee_name"
   end
 
   create_table "skills", :force => true do |t|

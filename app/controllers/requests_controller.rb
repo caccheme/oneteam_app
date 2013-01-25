@@ -5,7 +5,7 @@ class RequestsController < ApplicationController
 
   def cancel_request
     @request = Request.find_by_employee_id(current_employee)
-
+   
     project_status = "CANCELLED"
     @request.save
 
@@ -61,15 +61,15 @@ class RequestsController < ApplicationController
     @request = current_employee.requests.build(params[:request])
     @skills = Skill.all 
 
-
     if params[:cancel_button]
-      redirect_to _my_requests_path  
-    elsif @request.save
-      respond_to do |format|
+      redirect_to _my_requests_path
+    end  
+
+    respond_to do |format|
+      if @request.save
         format.html { redirect_to _my_requests_path, notice: 'Request was successfully created.' }
-      end  
-    elsif !@request.save
-      respond_to do |format|
+        format.json { render json: @request, status: :created, location: @request }
+      else 
         format.html { render action: "new" }
         format.json { render json: @request.errors, status: :unprocessable_entity }
       end
@@ -83,16 +83,18 @@ class RequestsController < ApplicationController
     @request.relevant_skills = params[:relevant_skills].to_a
     @request.relevant_skills = @request.relevant_skills.join(", ")
 
+    if @request.update_attributes(params[:status])
+      flash[:success] = "Request cancelled"
+      redirect_to _my_requests_path
+    elsif @request.update_attributes(params[:request])
+      flash[:success] = "Request updated"
+      redirect_to @request
+    else
+      render 'edit'
+    end
+
     if params[:cancel_button]
       redirect_to _my_requests_path  
-    elsif @request.update_attributes(params[:status])
-     flash[:success] = "Request cancelled"
-     redirect_to _my_requests_path
-    elsif @request.update_attributes(params[:request])
-     flash[:success] = "Request updated"
-     redirect_to @request
-    else
-     render 'edit'
     end
   end 
 

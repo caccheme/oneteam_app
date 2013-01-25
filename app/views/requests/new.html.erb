@@ -32,13 +32,15 @@
     <%= f.text_field :title %>
   </div>
   <div class="field">
+    <div class = "req-description">
     <%= f.label :description %>
     <%= f.text_area :description, :size => "40x6" %>
+    </div>
   </div>
   <div class="field">
     <%= f.hidden_field :employee_id, :value => current_employee.id %>
   </div>
-   
+  <div class = "req-dates"> 
   <div class="field">
     <%= f.label :start_date %>
     <%= f.text_field :start_date %>
@@ -47,7 +49,8 @@
     <%= f.label :end_date %>
     <%= f.text_field :end_date %>
   </div>
-
+  </div>
+  <div class = "req-select-checkboxes">
  <div class="field" id="left-column">
   <ul>
     <li><%= f.label :group %></li>
@@ -60,15 +63,17 @@
     <li><%= f.select :location, ['NY', 'AR', 'IL', 'UK', 'CA'] %></li>
   </ul>
   </div>
-  
+
   <%= f.label :relevant_skills %>
      <% @skills.each do |skill| %>
      <div class = "inbox">
        <%= check_box_tag "relevant_skills[]", skill.language, @request.relevant_skills %>
-       <%= skill.language %>
+       <div class = "language"> 
+         <%= skill.language %>
+       </div>
       </div> 
      <% end %>
-  
+  </div>
   <div class="field">
   <div class="actions">
     <%= f.submit %>

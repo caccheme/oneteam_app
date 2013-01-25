@@ -7,6 +7,7 @@ gem "carrierwave"
 gem "simple_form"
 
 group :development do
+	gem 'debugger'
 	gem 'sqlite3', '1.3.5'
 end
 
