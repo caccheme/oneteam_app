@@ -9,11 +9,11 @@ jQuery ->
     changeMonth: true,
     showOn: 'both',
     buttonImageOnly: true,
-    buttonImage: 'images/calendar_icon1.png',
+    buttonImage: "calendar_icon1.png",
 
   $( "#request_end_date" ).datepicker
     showOn: 'both',
-    buttonImage: 'images/calendar_icon1.png',
+    buttonImage: "images/calendar_icon1.png",
     buttonImageOnly: true, 
     dateFormat: 'yy-mm-dd',
     changeMonth: true

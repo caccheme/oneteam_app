@@ -81,11 +81,16 @@ class RequestsController < ApplicationController
      @request.relevant_skills = params[:relevant_skills].to_a
      @request.relevant_skills = @request.relevant_skills.join(", ")
 
-    respond_to do |format|
-      if @request.save
-        format.html { redirect_to @request, notice: 'Request was successfully created.' }
-        format.json { render json: @request, status: :created, location: @request }
-      else 
+
+    if params[:cancel_button]
+      redirect_to _my_requests_path
+    elsif @request.save     
+      respond_to do |format|
+          format.html { redirect_to @request, notice: 'Request was successfully created.' }
+          format.json { render json: @request, status: :created, location: @request }
+      end
+    elsif !@request.save
+      respond_to do |format|
         format.html { render action: "new" }
         format.json { render json: @request.errors, status: :unprocessable_entity }
       end
