@@ -41,7 +41,7 @@ class CommissionsController < ApplicationController
 
     respond_to do |format|
       if @commission.save
-         format.html { redirect_to requests_path, :notice => 'Successfully assigned developer.' }
+         format.html { redirect_to _my_requests_path, :notice => 'Successfully assigned developer.' }
       else
         format.html { render action: "new" }
         format.json { render json: @commission.errors, status: :unprocessable_entity }

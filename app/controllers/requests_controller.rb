@@ -42,6 +42,11 @@ class RequestsController < ApplicationController
   def show
     @request = Request.find_by_employee_id(current_employee)
     @skills = Skill.all
+    relevant_skills = params[:relevant_skills]
+
+    if !params[:relevant_skills].nil?
+      relevant_skills = @request.relevant_skills.split(", ")
+    end
     
     if @request.nil?
       flash[:error] = "You haven't posted any requests."

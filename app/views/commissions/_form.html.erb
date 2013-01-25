@@ -36,11 +36,13 @@
     <%= link_to 'Employee Profile', employee_path(@response.employee_id) %>
     <%= f.hidden_field :employee_id, :value => @response.employee_id %>
   </div>
-  
+
+<div id="com-description">  
   <div class="field">
-    <%= f.label "If desired, comment on this request to the selected Developer" %><br />
+    <%= f.label "If desired, comment on this request to the selected developer:" %><br />
     <%= f.text_area :comment %>
   </div>  
+</div>  
   
   <div class="actions">
     <%= f.submit "Select Developer" %>

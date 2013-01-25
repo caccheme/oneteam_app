@@ -71,6 +71,7 @@
     </ul>
   </div>
 
+<div id="req-skills">
   <div class = "field" >
     <%= f.label :relevant_skills %>
     <% @skills.each do |skill| %>
@@ -79,9 +80,10 @@
           <div class = "language"> 
             <%= skill.language %>
           </div>
-      </div> 
+      </div>   
     <% end %>
   </div>
+</div>  
   <div class="field">
     <div class="actions">
       <%= f.submit %>

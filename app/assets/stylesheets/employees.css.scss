@@ -19,17 +19,171 @@
 }
 
 #emp-right-column {
-  margin-top: -120px;
-  margin-left: 120px;
-  width: 500px;   
+  position:relative;
+  left: 150px;
+  top: -125px;
 }
 
 #profile {
+  width: 570px;
 }
 
-#profile ul li {
-}
 
 #profile_pic {
   width: 150px;
+}
+
+#emp-first {
+  position:relative;
+  left: -10px;
+  width: 350px;
+    & input {
+      width: 175px;
+      margin-left: -25px;
+    }
+}
+
+#emp-second {
+  position:relative;
+  top:-35px;
+  left: 275px;
+  width: 350px;
+    & input {
+      width: 175x;
+      margin-left: -25px;
+    }
+}
+
+#emp-third {
+  position: relative;
+  left: -10px;
+  top: -24px;
+  width: 350px;
+    & input {
+      width: 175px;
+      margin-left: -25px;
+    }
+}
+
+#emp-fourth {
+  position: relative;
+  top: -61px;
+  left: 205px;
+  width: 250px;
+    & label {
+      text-align: right;
+      padding-right: 2px;
+    }
+}
+
+#emp-fifth {
+  position: relative;
+  top: -91px;
+  left: 405px;
+  width: 200px;
+    & label {
+      text-align: right;
+    }
+}
+
+#emp-sixth {
+  position: relative;
+  top: -121px;
+  left: 515px;
+  width: 350px;
+    & label {
+      text-align: right;
+      padding-right: 2px;
+    & select {
+      width: 100px;
+    }
+    }
+}
+
+#emp-seventh {
+  position: relative;
+  left: -10px;
+  top: -110px;
+  width: 350px;
+    & select {
+      width: 100px;
+      margin-left: -30px;
+    }
+
+}
+
+#emp-eighth {
+  position: relative;
+  top: -138px;
+  left: 200px;
+  width: 350px;
+    & label {
+      width: 150px;
+    }
+    & input {
+      width:175px;
+    }
+}
+
+#emp-ninth {
+  position: relative;
+  top: -175px;
+  left: 530px;
+  width: 350px;
+    & label {
+      width: 150px;
+      text-align: right;
+    }
+}
+
+#emp-tenth {
+  position: relative;
+  top: -175px;
+  left: -10px;
+    & label {
+      width: 150px;
+    }
+    & textarea {
+      position:relative;
+      left: -155px;
+      top: 5px;
+    }
+}
+
+#emp-eleventh {
+  position: relative;
+  top: -220px;
+  left: 470px;
+  width: 350px;
+    & label {
+      width: 150px;
+    }
+    & textarea {
+      position:relative;
+      left: -155px;
+      top: 5px;
+    }
+}
+
+#emp-twelfth {
+  position: relative;
+  top: -210px;
+  left: -10px;
+  width: 350px;
+}
+
+#emp-thirteenth {
+  position: relative;
+  top: -375px;
+  left: 270px;
+}
+
+#emp-fourteenth {
+  position: relative;
+  top: -385px;
+  left: 10px;
+}
+
+#emp-form {
+  height: 490px;
 }
