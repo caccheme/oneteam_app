@@ -14,14 +14,15 @@
 }
 
 #emp-left-column {
-  width: 150px;
+  float:left;
+  width: 10px;
   margin-top: 10px;
+  text-align:center;
 }
 
 #emp-right-column {
   position:relative;
   left: 150px;
-  top: -125px;
   width: 570px;
 }
 
@@ -149,10 +150,9 @@
 }
 
 #emp-eleventh {
-  position: relative;
-  top: -290px;
-  left: 470px;
+  float:right;
   width: 250px;
+  margin-top:-300px;
     & label {
       width: 150px;
     }
@@ -165,20 +165,21 @@
 
 #emp-twelfth {
   position: relative;
-  top: -270px;
+  top: -170px;
   left: -10px;
   width: 350px;
 }
 
 #emp-thirteenth {
   position: relative;
-  top: -435px;
+  top: -335px;
   left: 270px;
+  width: 250px;
 }
 
 #emp-fourteenth {
   position: relative;
-  top: -445px;
+  top: -345px;
   left: 10px;
 }
 
