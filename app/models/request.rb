@@ -22,4 +22,20 @@ class Request < ActiveRecord::Base
     Commission.where(:request_id => id)
   end
 
+  def project_status 
+    if status == 'Cancelled'
+       "Cancelled"
+    elsif end_date <= Date.today 
+      "Closed, Completed"
+    elsif end_date <= Date.today 
+      "Expired"   
+    elsif start_date <= Date.today 
+      "Open, In progress"
+    elsif start_date >= Date.today 
+      "Open, Not Started"  
+    elsif start_date >= Date.today   
+      "Assigned"
+    end
+  end 
+
 end

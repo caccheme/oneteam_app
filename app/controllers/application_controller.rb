@@ -4,26 +4,10 @@ class ApplicationController < ActionController::Base
   helper_method :author?
   helper_method :owner?
   helper_method :assigner?
-  helper_method :check_for_cancel, :current_date, :project_status
+  helper_method :check_for_cancel, :current_date
 
 private
  
-  def project_status 
-    if status == 'Cancelled'
-       "Cancelled"
-    elsif end_date <= Date.today 
-      "Closed, Completed"
-    elsif end_date <= Date.today 
-      "Expired"   
-    elsif start_date <= Date.today 
-      "Open, In progress"
-    elsif start_date >= Date.today 
-      "Open, Not Started"  
-    elsif start_date >= Date.today   
-      "Assigned"
-    end
-  end  
-
   def current_date
     DateTime.now
   end

@@ -40,19 +40,22 @@
   <div class="field">
     <%= f.hidden_field :employee_id, :value => current_employee.id %>
   </div>
+
   <div class = "req-dates"> 
     <div class="field">
       <%= f.label :start_date %>
       <%= f.text_field :start_date %>
     </div>
   </div>
-  <div class = "req-dates">  
+  </div>  
     <div class="field">
       <%= f.label :end_date %>
       <%= f.text_field :end_date %>
     </div>
   </div>
+
   <div class = "req-select-checkboxes">
+    
     <div class="field" id="left-column">
       <ul>
         <li><%= f.label :group %></li>
@@ -67,6 +70,7 @@
       <li><%= f.select :location, ['NY', 'AR', 'IL', 'UK', 'CA'] %></li>
     </ul>
   </div>
+
   <div class = "field" >
     <%= f.label :relevant_skills %>
     <% @skills.each do |skill| %>
