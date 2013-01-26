@@ -29,12 +29,9 @@ class RequestsController < ApplicationController
   end
 
   def index
-    @requests = Request.find( :all, :order => "created_at DESC" )
-
-#    @requests = Request.order(:id).page(params[:page]).per(5)
+    @requests = Request.order(:id).page(params[:page]).per(5)
     @commissions = Commission.all
-    @responses = Response.find(:all, :conditions => :request_id == :id)
-#responses line should replace my method in request.rb, take out method there later.
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @requests }

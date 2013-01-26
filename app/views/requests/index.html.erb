@@ -14,6 +14,7 @@
 <h1>All Requests</h1><%= link_to "View Calendar", 'requests_calendar' %>
 
 <div id="requests">
+  <%= paginate @requests %>
   <% @requests.each do |request| %>
     <% if request.status == 'cancelled' %>
       <% nil %>
