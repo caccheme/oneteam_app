@@ -34,7 +34,7 @@ body {
 	background: #2790b0; 
 	padding: 10px 10px 10px 20px;
 	color: #fff;
-	border-radius: 15px;  
+	border-radius: 10px;  
 }
 .oneColFixCtrHdr #header h1 {
 	margin: 0; /* zeroing the margin of the last element in the #header div will avoid margin collapse - an unexplainable space between divs. If the div has a border around it, this is not necessary as that also avoids the margin collapse */
@@ -45,7 +45,7 @@ body {
 	background: #FfffFF;
 	border:1px solid;
 	clear: both;
-	border-radius: 15px;
+	border-radius: 10px;
 	box-shadow: gray 3px 3px 2px;
 	margin: 0px 0 10px 0;
 }
@@ -57,7 +57,7 @@ body {
 .oneColFixCtrHdr #footer {
 	padding: 10px 10px; 
 	background:#2790b0;
-	border-radius: 15px; 
+	border-radius: 10px; 
 }
 .oneColFixCtrHdr #footer p {
     text-align:right;
@@ -170,17 +170,6 @@ table, td {
 	font-weight:bold;
 	text-decoration: none;
 	font-color:black;
-}
-
-#no-click-button {	
-	font-style: italic;
-	background-color: #E0E0D1;
-	color: 	#7A7A52;
-	background-color: #E0E0D1;
-	border: 1px solid #ADAD85;
-	border-radius: 5px;
-	float:left;
-	padding: 3px;
 }
 
 .textarea {
