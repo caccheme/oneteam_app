@@ -44,14 +44,14 @@
             <% responses.each do |response| %>     
             <% if response.employee_id == current_employee.id %>
               <div  >
-                <%= image_tag "applied_button.png" %>
+                <%= image_tag "applied_button.jpg" %>
               </div>
               <% applied = 1 %>
             <% end %>
           <% end %>
           <% if applied == 0 %>
             <div id="apply-button">
-              <%= link_to image_tag("apply_button.png"), new_request_response_path(request) %>
+              <%= link_to image_tag("apply_button.jpg"), new_request_response_path(request) %>
             </div>
           <% end %>
         <% end %>
