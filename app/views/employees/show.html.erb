@@ -39,6 +39,7 @@
         <li>Projects I've Worked on:</li>  
       </ul>
       <ul>
+        <%= paginate @my_commissions %>
         <% @commissions.each do |commission| %>
           <% if commission.employee_id == current_employee.id %>
             <li><b><%= Request.find(commission.request_id).title %></b>: <%= Request.find(commission.request_id).start_date %> to <%= Request.find(commission.request_id).end_date %> (<%= Request.find(commission.request_id).project_status %>)</br></li>

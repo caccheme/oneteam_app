@@ -14,6 +14,7 @@ before_filter :check_for_cancel, :only => [:create, :update]
     @employee = Employee.find(params[:id])
     @requests = Request.all
     @commissions = Commission.all
+    @my_commissions = Commission.order(:id).page(params[:page]).per(5)
 
     respond_to do |format|
       format.html # show.html.erb
