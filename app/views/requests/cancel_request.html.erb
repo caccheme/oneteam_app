@@ -41,12 +41,13 @@
 
   <div class="actions">
     <%= f.submit 'Cancel Request' %>
+      <div class="req-cancel-new">
+        <%= f.submit "Don't Cancel Request", :action => 'update', :name => 'cancel_button' %>
+      </div>
   </div>
 <% end %>
 <p></p>
-<p>
-<%= link_to 'Go Back', 'my_requests' %> (without Cancelling Request)
-</p>
+
 </br>
 
 </div>

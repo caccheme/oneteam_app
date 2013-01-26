@@ -15,7 +15,6 @@ class RequestsController < ApplicationController
   def my_requests
     @requests = Request.find_all_by_employee_id(current_employee)
     @my_requests = Request.order(:id).page(params[:page]).per(5) 
-
   end
 
   def requests_calendar
@@ -82,7 +81,7 @@ class RequestsController < ApplicationController
       redirect_to _my_requests_path
     elsif @request.save     
       respond_to do |format|
-          format.html { redirect_to @request, notice: 'Request was successfully created.' }
+          format.html { redirect_to requests_path, notice: 'Request was successfully created.' }
           format.json { render json: @request, status: :created, location: @request }
       end
     elsif !@request.save
@@ -100,7 +99,9 @@ class RequestsController < ApplicationController
     @request.relevant_skills = params[:relevant_skills].to_a
     @request.relevant_skills = @request.relevant_skills.join(", ")
 
-    if @request.update_attributes(params[:request])
+    if params[:cancel_button]
+      redirect_to _my_requests_path
+    elsif @request.update_attributes(params[:request])
       flash[:success] = "Request cancelled."
       redirect_to _my_requests_path
     elsif @request.update_attributes(params[:request])
