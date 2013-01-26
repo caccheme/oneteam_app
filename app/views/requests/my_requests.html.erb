@@ -15,6 +15,8 @@
 <h1>Requests I've Posted:</h1><%= link_to "View Calendar", 'my_requests_calendar' %>
 
 <div id="requests">
+  <%= paginate @my_requests %>
+
 <% @requests.each do |request| %>
 
   <%= image_tag "divider-line.jpg" %>

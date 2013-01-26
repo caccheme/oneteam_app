@@ -14,6 +14,8 @@ class RequestsController < ApplicationController
 
   def my_requests
     @requests = Request.find_all_by_employee_id(current_employee)
+    @my_requests = Request.order(:id).page(params[:page]).per(5) 
+
   end
 
   def requests_calendar
