@@ -43,15 +43,15 @@
             <% responses = request.get_responses %>
             <% responses.each do |response| %>     
             <% if response.employee_id == current_employee.id %>
-              <div id = "no-click-button" >
-                <%= "Applied" %>
+              <div  >
+                <%= image_tag "applied_button.png" %>
               </div>
               <% applied = 1 %>
             <% end %>
           <% end %>
           <% if applied == 0 %>
-            <div id = "button">
-              <%= link_to "Apply", new_request_response_path(request) %>
+            <div id="apply-button">
+              <%= link_to image_tag("apply_button.png"), {:controller => 'responses', :action => "new" } %>
             </div>
           <% end %>
         <% end %>

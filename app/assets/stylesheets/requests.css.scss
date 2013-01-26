@@ -170,3 +170,9 @@ input[type='submit'] {
   margin-left: 175px;
 }
 
+#apply-button {
+  & img {
+      border:1px solid gray;
+      border-radius: 5px;
+  }
+}
