@@ -19,14 +19,16 @@
     <%= f.hidden_field :employee_name, :value => current_employee.first_name + " " + current_employee.last_name %>
   </div>
    
-  <div class="field">
-    <%= f.label :comment %><br />
+  <div class="res-comment">
+    <%= f.label :comment, "Comment on your application" %><br />
     <%= f.text_area :comment %>
   </div>
-  <div class="actions">
-    <%= f.submit "Submit" %>
-      <div class="res-cancel-new">
-        <%= f.submit 'Cancel', :action => 'create', :name => 'cancel_button' %>
-      </div>
+  <div  class="actions">
+    <div id="res-submit">
+      <%= f.submit "Submit" %>
+    </div>
+    <div class="res-cancel-new">
+      <%= f.submit 'Cancel', :action => 'create', :name => 'cancel_button' %>
+    </div>
   </div>
 <% end %>

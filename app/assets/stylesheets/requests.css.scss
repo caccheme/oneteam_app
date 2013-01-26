@@ -160,10 +160,21 @@ input[type='submit'] {
 }
 
 .req-cancel-new {
-  margin-top:-44px;
-  margin-left: 175px;
+    & input {
+      width:160px;
+      height: 35px;
+    }
 }
 
+#cancel-req {
+  & input {
+    width:115px;
+    height: 35px;
+    float:left;
+    margin-left:-5px;
+    margin-right:25px;
+  }
+}
 
 .req-cancel-update {
   margin-top:-44px;
@@ -174,5 +185,20 @@ input[type='submit'] {
   & img {
       border:1px solid gray;
       border-radius: 5px;
+  }
+}
+
+.actions {
+  position: relative;
+  top:-8px;
+}
+
+#req-edit {
+  & .actions {
+    margin-top:15px;
+    & input {
+      width:130px;
+      height:35px;
+    }
   }
 }

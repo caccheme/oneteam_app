@@ -40,14 +40,13 @@
   <%= f.hidden_field :status, :value => 'cancelled' %>
 
   <div class="actions">
-    <%= f.submit 'Cancel Request' %>
-      <div class="req-cancel-new">
-        <%= f.submit "Don't Cancel Request", :action => 'update', :name => 'cancel_button' %>
-      </div>
-  </div>
+    <div id="cancel-req">
+      <%= f.submit 'Cancel Request' %>
+    </div>
+    <div class="req-cancel-new">
+      <%= f.submit "Don't Cancel Request", :action => 'update', :name => 'cancel_button' %>
+    </div>
 <% end %>
-<p></p>
-
-</br>
+  </div>
 
 </div>

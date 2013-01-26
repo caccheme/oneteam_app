@@ -1,21 +1,21 @@
 <p></p>
 <div id="innercontainer">
 
-<h1>Sign up for you OneTeam Account</h1>
+<h2>Sign up for your OneTeam Account</h2>
 
 <%= hidden_field_tag "employee[current_skills][]", "" %>
 <%= hidden_field_tag "employee[skills_interested_in][]", "" %>
 
 <%= form_for(@employee) do |f| %>
-  <div class="field">
+  <div class="frstnm">
     <%= f.label :first_name %>
     <%= f.text_field :first_name %>
   </div>
   <div class="lnfield">
-  <div class="field">
-    <%= f.label :last_name %>
-    <%= f.text_field :last_name %>
-  </div>
+    <div class="field">
+      <%= f.label :last_name %>
+      <%= f.text_field :last_name %>
+    </div>
   </div>
   <div class="newfirst">
     <div class="field">
@@ -38,14 +38,14 @@
       <%= f.hidden_field :skills_interested_in, :value => "" %>
 </div>
  
-<div class="newsub">
+<div id="new-emp">
  <div class="actions">
     <%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
-    <div class="emp-cancel-new">
-      <%= f.submit 'Cancel', :action => 'create', :name => 'cancel_button' %>
-    </div>
+  </div>  
+  <div class="emp-cancel-new">
+    <%= f.submit 'Cancel', :action => 'create', :name => 'cancel_button' %>
   </div>
+  <% end %>
 </div>
-<% end %>
 
 </div>

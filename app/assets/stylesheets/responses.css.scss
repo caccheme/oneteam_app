@@ -5,4 +5,29 @@
 .res-cancel-new {
   margin-top:-44px;
   margin-left: 100px;
+    & input {
+      height:35px;
+      width: 100px;
+      position:relative;
+      top:-16px;
+      left:20px;
+    }
+}
+
+#res-submit {
+  & input {
+    height:35px;
+    width:100px;
+  }
+}
+
+.res-comment {
+  & label {
+	width:250px;
+  }
+  & textarea {
+    position: relative;
+    left:-253px;
+    top: -1px;
+  }
 }

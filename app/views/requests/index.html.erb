@@ -51,7 +51,7 @@
           <% end %>
           <% if applied == 0 %>
             <div id="apply-button">
-              <%= link_to image_tag("apply_button.png"), {:controller => 'responses', :action => "new" } %>
+              <%= link_to image_tag("apply_button.png"), new_request_response_path(request) %>
             </div>
           <% end %>
         <% end %>

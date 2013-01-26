@@ -4,13 +4,32 @@
 
 
 .emp-cancel-update {
-  margin-top:-44px;
-  margin-left: 175px;
+  position:relative;
+  top:-73px;
+  left:170px;
+  & input {
+    width:100px;
+    height: 35px;
+  }
 }
 
 .emp-cancel-new {
-  margin-top:-44px;
-  margin-left: 265px;
+  position:relative;
+  top:-73px;
+  left:270px;
+  & input {
+    width:100px;
+    height: 35px;
+  }
+}
+
+#new-emp {
+  height: 50px;
+  & .actions input {
+    margin-left:120px;
+    width:140px;
+    height:35px;
+  }
 }
 
 #emp-left-column {
@@ -183,10 +202,44 @@
 
 #emp-fourteenth {
   position: relative;
-  top: -325px;
+  top: -335px;
   left: 10px;
+  & .actions input {
+    width:100px;
+    height:35px;
+  }
 }
 
 #emp-form {
   height: 490px;
+}
+
+.frstnm input {
+  width: 250px;
+}
+
+.lnfield {
+  & input {
+  margin-top: 10px;
+  width: 250px;
+  }
+  & label {
+    margin-top: 8px;
+  }
+}
+
+.newfirst input {
+  width: 250px;
+}
+
+.newsecond label {
+  margin-top: -5px;
+}
+
+.passfld input {
+  width: 250px;
+}
+
+.newsecond input {
+  width: 250px;
 }
