@@ -1,6 +1,7 @@
 class Request < ActiveRecord::Base
   attr_accessible :description, :status, :start_date, :end_date, :employee_id, :title, :relevant_skills, :location, :group
   belongs_to :employee
+  default_scope order("created_at DESC")  
 
   has_many :responses, :dependent => :destroy
   accepts_nested_attributes_for :responses, :allow_destroy => true
